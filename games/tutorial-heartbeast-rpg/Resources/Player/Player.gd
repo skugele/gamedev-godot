@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-export var MAX_SPEED = 200
-export var ACCELERATION = 10
-export var FRICTION = 25
+export var MAX_SPEED = 250
+export var ACCELERATION = 500
+export var FRICTION = 1500
 
 # current velocity
 var velocity = Vector2.ZERO
@@ -23,7 +23,9 @@ var state = MOVE
 func _ready():
 	animationTree.active = true
 
-func _physics_process(delta):
+# if we need access to the physics details (like position) then we
+# need to change this to _physics_process(delta)
+func _process(delta):
 	
 	match state:
 		MOVE:
@@ -38,6 +40,8 @@ func _physics_process(delta):
 
 func attack_state(delta):
 	velocity = Vector2.ZERO
+	
+	# Updates the state of AnimationTree along shortest path
 	animationState.travel("Attack")
 	
 func attack_animation_finished():
@@ -62,12 +66,15 @@ func move_state(delta):
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
-		
+
+		# Updates the state of AnimationTree along shortest path		
 		animationState.travel("Run")
 			
-		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION)
+		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
+		# Updates the state of AnimationTree along shortest path
 		animationState.travel("Idle")
-		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
+		
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 					
 	velocity = move_and_slide(velocity)

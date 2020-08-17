@@ -1,0 +1,25 @@
+extends Node2D
+
+func create_grass_effect():
+	# loads GrassAttackedEffect scene from resources in file system
+	var EffectScene = load("res://Resources/Effects/GrassAttackedEffect.tscn")
+	
+	# creates a new object instance of that scene
+	var effect = EffectScene.instance()
+	
+	# gets the root node of the current scene
+	var world = get_tree().current_scene
+	
+	# adds new object for GrassAttackedEffect to world scene node tree
+	world.add_child(effect)
+	
+	# the position of the new node defaults to the origin of the world,
+	# so we need to set its position to be the current global position
+	# of *this* grass node
+	effect.global_position = global_position
+
+# Emitted when any other area overlaps with this one. The other area that
+# overlaps is passed as an argument.
+func _on_HurtBox_area_entered(area):
+	create_grass_effect()
+	queue_free()
