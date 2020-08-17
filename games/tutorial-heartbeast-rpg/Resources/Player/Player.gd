@@ -3,9 +3,11 @@ extends KinematicBody2D
 export var MAX_SPEED = 250
 export var ACCELERATION = 500
 export var FRICTION = 1500
+export var ROLL_SPEED_MULITPLIER = 1.25
 
 # current velocity
 var velocity = Vector2.ZERO
+var roll_vector = Vector2.ZERO
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -25,7 +27,7 @@ func _ready():
 
 # if we need access to the physics details (like position) then we
 # need to change this to _physics_process(delta)
-func _process(delta):
+func _physics_process(delta):
 	
 	match state:
 		MOVE:
@@ -37,6 +39,9 @@ func _process(delta):
 			
 	if Input.is_action_just_pressed("ui_attack"):
 		state = ATTACK
+		
+	if Input.is_action_just_pressed("ui_roll_toggle"):
+		state = ROLL
 
 func attack_state(delta):
 	velocity = Vector2.ZERO
@@ -46,9 +51,17 @@ func attack_state(delta):
 	
 func attack_animation_finished():
 	state = MOVE
+	
+func roll_animation_finished():
+	state = MOVE
 		
 func roll_state(delta):
-	pass
+	velocity = roll_vector * MAX_SPEED * ROLL_SPEED_MULITPLIER
+	
+	# Updates the state of AnimationTree along shortest path
+	animationState.travel("Roll")
+	
+	execute_move()
 			
 func move_state(delta):
 	
@@ -61,13 +74,15 @@ func move_state(delta):
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
+		roll_vector = input_vector
 		
 		# only update the blend position when in motion
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
+		animationTree.set("parameters/Roll/blend_position", input_vector)
 
-		# Updates the state of AnimationTree along shortest path		
+		# Updates the state of AnimationTree along shortest path
 		animationState.travel("Run")
 			
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
@@ -77,4 +92,8 @@ func move_state(delta):
 		
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 					
+	execute_move()
+	
+	
+func execute_move():
 	velocity = move_and_slide(velocity)
