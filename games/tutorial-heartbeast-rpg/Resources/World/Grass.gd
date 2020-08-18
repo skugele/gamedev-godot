@@ -1,9 +1,9 @@
 extends Node2D
 
-func create_grass_effect():
-	# loads GrassAttackedEffect scene from resources in file system
-	var EffectScene = load("res://Resources/Effects/GrassEffect.tscn")
-	
+# preloads the GrassEffect scene from resources in file system	
+const EffectScene = preload("res://Resources/Effects/GrassEffect.tscn")
+
+func create_grass_effect():	
 	# creates a new object instance of that scene
 	var effect = EffectScene.instance()
 	
