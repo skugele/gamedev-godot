@@ -2,8 +2,7 @@ extends AnimatedSprite
 
 func _ready():
 	# connects a signal handler at runtime
-	self.connect("animation_finished", self, "_on_animation_finished")	
-	frame = 0
+	connect("animation_finished", self, "_on_animation_finished")	
 	play("Animate")
 
 # signal handler for "animation_finished" signal
