@@ -3,7 +3,6 @@ extends KinematicBody2D
 export var MAX_SPEED = 250
 export var ACCELERATION = 500
 export var FRICTION = 1500
-export var ROLL_SPEED_MULITPLIER = 1.25
 
 # current velocity
 var velocity = Vector2.ZERO
@@ -43,7 +42,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_attack"):
 		state = ATTACK
 		
-	if Input.is_action_just_pressed("ui_roll_toggle"):
+	if Input.is_action_just_pressed("ui_roll_toggle") and velocity != Vector2.ZERO:
 		state = ROLL
 
 func attack_state(delta):
@@ -59,7 +58,7 @@ func roll_animation_finished():
 	state = MOVE
 		
 func roll_state(delta):
-	velocity = roll_vector * MAX_SPEED * ROLL_SPEED_MULITPLIER
+	velocity = roll_vector * MAX_SPEED
 	
 	# Updates the state of AnimationTree along shortest path
 	animationState.travel("Roll")

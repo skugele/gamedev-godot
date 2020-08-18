@@ -645,9 +645,9 @@ anims/RunUp = SubResource( 59 )
 tree_root = SubResource( 33 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 64 )
-parameters/Attack/blend_position = Vector2( -0.047619, -0.55567 )
+parameters/Attack/blend_position = Vector2( 0, 0 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
-parameters/Roll/blend_position = Vector2( 0.00281692, 0.0497738 )
+parameters/Roll/blend_position = Vector2( 0, 0 )
 parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
