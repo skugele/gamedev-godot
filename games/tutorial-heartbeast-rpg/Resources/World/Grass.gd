@@ -2,7 +2,7 @@ extends Node2D
 
 func create_grass_effect():
 	# loads GrassAttackedEffect scene from resources in file system
-	var EffectScene = load("res://Resources/Effects/GrassAttackedEffect.tscn")
+	var EffectScene = load("res://Resources/Effects/GrassEffect.tscn")
 	
 	# creates a new object instance of that scene
 	var effect = EffectScene.instance()
