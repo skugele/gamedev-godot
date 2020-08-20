@@ -8,6 +8,7 @@ export var FRICTION = 1500
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.ZERO
 
+onready var playerStats = PlayerStats # autoload singleton
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback") 
@@ -24,6 +25,10 @@ enum {
 var state = MOVE
 
 func _ready():
+	
+	# connects the no_health signal to the queue_free method of this object
+	playerStats.connect("no_health", self, "queue_free")
+	
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
 
@@ -100,3 +105,7 @@ func move_state(delta):
 	
 func execute_move():
 	velocity = move_and_slide(velocity)
+
+
+func _on_HurtBox_area_entered(area):
+	playerStats.health -= 1
