@@ -9,9 +9,9 @@ enum {
 }
 var state = IDLE
 
-export var REBOUND = 200
+export var REBOUND = 50
 export var FRICTION = 10000
-export var KNOCKBACK = 150
+export var KNOCKBACK = 100
 
 export var MAX_SPEED = 200
 export var ACCELERATION = 200

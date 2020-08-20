@@ -15,6 +15,8 @@ onready var animationState = animationTree.get("parameters/playback")
 
 onready var swordHitbox = $HitboxPivot/SwordHitbox
 
+var stats = PlayerStats
+
 # Actions
 enum {
 	MOVE,
@@ -31,6 +33,9 @@ func _ready():
 	
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
+
+	stats.max_health = 10	
+	stats.health = 10
 
 # if we need access to the physics details (like position) then we
 # need to change this to _physics_process(delta)
