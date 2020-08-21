@@ -19,6 +19,7 @@ export var ACCELERATION = 200
 onready var stats = $Stats
 onready var sprite = $AnimatedSprite
 onready var player_detection_zone = $PlayerDetectionZone
+onready var soft_collision = $SoftCollision
 
 var knockback = Vector2.ZERO
 var velocity = Vector2.ZERO
@@ -37,6 +38,10 @@ func _physics_process(delta):
 			
 	# changes direction bat is facing based on direction of travel	
 	sprite.flip_h = velocity.x < 0
+	
+	if soft_collision.is_colliding():
+		velocity += soft_collision.get_push_vector() * delta * KNOCKBACK
+		
 	velocity = move_and_slide(velocity)
 	
 # state action handlers
