@@ -618,6 +618,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+MAX_SPEED = 150
 
 [node name="PlayerSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
