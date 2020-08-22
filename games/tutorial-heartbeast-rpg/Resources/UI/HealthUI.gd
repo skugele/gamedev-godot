@@ -6,7 +6,7 @@ export(int) var max_hearts = 4 setget set_max_hearts
 onready var heartUIFull = $HeartUIFull
 onready var heartUIEmpty = $HeartUIEmpty
 
-const HEART_WIDTH = 15
+const HEART_WIDTH = 15/2.0
 
 var stats = PlayerStats
 
@@ -17,7 +17,12 @@ func set_hearts(value):
 	hearts = clamp(value, 0, max_hearts)
 	
 	if heartUIFull != null:
-		heartUIFull.rect_size.x = hearts * HEART_WIDTH
+		if hearts == 0:
+			heartUIFull.visible = false
+		else:
+			heartUIEmpty.visible = true
+			heartUIFull.rect_size.x = hearts * HEART_WIDTH
+		
 
 func get_max_hearts():
 	return max_hearts
