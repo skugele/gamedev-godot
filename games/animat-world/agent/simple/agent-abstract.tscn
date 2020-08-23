@@ -6,13 +6,13 @@
 [ext_resource path="res://agent/simple/antenna-left.tscn" type="PackedScene" id=4]
 [ext_resource path="res://agent/simple/mandible-right.tscn" type="PackedScene" id=5]
 [ext_resource path="res://agent/simple/hair.tscn" type="PackedScene" id=6]
-[ext_resource path="res://agent/simple/Agent.gd" type="Script" id=7]
+[ext_resource path="res://agent/simple/agent-abstract.gd" type="Script" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 68.9142
 height = 80.2623
 
-[node name="Agent" type="KinematicBody2D"]
+[node name="AgentAbstract" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource( 7 )
@@ -20,17 +20,11 @@ __meta__ = {
 "_edit_vertical_guides_": [ 108.07 ]
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3.05176e-05, -114.113 )
-shape = SubResource( 1 )
-
 [node name="Body" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-centered = false
-offset = Vector2( -74, -231 )
 
 [node name="Hairs" type="Node2D" parent="Body"]
-position = Vector2( -107.951, -6.635 )
+position = Vector2( -111.246, 106.777 )
 
 [node name="Rear" parent="Body/Hairs" instance=ExtResource( 6 )]
 position = Vector2( 108.127, 6.87798 )
@@ -97,6 +91,7 @@ position = Vector2( 131.127, -0.122009 )
 rotation = 2.26893
 
 [node name="Antennae" type="Node2D" parent="Body"]
+position = Vector2( 0, 115 )
 
 [node name="Left" parent="Body/Antennae" instance=ExtResource( 4 )]
 position = Vector2( -19.4092, -274.211 )
@@ -105,9 +100,14 @@ position = Vector2( -19.4092, -274.211 )
 position = Vector2( 17.6383, -274.874 )
 
 [node name="Mandibles" type="Node2D" parent="Body"]
+position = Vector2( 0, 117 )
 
 [node name="Left" parent="Body/Mandibles" instance=ExtResource( 1 )]
 position = Vector2( -18.0495, -227.365 )
 
 [node name="Right" parent="Body/Mandibles" instance=ExtResource( 5 )]
 position = Vector2( 15.9505, -227.365 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3.05176e-05, -0.112999 )
+shape = SubResource( 1 )

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 65.8638
+height = 87.6211
+
+[node name="ProcessedFoodAbstract" type="StaticBody2D"]
+
+[node name="EdibleDistance" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EdibleDistance"]
+position = Vector2( 0, -3 )
+rotation = 1.5708
+shape = SubResource( 1 )

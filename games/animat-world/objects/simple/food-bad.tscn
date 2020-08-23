@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://atlases/simple-world-objects.png" type="Texture" id=1]
+[ext_resource path="res://objects/simple/food-abstract.tscn" type="PackedScene" id=2]
+
+[node name="FoodBad" instance=ExtResource( 2 )]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 875.865, 150.359, 108.041, 137.953 )
