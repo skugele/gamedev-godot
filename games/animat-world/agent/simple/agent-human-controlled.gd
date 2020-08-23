@@ -20,7 +20,11 @@ func execute_move(inputs, delta):
 	var direction = inputs[0]
 	var turn = inputs[1]
 	
-	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+	if direction != Vector2.ZERO:
+		velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		
 	rotation += turn * MAX_ROTATION * delta
 	
 	velocity = move_and_slide(velocity)

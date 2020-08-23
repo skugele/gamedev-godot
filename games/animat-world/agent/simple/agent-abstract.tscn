@@ -23,90 +23,90 @@ __meta__ = {
 [node name="Body" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="Hairs" type="Node2D" parent="Body"]
+[node name="Hairs" type="Node2D" parent="."]
 position = Vector2( -111.246, 106.777 )
 
-[node name="Rear" parent="Body/Hairs" instance=ExtResource( 6 )]
+[node name="Rear" parent="Hairs" instance=ExtResource( 6 )]
 position = Vector2( 108.127, 6.87798 )
 rotation = -3.14159
 
-[node name="Left" type="Node2D" parent="Body/Hairs"]
+[node name="Left" type="Node2D" parent="Hairs"]
 
-[node name="Hair1" parent="Body/Hairs/Left" instance=ExtResource( 6 )]
+[node name="Hair1" parent="Hairs/Left" instance=ExtResource( 6 )]
 position = Vector2( 65.1266, -198.122 )
 rotation = -1.0472
 
-[node name="Hair2" parent="Body/Hairs/Left" instance=ExtResource( 6 )]
+[node name="Hair2" parent="Hairs/Left" instance=ExtResource( 6 )]
 position = Vector2( 47.1266, -165.122 )
 rotation = -1.22173
 
-[node name="Hair3" parent="Body/Hairs/Left" instance=ExtResource( 6 )]
+[node name="Hair3" parent="Hairs/Left" instance=ExtResource( 6 )]
 position = Vector2( 40.1266, -129.122 )
 rotation = -1.39626
 
-[node name="Hair4" parent="Body/Hairs/Left" instance=ExtResource( 6 )]
+[node name="Hair4" parent="Hairs/Left" instance=ExtResource( 6 )]
 position = Vector2( 40.1266, -91.122 )
 rotation = -1.5708
 
-[node name="Hair5" parent="Body/Hairs/Left" instance=ExtResource( 6 )]
+[node name="Hair5" parent="Hairs/Left" instance=ExtResource( 6 )]
 position = Vector2( 44.1266, -57.122 )
 rotation = -1.74533
 
-[node name="Hair6" parent="Body/Hairs/Left" instance=ExtResource( 6 )]
+[node name="Hair6" parent="Hairs/Left" instance=ExtResource( 6 )]
 position = Vector2( 59.1266, -26.122 )
 rotation = -1.91986
 
-[node name="Hair7" parent="Body/Hairs/Left" instance=ExtResource( 6 )]
+[node name="Hair7" parent="Hairs/Left" instance=ExtResource( 6 )]
 position = Vector2( 84.1266, -2.12202 )
 rotation = -2.26893
 
-[node name="Right" type="Node2D" parent="Body/Hairs"]
+[node name="Right" type="Node2D" parent="Hairs"]
 
-[node name="Hair1" parent="Body/Hairs/Right" instance=ExtResource( 6 )]
+[node name="Hair1" parent="Hairs/Right" instance=ExtResource( 6 )]
 position = Vector2( 154.127, -198.122 )
 rotation = 1.0472
 
-[node name="Hair2" parent="Body/Hairs/Right" instance=ExtResource( 6 )]
+[node name="Hair2" parent="Hairs/Right" instance=ExtResource( 6 )]
 position = Vector2( 172.127, -165.122 )
 rotation = 1.22173
 
-[node name="Hair3" parent="Body/Hairs/Right" instance=ExtResource( 6 )]
+[node name="Hair3" parent="Hairs/Right" instance=ExtResource( 6 )]
 position = Vector2( 181.127, -129.122 )
 rotation = 1.39626
 
-[node name="Hair4" parent="Body/Hairs/Right" instance=ExtResource( 6 )]
+[node name="Hair4" parent="Hairs/Right" instance=ExtResource( 6 )]
 position = Vector2( 179.127, -91.122 )
 rotation = 1.5708
 
-[node name="Hair5" parent="Body/Hairs/Right" instance=ExtResource( 6 )]
+[node name="Hair5" parent="Hairs/Right" instance=ExtResource( 6 )]
 position = Vector2( 173.127, -57.122 )
 rotation = 1.74533
 
-[node name="Hair6" parent="Body/Hairs/Right" instance=ExtResource( 6 )]
+[node name="Hair6" parent="Hairs/Right" instance=ExtResource( 6 )]
 position = Vector2( 161.127, -29.4592 )
 rotation = 1.91986
 
-[node name="Hair7" parent="Body/Hairs/Right" instance=ExtResource( 6 )]
+[node name="Hair7" parent="Hairs/Right" instance=ExtResource( 6 )]
 position = Vector2( 131.127, -0.122009 )
 rotation = 2.26893
 
-[node name="Antennae" type="Node2D" parent="Body"]
-position = Vector2( 0, 115 )
-
-[node name="Left" parent="Body/Antennae" instance=ExtResource( 4 )]
-position = Vector2( -19.4092, -274.211 )
-
-[node name="Right" parent="Body/Antennae" instance=ExtResource( 3 )]
-position = Vector2( 17.6383, -274.874 )
-
-[node name="Mandibles" type="Node2D" parent="Body"]
+[node name="Mandibles" type="Node2D" parent="."]
 position = Vector2( 0, 117 )
 
-[node name="Left" parent="Body/Mandibles" instance=ExtResource( 1 )]
+[node name="Left" parent="Mandibles" instance=ExtResource( 1 )]
 position = Vector2( -18.0495, -227.365 )
 
-[node name="Right" parent="Body/Mandibles" instance=ExtResource( 5 )]
+[node name="Right" parent="Mandibles" instance=ExtResource( 5 )]
 position = Vector2( 15.9505, -227.365 )
+
+[node name="Antennae" type="Node2D" parent="."]
+position = Vector2( 0, 115 )
+
+[node name="Left" parent="Antennae" instance=ExtResource( 4 )]
+position = Vector2( -19.4092, -274.211 )
+
+[node name="Right" parent="Antennae" instance=ExtResource( 3 )]
+position = Vector2( 17.6383, -274.874 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3.05176e-05, -0.112999 )
