@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://graphics/mocks/antenna-right.png" type="Texture" id=1]
+
+[node name="antenna-right" type="Sprite"]
+position = Vector2( 16.6878, -159.509 )
+texture = ExtResource( 1 )

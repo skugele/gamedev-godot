@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://agent/simple/mandible-left.tscn" type="PackedScene" id=1]
+[ext_resource path="res://graphics/mocks/agent-body-a.png" type="Texture" id=2]
+[ext_resource path="res://agent/simple/antenna-right.tscn" type="PackedScene" id=3]
+[ext_resource path="res://agent/simple/antenna-left.tscn" type="PackedScene" id=4]
+[ext_resource path="res://agent/simple/mandible-right.tscn" type="PackedScene" id=5]
+[ext_resource path="res://agent/simple/hair.tscn" type="PackedScene" id=6]
+
+[node name="Agent" type="KinematicBody2D"]
+__meta__ = {
+"_edit_vertical_guides_": [ 108.07 ]
+}
+
+[node name="Body" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -74, -231 )
+
+[node name="Hairs" type="Node2D" parent="Body"]
+position = Vector2( -107.951, -6.635 )
+
+[node name="hair" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 65.1266, -198.122 )
+rotation = -1.0472
+
+[node name="hair3" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 47.1266, -165.122 )
+rotation = -1.22173
+
+[node name="hair5" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 40.1266, -129.122 )
+rotation = -1.39626
+
+[node name="hair6" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 40.1266, -91.122 )
+rotation = -1.5708
+
+[node name="hair7" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 44.1266, -57.122 )
+rotation = -1.74533
+
+[node name="hair8" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 59.1266, -26.122 )
+rotation = -1.91986
+
+[node name="hair2" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 154.127, -198.122 )
+rotation = 1.0472
+
+[node name="hair4" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 172.127, -165.122 )
+rotation = 1.22173
+
+[node name="hair12" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 181.127, -129.122 )
+rotation = 1.39626
+
+[node name="hair13" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 179.127, -91.122 )
+rotation = 1.5708
+
+[node name="hair14" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 173.127, -57.122 )
+rotation = 1.74533
+
+[node name="hair15" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 161.127, -29.4592 )
+rotation = 1.91986
+
+[node name="hair9" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 84.1266, -2.12202 )
+rotation = -2.26893
+
+[node name="hair10" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 108.127, 6.87798 )
+rotation = -3.14159
+
+[node name="hair11" parent="Body/Hairs" instance=ExtResource( 6 )]
+position = Vector2( 131.127, -0.122009 )
+rotation = 2.26893
+
+[node name="Antennae" type="Node2D" parent="Body"]
+
+[node name="antenna-left" parent="Body/Antennae" instance=ExtResource( 4 )]
+position = Vector2( -19.4092, -274.211 )
+
+[node name="antenna-right" parent="Body/Antennae" instance=ExtResource( 3 )]
+position = Vector2( 17.6383, -274.874 )
+
+[node name="Mandibles" type="Node2D" parent="Body"]
+
+[node name="mandible-left" parent="Body/Mandibles" instance=ExtResource( 1 )]
+position = Vector2( -18.0495, -227.365 )
+
+[node name="mandible-right" parent="Body/Mandibles" instance=ExtResource( 5 )]
+position = Vector2( 15.9505, -227.365 )
