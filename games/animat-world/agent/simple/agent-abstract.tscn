@@ -25,6 +25,7 @@ texture = ExtResource( 2 )
 
 [node name="Hairs" type="Node2D" parent="."]
 position = Vector2( -111.246, 106.777 )
+z_index = 1
 
 [node name="Rear" parent="Hairs" instance=ExtResource( 6 )]
 position = Vector2( 108.127, 6.87798 )
@@ -92,6 +93,7 @@ rotation = 2.26893
 
 [node name="Mandibles" type="Node2D" parent="."]
 position = Vector2( 0, 117 )
+z_index = 1
 
 [node name="Left" parent="Mandibles" instance=ExtResource( 1 )]
 position = Vector2( -18.0495, -227.365 )
@@ -101,6 +103,7 @@ position = Vector2( 15.9505, -227.365 )
 
 [node name="Antennae" type="Node2D" parent="."]
 position = Vector2( 0, 115 )
+z_index = 1
 
 [node name="Left" parent="Antennae" instance=ExtResource( 4 )]
 position = Vector2( -19.4092, -274.211 )
