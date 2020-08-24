@@ -97,9 +97,13 @@ z_index = 1
 
 [node name="Left" parent="Mandibles" instance=ExtResource( 1 )]
 position = Vector2( -18.0495, -227.365 )
+collision_layer = 4
+collision_mask = 6
 
 [node name="Right" parent="Mandibles" instance=ExtResource( 5 )]
 position = Vector2( 15.9505, -227.365 )
+collision_layer = 4
+collision_mask = 6
 
 [node name="Antennae" type="Node2D" parent="."]
 position = Vector2( 0, 115 )

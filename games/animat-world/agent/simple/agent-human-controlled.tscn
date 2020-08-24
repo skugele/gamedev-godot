@@ -5,12 +5,3 @@
 
 [node name="AgentHumanControlled" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-
-[node name="Hairs" parent="." index="1"]
-z_index = 1
-
-[node name="Mandibles" parent="." index="2"]
-z_index = 1
-
-[node name="Antennae" parent="." index="3"]
-z_index = 1

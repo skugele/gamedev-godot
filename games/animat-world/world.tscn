@@ -39,8 +39,9 @@ position = Vector2( 737.528, -446.883 )
 [node name="AgentDummy" parent="Agents" instance=ExtResource( 8 )]
 
 [node name="AgentHumanControlled" parent="Agents" instance=ExtResource( 1 )]
-position = Vector2( 31.748, -1019.11 )
-rotation = -1.94048
+position = Vector2( -380.57, -635.282 )
+MAX_ROTATION = 4.0
+APERATURE_ACCELERATION = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Agents/AgentHumanControlled"]
 current = true

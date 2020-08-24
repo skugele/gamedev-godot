@@ -4,14 +4,12 @@
 
 [node name="MandibleRight" type="KinematicBody2D"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-rotation = 0.785398
-polygon = PoolVector2Array( -1.28625, -10.5677, -1.14594, -28.6674, -17.7023, -39.6114, -0.584711, -50.5554, -1.28625, -54.0631, -17.7023, -64.8668, -1.28625, -74.2675, -1.28625, -77.9155, -17.7023, -87.3161, -0.865322, -97.1376, 1.94084, -97.1376, 1.66022, -11.2693 )
-disabled = true
-
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 0.785398
 texture = ExtResource( 1 )
 centered = false
 offset = Vector2( -18, -98 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 0.785398
+polygon = PoolVector2Array( -1.21618, -26.6576, -1.14594, -28.6674, -17.7023, -39.6114, -0.584711, -50.5554, -1.28625, -54.0631, -17.7023, -64.8668, -1.28625, -74.2675, -1.28625, -77.9155, -17.7023, -87.3161, -0.865322, -97.1376, 1.94084, -97.1376, 2.23606, -27.6599 )
