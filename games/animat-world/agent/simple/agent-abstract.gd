@@ -11,7 +11,7 @@ export var MAX_MANDIBLE_APERATURE_IN_DEGREES = 45
 onready var left_mandible = $AgentBodyParts/Mandibles/Left
 onready var right_mandible = $AgentBodyParts/Mandibles/Right
 
-signal hair_activity_change(agent)
+signal hair_activity_change(hairs)
 
 onready var id = null
 onready var hairs = []
@@ -72,10 +72,10 @@ func update_mandible_aperature(change_dir, delta):
 
 func _on_hair_active(hair):
 	active_hairs[hair.id] = true
-	emit_signal("hair_activity_change", self)
+	emit_signal("hair_activity_change", active_hairs)
 #	print(active_hairs)	
 
 func _on_hair_inactive(hair):
 	active_hairs[hair.id] = false
-	emit_signal("hair_activity_change", self)	
+	emit_signal("hair_activity_change", active_hairs)	
 #	print(active_hairs)	

@@ -48,15 +48,14 @@ func agent_join(id):
 	agent_node.global_position.x = 125
 	agent_node.global_position.y = 500
 	
-	agent_node.connect("hair_activity_change", self, "_on_agent_hair_activity_change")
-	
+	agent_node.connect(
+		"hair_activity_change", 
+		agent_info_display, 
+		"_on_agent_hair_activity_change")
+
 	# adds camera to agent
 	camera = Camera2D.new()
 	agent_node.add_child(camera)
 	camera.current = true
 	camera.zoom = Vector2(DEFAULT_ZOOM, DEFAULT_ZOOM)
-	
-func _on_agent_hair_activity_change(agent):
-	print("in _on_agent_hair_activity_change")
-	
-	
+		

@@ -11,6 +11,7 @@
 [ext_resource path="res://ui/agent-info-display.tscn" type="PackedScene" id=10]
 
 [node name="World" type="Node2D"]
+position = Vector2( -24.9451, 28.5088 )
 script = ExtResource( 9 )
 
 [node name="AgentInfoDisplay" parent="." instance=ExtResource( 10 )]
@@ -18,10 +19,16 @@ script = ExtResource( 9 )
 [node name="Rocks" type="YSort" parent="."]
 
 [node name="Rock" parent="Rocks" instance=ExtResource( 2 )]
-position = Vector2( 1384.31, 272.248 )
+position = Vector2( 1473.4, 122.577 )
 
 [node name="Rock2" parent="Rocks" instance=ExtResource( 2 )]
-position = Vector2( 1154.72, 683.378 )
+position = Vector2( 1122.65, 540.834 )
+
+[node name="Rock4" parent="Rocks" instance=ExtResource( 2 )]
+position = Vector2( 2373.47, 259.31 )
+
+[node name="Rock5" parent="Rocks" instance=ExtResource( 2 )]
+position = Vector2( 1974.35, 658.433 )
 
 [node name="Rock3" parent="Rocks" instance=ExtResource( 2 )]
 position = Vector2( -313.604, -838.339 )

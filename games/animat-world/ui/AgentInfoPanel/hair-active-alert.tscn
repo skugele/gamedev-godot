@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://atlases/simple-geometric-shapes.png" type="Texture" id=1]
+[ext_resource path="res://ui/AgentInfoPanel/hair-active-alert.gd" type="Script" id=2]
+
+[node name="HairActiveAlert" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.992157, 1, 0.207843, 0.882353 )
+scale = Vector2( 0.07, -0.1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 235.323, -3.51326, 129.236, 213.579 )
