@@ -12,6 +12,7 @@ onready var zoom = MAX_ZOOM_IN
 # node aliases
 onready var agents = $Agents
 onready var camera = null
+onready var agent_info_display = $AgentInfoDisplay
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,7 +47,14 @@ func agent_join(id):
 	agent_node.global_position.x = 125
 	agent_node.global_position.y = 500
 	
+	agent_node.connect("hair_activity_change", self, "_on_agent_hair_activity_change")
+	
 	# adds camera to agent
 	camera = Camera2D.new()
 	agent_node.add_child(camera)
 	camera.current = true
+	
+func _on_agent_hair_activity_change(agent):
+	print("in _on_agent_hair_activity_change")
+	
+	

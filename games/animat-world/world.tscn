@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://objects/simple/rock-obstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/simple/food-bad.tscn" type="PackedScene" id=3]
@@ -9,42 +9,65 @@
 [ext_resource path="res://agent/simple/agent-dummy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://world.gd" type="Script" id=9]
 [ext_resource path="res://ui/agent-info-display.tscn" type="PackedScene" id=10]
-[ext_resource path="res://ui/agent-info-display.gd" type="Script" id=11]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 9 )
 
+[node name="AgentInfoDisplay" parent="." instance=ExtResource( 10 )]
+
 [node name="Rocks" type="YSort" parent="."]
 
 [node name="Rock" parent="Rocks" instance=ExtResource( 2 )]
-position = Vector2( 3984.58, 1420.21 )
+position = Vector2( 1384.31, 272.248 )
+
+[node name="Rock2" parent="Rocks" instance=ExtResource( 2 )]
+position = Vector2( 1154.72, 683.378 )
+
+[node name="Rock3" parent="Rocks" instance=ExtResource( 2 )]
+position = Vector2( -313.604, -838.339 )
 
 [node name="ProcessedFood" type="Node2D" parent="."]
 
 [node name="ProcessedFoodBad" parent="ProcessedFood" instance=ExtResource( 5 )]
-position = Vector2( 701.892, -133.287 )
+position = Vector2( 1897, -313.377 )
 
 [node name="ProcessedFoodGood" parent="ProcessedFood" instance=ExtResource( 6 )]
-position = Vector2( 457.786, -281.176 )
+position = Vector2( 852.899, -1066.06 )
 
 [node name="UnprocessedFood" type="YSort" parent="."]
 
 [node name="FoodGood" parent="UnprocessedFood" instance=ExtResource( 7 )]
-position = Vector2( 443.531, -557.354 )
+position = Vector2( 1220.18, -1273.72 )
+
+[node name="FoodGood2" parent="UnprocessedFood" instance=ExtResource( 7 )]
+position = Vector2( 1080.18, -1145.72 )
+
+[node name="FoodGood3" parent="UnprocessedFood" instance=ExtResource( 7 )]
+position = Vector2( 1056.18, -945.716 )
+
+[node name="FoodGood4" parent="UnprocessedFood" instance=ExtResource( 7 )]
+position = Vector2( 948.182, -477.716 )
 
 [node name="FoodBad" parent="UnprocessedFood" instance=ExtResource( 3 )]
-position = Vector2( 737.528, -446.883 )
+position = Vector2( 1693.27, -420.186 )
+
+[node name="FoodBad2" parent="UnprocessedFood" instance=ExtResource( 3 )]
+position = Vector2( 1890.83, -564.349 )
 
 [node name="Agents" type="Node2D" parent="."]
 
 [node name="AgentDummy" parent="Agents" instance=ExtResource( 8 )]
+position = Vector2( 0, 0 )
 
 [node name="Trees" type="Node2D" parent="."]
 
 [node name="Tree" parent="Trees" instance=ExtResource( 4 )]
-position = Vector2( 1144.44, -512.853 )
+position = Vector2( 1304.62, -993.395 )
 
-[node name="AgentInfoDisplay" parent="." instance=ExtResource( 10 )]
-script = ExtResource( 11 )
+[node name="Tree2" parent="Trees" instance=ExtResource( 4 )]
+position = Vector2( 1651.68, -737.106 )
+
+[node name="Tree3" parent="Trees" instance=ExtResource( 4 )]
+position = Vector2( 1240.55, -566.247 )
 
 [editable path="AgentInfoDisplay"]

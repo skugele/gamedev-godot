@@ -8,8 +8,8 @@ export(int) var FRICTION = 5000
 
 export var MAX_MANDIBLE_APERATURE_IN_DEGREES = 45
 
-onready var left_mandible = $Mandibles/Left
-onready var right_mandible = $Mandibles/Right
+onready var left_mandible = $AgentBodyParts/Mandibles/Left
+onready var right_mandible = $AgentBodyParts/Mandibles/Right
 
 signal hair_activity_change(agent)
 
@@ -28,27 +28,27 @@ func _ready():
 	init_hair()	
 
 func init_hair():
-	
+
 	# left hairs
-	hairs.append($Hairs/Left/Hair1)
-	hairs.append($Hairs/Left/Hair2)
-	hairs.append($Hairs/Left/Hair3)
-	hairs.append($Hairs/Left/Hair4)
-	hairs.append($Hairs/Left/Hair5)
-	hairs.append($Hairs/Left/Hair6)
-	hairs.append($Hairs/Left/Hair7)
+	hairs.append($AgentBodyParts/Hairs/Left/Hair1)
+	hairs.append($AgentBodyParts/Hairs/Left/Hair2)
+	hairs.append($AgentBodyParts/Hairs/Left/Hair3)
+	hairs.append($AgentBodyParts/Hairs/Left/Hair4)
+	hairs.append($AgentBodyParts/Hairs/Left/Hair5)
+	hairs.append($AgentBodyParts/Hairs/Left/Hair6)
+	hairs.append($AgentBodyParts/Hairs/Left/Hair7)
 	
 	# rear hair
-	hairs.append($Hairs/Rear)
+	hairs.append($AgentBodyParts/Hairs/Rear)
 	
 	# right hairs
-	hairs.append($Hairs/Right/Hair1)
-	hairs.append($Hairs/Right/Hair2)
-	hairs.append($Hairs/Right/Hair3)
-	hairs.append($Hairs/Right/Hair4)
-	hairs.append($Hairs/Right/Hair5)
-	hairs.append($Hairs/Right/Hair6)
-	hairs.append($Hairs/Right/Hair7)
+	hairs.append($AgentBodyParts/Hairs/Right/Hair1)
+	hairs.append($AgentBodyParts/Hairs/Right/Hair2)
+	hairs.append($AgentBodyParts/Hairs/Right/Hair3)
+	hairs.append($AgentBodyParts/Hairs/Right/Hair4)
+	hairs.append($AgentBodyParts/Hairs/Right/Hair5)
+	hairs.append($AgentBodyParts/Hairs/Right/Hair6)
+	hairs.append($AgentBodyParts/Hairs/Right/Hair7)
 	
 	var id_value = 0
 	for hair in hairs:
@@ -73,9 +73,9 @@ func update_mandible_aperature(change_dir, delta):
 func _on_hair_active(hair):
 	active_hairs[hair.id] = true
 	emit_signal("hair_activity_change", self)
-	print(active_hairs)	
+#	print(active_hairs)	
 
 func _on_hair_inactive(hair):
 	active_hairs[hair.id] = false
 	emit_signal("hair_activity_change", self)	
-	print(active_hairs)	
+#	print(active_hairs)	
