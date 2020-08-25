@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export(int) var MAX_SPEED = 500
 export(float) var MAX_ROTATION = 1.5
-export(float) var APERATURE_ACCELERATION = 150
+export(float) var APERATURE_ACCELERATION = 400
 export(int) var ACCELERATION = 500
 export(int) var FRICTION = 5000
 

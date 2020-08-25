@@ -1,13 +1,14 @@
 extends Node2D
 
 export(float) var MAX_ZOOM_IN = 1
-export(float) var  MAX_ZOOM_OUT = 8
+export(float) var MAX_ZOOM_OUT = 8
+export(float) var DEFAULT_ZOOM = 2
 export(float) var ZOOM_DELTA = 0.3
 
 const ZOOM_IN_DIRECTION = -1
 const ZOOM_OUT_DIRECTION = 1
 
-onready var zoom = MAX_ZOOM_IN
+onready var zoom = DEFAULT_ZOOM
 
 # node aliases
 onready var agents = $Agents
@@ -53,6 +54,7 @@ func agent_join(id):
 	camera = Camera2D.new()
 	agent_node.add_child(camera)
 	camera.current = true
+	camera.zoom = Vector2(DEFAULT_ZOOM, DEFAULT_ZOOM)
 	
 func _on_agent_hair_activity_change(agent):
 	print("in _on_agent_hair_activity_change")

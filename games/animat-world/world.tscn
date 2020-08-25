@@ -29,30 +29,30 @@ position = Vector2( -313.604, -838.339 )
 [node name="ProcessedFood" type="Node2D" parent="."]
 
 [node name="ProcessedFoodBad" parent="ProcessedFood" instance=ExtResource( 5 )]
-position = Vector2( 1897, -313.377 )
+position = Vector2( 1833.44, -465.94 )
 
 [node name="ProcessedFoodGood" parent="ProcessedFood" instance=ExtResource( 6 )]
-position = Vector2( 852.899, -1066.06 )
+position = Vector2( 1785.23, -1583.08 )
 
 [node name="UnprocessedFood" type="YSort" parent="."]
 
 [node name="FoodGood" parent="UnprocessedFood" instance=ExtResource( 7 )]
-position = Vector2( 1220.18, -1273.72 )
+position = Vector2( 1368.51, -1294.91 )
 
 [node name="FoodGood2" parent="UnprocessedFood" instance=ExtResource( 7 )]
-position = Vector2( 1080.18, -1145.72 )
+position = Vector2( 1109.85, -1196.57 )
 
 [node name="FoodGood3" parent="UnprocessedFood" instance=ExtResource( 7 )]
-position = Vector2( 1056.18, -945.716 )
+position = Vector2( 1034.99, -928.764 )
 
 [node name="FoodGood4" parent="UnprocessedFood" instance=ExtResource( 7 )]
-position = Vector2( 948.182, -477.716 )
+position = Vector2( 2359.39, -1443.95 )
 
 [node name="FoodBad" parent="UnprocessedFood" instance=ExtResource( 3 )]
-position = Vector2( 1693.27, -420.186 )
+position = Vector2( 1434.76, -534.608 )
 
 [node name="FoodBad2" parent="UnprocessedFood" instance=ExtResource( 3 )]
-position = Vector2( 1890.83, -564.349 )
+position = Vector2( 1912.02, -860.999 )
 
 [node name="Agents" type="Node2D" parent="."]
 
@@ -68,6 +68,6 @@ position = Vector2( 1304.62, -993.395 )
 position = Vector2( 1651.68, -737.106 )
 
 [node name="Tree3" parent="Trees" instance=ExtResource( 4 )]
-position = Vector2( 1240.55, -566.247 )
+position = Vector2( 2075.41, -1413.82 )
 
 [editable path="AgentInfoDisplay"]
