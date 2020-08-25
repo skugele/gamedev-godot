@@ -10,18 +10,8 @@ onready var id = null
 func _ready():
 	pass # Replace with function body.
 
-func _on_hair_area_entered(area):
-	print('name: ', area.name)
-	area.print_tree_pretty()
+func _on_hair_body_entered(_body):
 	emit_signal("hair_active", self)
 	
-func _on_hair_area_exited(area):
-	emit_signal("hair_inactive", self)
-	
-func _on_hair_body_entered(body):
-	print('name: ', body.name)
-	body.print_tree_pretty()	
-	emit_signal("hair_active", self)
-	
-func _on_hair_body_exited(area):
+func _on_hair_body_exited(_body):
 	emit_signal("hair_inactive", self)

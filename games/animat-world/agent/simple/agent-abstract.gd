@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-export(int) var MAX_SPEED = 1000
-export(float) var MAX_ROTATION = 20
-export(float) var APERATURE_ACCELERATION = 30 # in degrees
-export(int) var ACCELERATION = 1500
+export(int) var MAX_SPEED = 500
+export(float) var MAX_ROTATION = 1.5
+export(float) var APERATURE_ACCELERATION = 150
+export(int) var ACCELERATION = 500
 export(int) var FRICTION = 5000
 
 export var MAX_MANDIBLE_APERATURE_IN_DEGREES = 45
@@ -11,18 +11,21 @@ export var MAX_MANDIBLE_APERATURE_IN_DEGREES = 45
 onready var left_mandible = $Mandibles/Left
 onready var right_mandible = $Mandibles/Right
 
-var hairs = []
+signal hair_activity_change(agent)
+
+onready var id = null
+onready var hairs = []
+onready var active_hairs = []
 
 # current velocity
-var velocity = Vector2.ZERO
-var mandible_aperature = 0 # in degrees
+onready var velocity = Vector2.ZERO
+onready var mandible_aperature = 0 # in degrees
 
 func _ready():
 	left_mandible.rotation_degrees = mandible_aperature
 	right_mandible.rotation_degrees = mandible_aperature
 
-	init_hair()
-
+	init_hair()	
 
 func init_hair():
 	
@@ -51,6 +54,13 @@ func init_hair():
 	for hair in hairs:
 		hair.id = id_value
 		id_value += 1
+		
+		# configure hair signals
+		hair.connect("hair_active", self, "_on_hair_active")
+		hair.connect("hair_inactive", self, "_on_hair_inactive")
+		
+		# set all hairs to be inactive
+		active_hairs.append(false)
 			
 func update_mandible_aperature(change_dir, delta):
 		var value = left_mandible.rotation_degrees \
@@ -61,6 +71,11 @@ func update_mandible_aperature(change_dir, delta):
 			right_mandible.rotation_degrees = -value
 
 func _on_hair_active(hair):
-	print('name: ', hair.name)
-	print('id: ', hair.id)
-	hair.print_tree_pretty()
+	active_hairs[hair.id] = true
+	emit_signal("hair_activity_change", self)
+	print(active_hairs)	
+
+func _on_hair_inactive(hair):
+	active_hairs[hair.id] = false
+	emit_signal("hair_activity_change", self)	
+	print(active_hairs)	

@@ -1,5 +1,8 @@
 extends "res://agent/simple/agent-abstract.gd"
 
+func _ready():
+	pass
+
 func get_input():
 	var turn = 0
 	var direction = Vector2.ZERO
@@ -34,7 +37,7 @@ func execute_move(inputs, delta):
 	if direction != Vector2.ZERO:
 		velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 	else:
-	# apply friction
+		# apply friction
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		
 	# execute body rotation

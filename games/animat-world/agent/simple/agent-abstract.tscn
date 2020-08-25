@@ -9,8 +9,8 @@
 [ext_resource path="res://agent/simple/agent-abstract.gd" type="Script" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 68.9142
-height = 80.2623
+radius = 69.0723
+height = 84.7555
 
 [node name="AgentAbstract" type="KinematicBody2D"]
 collision_layer = 4
@@ -22,10 +22,16 @@ __meta__ = {
 
 [node name="Body" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Hairs" type="Node2D" parent="."]
 position = Vector2( -111.246, 106.777 )
 z_index = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Rear" parent="Hairs" instance=ExtResource( 6 )]
 position = Vector2( 108.127, 6.87798 )
@@ -94,6 +100,9 @@ rotation = 2.26893
 [node name="Mandibles" type="Node2D" parent="."]
 position = Vector2( 0, 117 )
 z_index = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Left" parent="Mandibles" instance=ExtResource( 1 )]
 position = Vector2( -18.0495, -227.365 )
@@ -108,6 +117,9 @@ collision_mask = 6
 [node name="Antennae" type="Node2D" parent="."]
 position = Vector2( 0, 115 )
 z_index = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Left" parent="Antennae" instance=ExtResource( 4 )]
 position = Vector2( -19.4092, -274.211 )
@@ -116,8 +128,8 @@ position = Vector2( -19.4092, -274.211 )
 position = Vector2( 17.6383, -274.874 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3.05176e-05, -0.112999 )
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 3.05176e-05, 0.22184 )
 shape = SubResource( 1 )
-[connection signal="hair_active" from="Hairs/Left/Hair1" to="." method="_on_hair_active"]
 
 [editable path="Hairs/Left/Hair1"]

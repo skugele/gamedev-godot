@@ -1,4 +1,4 @@
-extends "res://agent/simple/agent-abstract.gd"
+extends CanvasLayer
 
 
 # Declare member variables here. Examples:
@@ -8,7 +8,7 @@ extends "res://agent/simple/agent-abstract.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	id = 2
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
