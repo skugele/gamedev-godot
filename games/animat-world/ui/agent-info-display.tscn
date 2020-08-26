@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://graphics/grid.png" type="Texture" id=1]
 [ext_resource path="res://agent/simple/agent-dummy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/AgentInfoPanel/hair-active-alert.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/agent-info-display.gd" type="Script" id=4]
+[ext_resource path="res://ui/AgentInfoPanel/antennae-alerts.png" type="Texture" id=5]
 
 [node name="AgentInfoDisplay" type="CanvasLayer"]
 script = ExtResource( 4 )
@@ -65,7 +66,7 @@ margin_right = 166.0
 margin_bottom = 43.1905
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "1"
+text = "TBD"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -92,7 +93,7 @@ margin_right = 166.0
 margin_bottom = 59.1905
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "1"
+text = "TBD"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -119,7 +120,7 @@ margin_right = 166.0
 margin_bottom = 87.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "1"
+text = "TBD"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -147,7 +148,7 @@ margin_right = 166.0
 margin_bottom = 87.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "1"
+text = "TBD"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -173,7 +174,7 @@ margin_right = 166.0
 margin_bottom = 131.19
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "1"
+text = "TBD"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -199,7 +200,7 @@ margin_right = 166.0
 margin_bottom = 148.19
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "1"
+text = "TBD"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -378,6 +379,22 @@ position = Vector2( 128.295, 188 )
 rotation = 2.26893
 
 [node name="ActiveAntennae" type="Node2D" parent="Panel/Background/BodyPanel/StatusOverlay"]
+
+[node name="Sprite" type="Sprite" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveAntennae"]
+modulate = Color( 0, 0.905882, 1, 1 )
+position = Vector2( 95, 48 )
+scale = Vector2( 0.44, 0.44 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( -2.79251, -6.29, 58.7925, 122.316 )
+
+[node name="Sprite2" type="Sprite" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveAntennae"]
+modulate = Color( 0, 0.905882, 1, 1 )
+position = Vector2( 114, 49 )
+scale = Vector2( 0.44, 0.44 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 62.1875, -1.974, 61.37, 118 )
 
 [node name="ActiveBody" type="Node2D" parent="Panel/Background/BodyPanel/StatusOverlay"]
 
