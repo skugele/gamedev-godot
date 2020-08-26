@@ -3,6 +3,10 @@ extends "res://agent/simple/agent-abstract.gd"
 func _ready():		
 	pass
 
+func _physics_process(delta):
+	var inputs = get_input()
+	execute_move(inputs, delta)	
+	
 func get_input():
 	var turn = 0
 	var direction = Vector2.ZERO
@@ -65,7 +69,4 @@ func update_mandible_aperature(change_dir, delta):
 	if value >= 0 and value <= MAX_MANDIBLE_APERATURE_IN_DEGREES:
 		set_mandible_aperature(value)
 		emit_signal("mandible_aperture_change", value)
-	
-func _physics_process(delta):
-	var inputs = get_input()
-	execute_move(inputs, delta)	
+

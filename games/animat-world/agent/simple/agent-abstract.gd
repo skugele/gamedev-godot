@@ -8,8 +8,8 @@ export(int) var FRICTION = 5000
 
 export var MAX_MANDIBLE_APERATURE_IN_DEGREES = 45
 
-onready var left_mandible = $AgentBodyParts/Mandibles/Left
-onready var right_mandible = $AgentBodyParts/Mandibles/Right
+onready var left_mandible = $Mandibles/Left
+onready var right_mandible = $Mandibles/Right
 
 signal hair_activity_change(hairs)
 signal velocity_change(value)
@@ -33,25 +33,25 @@ func _ready():
 func init_hair():
 
 	# left hairs
-	hairs.append($AgentBodyParts/Hairs/Left/Hair1)
-	hairs.append($AgentBodyParts/Hairs/Left/Hair2)
-	hairs.append($AgentBodyParts/Hairs/Left/Hair3)
-	hairs.append($AgentBodyParts/Hairs/Left/Hair4)
-	hairs.append($AgentBodyParts/Hairs/Left/Hair5)
-	hairs.append($AgentBodyParts/Hairs/Left/Hair6)
-	hairs.append($AgentBodyParts/Hairs/Left/Hair7)
+	hairs.append($Hairs/Left/Hair1)
+	hairs.append($Hairs/Left/Hair2)
+	hairs.append($Hairs/Left/Hair3)
+	hairs.append($Hairs/Left/Hair4)
+	hairs.append($Hairs/Left/Hair5)
+	hairs.append($Hairs/Left/Hair6)
+	hairs.append($Hairs/Left/Hair7)
 	
 	# rear hair
-	hairs.append($AgentBodyParts/Hairs/Rear)
+	hairs.append($Hairs/Rear)
 	
 	# right hairs
-	hairs.append($AgentBodyParts/Hairs/Right/Hair1)
-	hairs.append($AgentBodyParts/Hairs/Right/Hair2)
-	hairs.append($AgentBodyParts/Hairs/Right/Hair3)
-	hairs.append($AgentBodyParts/Hairs/Right/Hair4)
-	hairs.append($AgentBodyParts/Hairs/Right/Hair5)
-	hairs.append($AgentBodyParts/Hairs/Right/Hair6)
-	hairs.append($AgentBodyParts/Hairs/Right/Hair7)
+	hairs.append($Hairs/Right/Hair1)
+	hairs.append($Hairs/Right/Hair2)
+	hairs.append($Hairs/Right/Hair3)
+	hairs.append($Hairs/Right/Hair4)
+	hairs.append($Hairs/Right/Hair5)
+	hairs.append($Hairs/Right/Hair6)
+	hairs.append($Hairs/Right/Hair7)
 	
 	var id_value = 0
 	for hair in hairs:

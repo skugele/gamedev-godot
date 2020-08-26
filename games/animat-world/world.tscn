@@ -11,7 +11,7 @@
 [ext_resource path="res://ui/agent-info-display.tscn" type="PackedScene" id=10]
 
 [node name="World" type="Node2D"]
-position = Vector2( -24.9451, 28.5088 )
+position = Vector2( -28.9451, 28.5088 )
 script = ExtResource( 9 )
 
 [node name="AgentInfoDisplay" parent="." instance=ExtResource( 10 )]

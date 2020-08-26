@@ -2,7 +2,7 @@
 
 [ext_resource path="res://atlases/simple-agent-parts-inverted.png" type="Texture" id=1]
 
-[node name="MandibleRight" type="KinematicBody2D"]
+[node name="MandibleRight" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
@@ -14,6 +14,8 @@ offset = Vector2( -18, -98 )
 region_enabled = true
 region_rect = Rect2( 187.422, 102.825, 22.9986, 101.233 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 rotation = 0.785398
 polygon = PoolVector2Array( -1.21618, -26.6576, -1.14594, -28.6674, -17.7023, -39.6114, -0.584711, -50.5554, -1.28625, -54.0631, -17.7023, -64.8668, -1.28625, -74.2675, -1.28625, -77.9155, -17.7023, -87.3161, -0.865322, -97.1376, 1.94084, -97.1376, 2.23606, -27.6599 )

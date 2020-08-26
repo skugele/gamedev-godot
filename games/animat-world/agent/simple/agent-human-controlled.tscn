@@ -5,3 +5,5 @@
 
 [node name="AgentHumanControlled" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[editable path="Mandibles/Left"]
