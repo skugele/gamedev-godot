@@ -12,6 +12,9 @@ onready var left_mandible = $AgentBodyParts/Mandibles/Left
 onready var right_mandible = $AgentBodyParts/Mandibles/Right
 
 signal hair_activity_change(hairs)
+signal velocity_change(value)
+signal rotation_change(value)
+signal mandible_aperture_change(value)
 
 onready var id = null
 onready var hairs = []
@@ -60,22 +63,19 @@ func init_hair():
 		hair.connect("hair_inactive", self, "_on_hair_inactive")
 		
 		# set all hairs to be inactive
-		active_hairs.append(false)
-			
-func update_mandible_aperature(change_dir, delta):
-		var value = left_mandible.rotation_degrees \
-				  + change_dir * APERATURE_ACCELERATION * delta
+		active_hairs.append(false)		
 
-		if value >= 0 and value <= MAX_MANDIBLE_APERATURE_IN_DEGREES:
-			left_mandible.rotation_degrees = value
-			right_mandible.rotation_degrees = -value
-
+func set_rotation(degrees):
+	rotation = degrees
+	
+func set_mandible_aperature(degrees):
+	left_mandible.rotation_degrees = degrees
+	right_mandible.rotation_degrees = -degrees
+				
 func _on_hair_active(hair):
 	active_hairs[hair.id] = true
 	emit_signal("hair_activity_change", active_hairs)
-#	print(active_hairs)	
 
 func _on_hair_inactive(hair):
 	active_hairs[hair.id] = false
-	emit_signal("hair_activity_change", active_hairs)	
-#	print(active_hairs)	
+	emit_signal("hair_activity_change", active_hairs)

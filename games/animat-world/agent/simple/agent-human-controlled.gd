@@ -1,6 +1,6 @@
 extends "res://agent/simple/agent-abstract.gd"
 
-func _ready():
+func _ready():		
 	pass
 
 func get_input():
@@ -35,13 +35,14 @@ func execute_move(inputs, delta):
 	
 	# execute forward/backward motion
 	if direction != Vector2.ZERO:
-		velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+		update_velocity(direction, delta)
 	else:
 		# apply friction
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		
 	# execute body rotation
-	rotation += turn * MAX_ROTATION * delta
+	if turn != 0:
+		update_rotation(turn, delta)
 	
 	# execute mandible change
 	if mandible_change_dir != 0:
@@ -49,6 +50,22 @@ func execute_move(inputs, delta):
 	
 	velocity = move_and_slide(velocity)
 
+func update_velocity(direction, delta):
+	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+	emit_signal("velocity_change", velocity)
+		
+func update_rotation(turn, delta):
+	rotation += turn * MAX_ROTATION * delta	
+	emit_signal("rotation_change", rotation)
+		
+func update_mandible_aperature(change_dir, delta):
+	var value = left_mandible.rotation_degrees \
+			  + change_dir * APERATURE_ACCELERATION * delta
+
+	if value >= 0 and value <= MAX_MANDIBLE_APERATURE_IN_DEGREES:
+		set_mandible_aperature(value)
+		emit_signal("mandible_aperture_change", value)
+	
 func _physics_process(delta):
 	var inputs = get_input()
 	execute_move(inputs, delta)	

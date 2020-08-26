@@ -45,14 +45,33 @@ func agent_join(id):
 	
 	agents.add_child(agent_node)
 	agent_node.id = id
+	
+	# TODO: Need to add logic to randomly assign a starting location
 	agent_node.global_position.x = 125
 	agent_node.global_position.y = 500
+	agent_node.rotation = 30
 	
+	# connect signals
 	agent_node.connect(
 		"hair_activity_change", 
 		agent_info_display, 
 		"_on_agent_hair_activity_change")
 
+	agent_node.connect(
+		"velocity_change", 
+		agent_info_display, 
+		"_on_agent_velocity_change")
+		
+	agent_node.connect(
+		"rotation_change", 
+		agent_info_display, 
+		"_on_agent_rotation_change")
+		
+	agent_node.connect(
+		"mandible_aperture_change", 
+		agent_info_display, 
+		"_on_agent_mandible_aperture_change")			
+			
 	# adds camera to agent
 	camera = Camera2D.new()
 	agent_node.add_child(camera)

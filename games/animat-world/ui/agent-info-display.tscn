@@ -98,13 +98,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Sex" type="Node2D" parent="Panel/Background/StatsPanel"]
+position = Vector2( 0, 17 )
+
+[node name="Label" type="Label" parent="Panel/Background/StatsPanel/Sex"]
+margin_left = 74.0
+margin_top = 45.0
+margin_right = 122.0
+margin_bottom = 59.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Sex:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="Panel/Background/StatsPanel/Sex"]
+margin_left = 136.0
+margin_top = 45.1905
+margin_right = 166.0
+margin_bottom = 59.1905
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "TBD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Health" type="Node2D" parent="Panel/Background/StatsPanel"]
 
 [node name="Label" type="Label" parent="Panel/Background/StatsPanel/Health"]
 margin_left = 75.0
-margin_top = 73.0
+margin_top = 85.0
 margin_right = 123.0
-margin_bottom = 87.0
+margin_bottom = 99.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Health:"
@@ -115,9 +143,9 @@ __meta__ = {
 
 [node name="Value" type="Label" parent="Panel/Background/StatsPanel/Health"]
 margin_left = 136.0
-margin_top = 73.0
+margin_top = 85.0
 margin_right = 166.0
-margin_bottom = 87.0
+margin_bottom = 99.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "TBD"
@@ -130,9 +158,9 @@ position = Vector2( 0, 17 )
 
 [node name="Label" type="Label" parent="Panel/Background/StatsPanel/Energy"]
 margin_left = 75.0
-margin_top = 72.0
+margin_top = 84.0
 margin_right = 123.0
-margin_bottom = 86.0
+margin_bottom = 98.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Energy:"
@@ -143,9 +171,9 @@ __meta__ = {
 
 [node name="Value" type="Label" parent="Panel/Background/StatsPanel/Energy"]
 margin_left = 136.0
-margin_top = 73.0
+margin_top = 85.0
 margin_right = 166.0
-margin_bottom = 87.0
+margin_bottom = 99.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "TBD"
@@ -157,9 +185,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Panel/Background/StatsPanel/ChildrenCurrent"]
 margin_left = 8.0
-margin_top = 116.19
+margin_top = 125.19
 margin_right = 124.0
-margin_bottom = 130.19
+margin_bottom = 139.19
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Children (Current):"
@@ -169,9 +197,9 @@ __meta__ = {
 
 [node name="Value" type="Label" parent="Panel/Background/StatsPanel/ChildrenCurrent"]
 margin_left = 136.0
-margin_top = 117.19
+margin_top = 126.19
 margin_right = 166.0
-margin_bottom = 131.19
+margin_bottom = 140.19
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "TBD"
@@ -183,9 +211,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Panel/Background/StatsPanel/ChildrenTotal"]
 margin_left = 24.0
-margin_top = 134.0
+margin_top = 143.0
 margin_right = 124.0
-margin_bottom = 148.0
+margin_bottom = 157.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Children (Total):"
@@ -195,9 +223,9 @@ __meta__ = {
 
 [node name="Value" type="Label" parent="Panel/Background/StatsPanel/ChildrenTotal"]
 margin_left = 136.0
-margin_top = 134.19
+margin_top = 143.19
 margin_right = 166.0
-margin_bottom = 148.19
+margin_bottom = 157.19
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "TBD"
@@ -314,73 +342,75 @@ disabled = true
 visible = false
 disabled = true
 
-[node name="StatusOverlay" type="Node2D" parent="Panel/Background/BodyPanel"]
+[node name="StatusOverlay" type="Node2D" parent="Panel/Background/BodyPanel/AgentDummy"]
+position = Vector2( -210, -260 )
+scale = Vector2( 2, 2 )
 
-[node name="ActiveHairAlerts" type="Node2D" parent="Panel/Background/BodyPanel/StatusOverlay"]
+[node name="ActiveHairAlerts" type="Node2D" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay"]
 
-[node name="Hair1" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair1" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 75.6437, 82.3071 )
 rotation = -1.0472
 
-[node name="Hair2" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair2" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 66, 99 )
 rotation = -1.22173
 
-[node name="Hair3" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair3" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 61, 117 )
 rotation = -1.39626
 
-[node name="Hair4" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair4" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 60, 137 )
 rotation = -1.5708
 
-[node name="Hair5" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair5" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 63, 156 )
 rotation = -1.74533
 
-[node name="Hair6" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair6" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 69, 173 )
 rotation = -1.91986
 
-[node name="Hair7" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair7" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 83.2954, 189 )
 rotation = -2.26893
 
-[node name="Hair8" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair8" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 105.069, 199 )
 rotation = 3.14159
 
-[node name="Hair9" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair9" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 135, 81 )
 rotation = 1.0472
 
-[node name="Hair10" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair10" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 144, 97 )
 rotation = 1.22173
 
-[node name="Hair11" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair11" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 149, 117 )
 rotation = 1.39626
 
-[node name="Hair12" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair12" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 149, 136 )
 rotation = 1.5708
 
-[node name="Hair13" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair13" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 148, 154 )
 rotation = 1.74533
 
-[node name="Hair14" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair14" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 141, 172 )
 rotation = 1.91986
 
-[node name="Hair15" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
+[node name="Hair15" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveHairAlerts" instance=ExtResource( 3 )]
 position = Vector2( 128.295, 188 )
 rotation = 2.26893
 
-[node name="ActiveAntennae" type="Node2D" parent="Panel/Background/BodyPanel/StatusOverlay"]
+[node name="ActiveAntennae" type="Node2D" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay"]
 
-[node name="Sprite" type="Sprite" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveAntennae"]
+[node name="Sprite" type="Sprite" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveAntennae"]
 modulate = Color( 0, 0.905882, 1, 1 )
 position = Vector2( 95, 48 )
 scale = Vector2( 0.44, 0.44 )
@@ -388,7 +418,7 @@ texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( -2.79251, -6.29, 58.7925, 122.316 )
 
-[node name="Sprite2" type="Sprite" parent="Panel/Background/BodyPanel/StatusOverlay/ActiveAntennae"]
+[node name="Sprite2" type="Sprite" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveAntennae"]
 modulate = Color( 0, 0.905882, 1, 1 )
 position = Vector2( 114, 49 )
 scale = Vector2( 0.44, 0.44 )
@@ -396,7 +426,7 @@ texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( 62.1875, -1.974, 61.37, 118 )
 
-[node name="ActiveBody" type="Node2D" parent="Panel/Background/BodyPanel/StatusOverlay"]
+[node name="ActiveBody" type="Node2D" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay"]
 
 [editable path="Panel/Background/BodyPanel/AgentDummy"]
 
