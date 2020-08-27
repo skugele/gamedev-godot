@@ -1,14 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://graphics/grid.png" type="Texture" id=1]
 [ext_resource path="res://agent/simple/agent-dummy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/AgentInfoPanel/hair-active-alert.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/agent-info-display.gd" type="Script" id=4]
 [ext_resource path="res://ui/AgentInfoPanel/antennae-alerts.png" type="Texture" id=5]
-
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 67.0
-height = 88.0
 
 [node name="AgentInfoDisplay" type="CanvasLayer"]
 script = ExtResource( 4 )
@@ -275,24 +271,7 @@ position = Vector2( 105, 130 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" parent="Panel/Background/BodyPanel/AgentDummy" index="0"]
-visible = false
-position = Vector2( 1, 4 )
-shape = SubResource( 1 )
 disabled = true
-
-[node name="Left" parent="Panel/Background/BodyPanel/AgentDummy/Mandibles" index="0"]
-position = Vector2( -17.0495, -224.365 )
-
-[node name="Right" parent="Panel/Background/BodyPanel/AgentDummy/Mandibles" index="1"]
-position = Vector2( 16.9505, -224.365 )
-collision_layer = 4
-collision_mask = 6
-
-[node name="Left" parent="Panel/Background/BodyPanel/AgentDummy/Antennae" index="0"]
-position = Vector2( -19.4092, -272.211 )
-
-[node name="Right" parent="Panel/Background/BodyPanel/AgentDummy/Antennae" index="1"]
-position = Vector2( 17.6383, -272.874 )
 
 [node name="StatusOverlay" type="Node2D" parent="Panel/Background/BodyPanel/AgentDummy"]
 position = Vector2( -210, -260 )
@@ -362,7 +341,7 @@ rotation = 2.26893
 
 [node name="ActiveAntennae" type="Node2D" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay"]
 
-[node name="Sprite" type="Sprite" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveAntennae"]
+[node name="Left" type="Sprite" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveAntennae"]
 modulate = Color( 0, 0.905882, 1, 1 )
 position = Vector2( 95, 48 )
 scale = Vector2( 0.44, 0.44 )
@@ -370,7 +349,7 @@ texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( -2.79251, -6.29, 58.7925, 122.316 )
 
-[node name="Sprite2" type="Sprite" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveAntennae"]
+[node name="Right" type="Sprite" parent="Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveAntennae"]
 modulate = Color( 0, 0.905882, 1, 1 )
 position = Vector2( 114, 49 )
 scale = Vector2( 0.44, 0.44 )

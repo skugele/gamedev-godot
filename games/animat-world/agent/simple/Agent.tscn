@@ -6,7 +6,8 @@
 [ext_resource path="res://agent/simple/antenna-left.tscn" type="PackedScene" id=4]
 [ext_resource path="res://agent/simple/mandible-right.tscn" type="PackedScene" id=5]
 [ext_resource path="res://agent/simple/hair.tscn" type="PackedScene" id=6]
-[ext_resource path="res://agent/simple/Agent.gd" type="Script" id=7]
+[ext_resource path="res://agent/simple/agent.gd" type="Script" id=7]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 68.9142

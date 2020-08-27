@@ -97,6 +97,8 @@ ui_close_mandibles={
 2d_physics/layer_1="Fixed Objects"
 2d_physics/layer_2="Manipulatable Objects"
 2d_physics/layer_3="Agents"
+2d_physics/layer_4="Smell Emitter"
+2d_physics/layer_5="Smell Detector"
 
 [rendering]
 

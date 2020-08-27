@@ -4,7 +4,7 @@ signal hair_active(hair)
 signal hair_inactive(hair)
 
 # a unique identifier for this hair
-onready var id = null
+export(int) var id = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
