@@ -9,5 +9,11 @@ script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 
 [node name="SmellDetector" parent="." instance=ExtResource( 2 )]
+
+[node name="TouchDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchDetector"]
 [connection signal="smell_detected" from="SmellDetector" to="." method="_on_smell_detected"]
 [connection signal="smell_lost" from="SmellDetector" to="." method="_on_smell_lost"]
+[connection signal="body_entered" from="TouchDetector" to="." method="_on_touch_detected"]
+[connection signal="body_exited" from="TouchDetector" to="." method="_on_touch_lost"]

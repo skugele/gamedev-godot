@@ -1,11 +1,8 @@
 extends CanvasLayer
 
-# boolean alerts
+# agent sensor activity alerts
 onready var hair_alerts = []
-
-# scalar alerts
 onready var antennae_alerts = []
-
 
 onready var agent_body = $Panel/Background/BodyPanel/AgentDummy
 
@@ -20,9 +17,11 @@ func init_sensor_alerts():
 		hair_alerts.append(hair)
 		
 	container = $Panel/Background/BodyPanel/AgentDummy/StatusOverlay/ActiveAntennaeAlerts
-	for antenna in container.get_children():
-		antenna.set_activity_level(0)
-		antennae_alerts.append(antenna)
+	for antenna_alert in container.get_children():
+#		antenna_alert.set_touch_inactive()
+		antenna_alert.set_smell_activity_level(0)		
+		
+		antennae_alerts.append(antenna_alert)
 			
 func _on_agent_hair_activity_change(active_hairs):
 	var id = 0
@@ -43,7 +42,16 @@ func _on_agent_rotation_change(value):
 func _on_agent_mandible_aperture_change(value):
 	agent_body.set_mandible_aperature(value)
 	
-func _on_agent_smell_activity_change(smell_activity):
-	print("destination reached! ", smell_activity)
-	for i in len(smell_activity):
-		antennae_alerts[i].set_activity_level(smell_activity[i])
+func _on_agent_smell_activity_change(activity):
+	for i in len(activity):
+		antennae_alerts[i].set_smell_activity_level(activity[i])	
+		
+func _on_agent_antennae_activity_change(activity):
+	print('in _on_agent_antennae_activity_change:', activity)
+	var id = 0
+	for active in activity:
+		if active:
+			antennae_alerts[id].set_touch_active()
+		else:
+			antennae_alerts[id].set_touch_inactive()
+		id += 1

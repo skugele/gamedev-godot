@@ -76,10 +76,14 @@ func agent_join(id):
 		"smell_activity_change", 
 		agent_info_display, 
 		"_on_agent_smell_activity_change")		
+		
+	agent_node.connect(
+		"antennae_activity_change", 
+		agent_info_display, 
+		"_on_agent_antennae_activity_change")						
 			
 	# adds camera to agent
 	camera = Camera2D.new()
 	agent_node.add_child(camera)
 	camera.current = true
-	camera.zoom = Vector2(DEFAULT_ZOOM, DEFAULT_ZOOM)
-		
+	camera.zoom = Vector2(DEFAULT_ZOOM, DEFAULT_ZOOM)		
