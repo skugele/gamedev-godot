@@ -63,7 +63,6 @@ id = 3
 [node name="Hair4" parent="Hairs" instance=ExtResource( 6 )]
 position = Vector2( 46.1266, -57.122 )
 rotation = -1.74533
-scale = Vector2( 1, 1 )
 id = 4
 
 [node name="Hair5" parent="Hairs" instance=ExtResource( 6 )]
@@ -74,7 +73,6 @@ id = 5
 [node name="Hair6" parent="Hairs" instance=ExtResource( 6 )]
 position = Vector2( 82.1266, -0.122009 )
 rotation = -2.26893
-scale = Vector2( 1, 1 )
 id = 6
 
 [node name="Hair7" parent="Hairs" instance=ExtResource( 6 )]
@@ -105,7 +103,6 @@ id = 11
 [node name="Hair12" parent="Hairs" instance=ExtResource( 6 )]
 position = Vector2( 179.127, -62.122 )
 rotation = 1.74533
-scale = Vector2( 1, 1 )
 id = 12
 
 [node name="Hair13" parent="Hairs" instance=ExtResource( 6 )]
@@ -116,7 +113,6 @@ id = 13
 [node name="Hair14" parent="Hairs" instance=ExtResource( 6 )]
 position = Vector2( 144.127, -4.12201 )
 rotation = 2.26893
-scale = Vector2( 1, 1 )
 id = 14
 
 [node name="Mandibles" type="Node2D" parent="."]

@@ -274,6 +274,30 @@ scale = Vector2( 0.5, 0.5 )
 [node name="CollisionShape2D" parent="Panel/Background/BodyPanel/AgentDummy" index="0"]
 disabled = true
 
+[node name="Hair2" parent="Panel/Background/BodyPanel/AgentDummy/Hairs" index="2"]
+position = Vector2( 41.1266, -129.122 )
+
+[node name="Hair3" parent="Panel/Background/BodyPanel/AgentDummy/Hairs" index="3"]
+position = Vector2( 40.1266, -91.122 )
+
+[node name="Hair4" parent="Panel/Background/BodyPanel/AgentDummy/Hairs" index="4"]
+position = Vector2( 46.1266, -57.122 )
+scale = Vector2( 1, 1 )
+
+[node name="Hair6" parent="Panel/Background/BodyPanel/AgentDummy/Hairs" index="6"]
+position = Vector2( 82.1266, -0.122009 )
+scale = Vector2( 1, 1 )
+
+[node name="Hair7" parent="Panel/Background/BodyPanel/AgentDummy/Hairs" index="7"]
+position = Vector2( 112.127, 10.878 )
+
+[node name="Hair12" parent="Panel/Background/BodyPanel/AgentDummy/Hairs" index="12"]
+scale = Vector2( 1, 1 )
+
+[node name="Hair14" parent="Panel/Background/BodyPanel/AgentDummy/Hairs" index="14"]
+position = Vector2( 144.127, -4.12201 )
+scale = Vector2( 1, 1 )
+
 [node name="StatusOverlay" type="Node2D" parent="Panel/Background/BodyPanel/AgentDummy"]
 position = Vector2( -210, -260 )
 scale = Vector2( 2, 2 )

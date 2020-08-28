@@ -14,8 +14,7 @@ export(int) var FRICTION = 5000
 #############
 # constants #
 #############
-# TODO: Need to move this somewhere else
-const SMELL_DIMENSIONS = 25
+
 
 ################
 # onready vars #
@@ -27,19 +26,18 @@ onready var hairs = []
 onready var antennae = []
 onready var mandibles = []
 
-# current state vars
+# indicators of sensory activity
 onready var active_hairs = []
-onready var active_antennae = []
-onready var smell_activity = []
-onready var smells = []
+onready var active_scents = [] # per antenna
+
+# current state vars
 onready var velocity = Vector2.ZERO
 onready var mandible_aperature = 0 # in degrees
 
 ########
 # vars #
 ########
-# TODO: Need to move this somewhere else
-var DEFAULT_SMELL = get_default_smell()
+
 
 ###########
 # signals #
@@ -82,22 +80,18 @@ func init_sensors():
 	# antennae
 	sensor_id = 0
 	for antenna in $Antennae.get_children():
-		antenna.id = sensor_id
-		sensor_id += 1
+		antenna.id = sensor_id		
 		antennae.append(antenna)
-		active_antennae.append(false)
-		smell_activity.append(0)
-		smells.append(DEFAULT_SMELL)
+		
+		# adds an empty list (one per antenna) that will be updated whenever 
+		# scents are detected or lost by the agent's antennae
+		active_scents.append([])
+
+		sensor_id += 1
 		
 		# configure hair signals
 		antenna.connect("antenna_detected_smell", self, "_on_antenna_detected_smell")
 		antenna.connect("antenna_lost_smell", self, "_on_antenna_lost_smell")
-
-# TODO: Need to move this somewhere else
-func get_default_smell():
-	var value = []	
-	for d in SMELL_DIMENSIONS:
-		value.append(0)
 
 func set_rotation(degrees):
 	rotation = degrees
@@ -105,7 +99,30 @@ func set_rotation(degrees):
 func set_mandible_aperature(degrees):
 	mandibles[0].rotation_degrees = degrees
 	mandibles[1].rotation_degrees = -degrees
-				
+	
+func distance_from_scent(antenna, scent):
+	var detector_pos = antenna.smell_detector.position
+	var scent_pos = scent.position
+	
+	return detector_pos.distance_from(scent_pos)
+
+func add_scent(antenna, scent):
+	active_scents[antenna.id].append(scent)
+	
+func remove_scent(antenna, scent):
+	var index = active_scents[antenna.id].find(scent)
+	
+	# found
+	if index != -1:
+		active_scents[antenna.id].remove(index)
+		
+func smell_activity_level():
+	var levels = []
+	for antenna in antennae:
+		levels.append(len(active_scents[antenna.id]))
+		
+	return levels
+		
 func _on_hair_active(hair):
 	active_hairs[hair.id] = true
 	emit_signal("hair_activity_change", active_hairs)
@@ -114,10 +131,10 @@ func _on_hair_inactive(hair):
 	active_hairs[hair.id] = false
 	emit_signal("hair_activity_change", active_hairs)
 
-func _on_antenna_detected_smell(antenna, sensory_data):
-	smell_activity[antenna.id] += 1
-	emit_signal("smell_activity_change", smell_activity)
+func _on_antenna_detected_smell(antenna, scent):
+	add_scent(antenna, scent)
+	emit_signal("smell_activity_change", smell_activity_level())
 
-func _on_antenna_lost_smell(antenna, sensory_data):
-	smell_activity[antenna.id] -= 1
-	emit_signal("smell_activity_change", smell_activity)
+func _on_antenna_lost_smell(antenna, scent):
+	remove_scent(antenna, scent)
+	emit_signal("smell_activity_change", smell_activity_level())
