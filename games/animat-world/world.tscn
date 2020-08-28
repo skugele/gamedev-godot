@@ -46,6 +46,27 @@ position = Vector2( 1785.23, -1583.08 )
 [node name="FoodGood" parent="UnprocessedFood" instance=ExtResource( 7 )]
 position = Vector2( 1368.51, -1294.91 )
 
+[node name="FoodGood5" parent="UnprocessedFood" instance=ExtResource( 7 )]
+position = Vector2( 1271.98, -1422.87 )
+
+[node name="FoodGood7" parent="UnprocessedFood" instance=ExtResource( 7 )]
+position = Vector2( 1141.77, -1384.71 )
+
+[node name="FoodGood8" parent="UnprocessedFood" instance=ExtResource( 7 )]
+position = Vector2( 1043, -1306.13 )
+
+[node name="FoodGood9" parent="UnprocessedFood" instance=ExtResource( 7 )]
+position = Vector2( 1173.2, -1306.13 )
+
+[node name="FoodGood10" parent="UnprocessedFood" instance=ExtResource( 7 )]
+position = Vector2( 1173.2, -1306.13 )
+
+[node name="FoodGood6" parent="UnprocessedFood" instance=ExtResource( 7 )]
+position = Vector2( 1237.63, -1380.22 )
+
+[node name="FoodGood11" parent="UnprocessedFood" instance=ExtResource( 7 )]
+position = Vector2( 1275.8, -1267.97 )
+
 [node name="FoodGood2" parent="UnprocessedFood" instance=ExtResource( 7 )]
 position = Vector2( 1109.85, -1196.57 )
 

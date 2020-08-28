@@ -71,6 +71,11 @@ func agent_join(id):
 		"mandible_aperture_change", 
 		agent_info_display, 
 		"_on_agent_mandible_aperture_change")			
+		
+	agent_node.connect(
+		"smell_activity_change", 
+		agent_info_display, 
+		"_on_agent_smell_activity_change")		
 			
 	# adds camera to agent
 	camera = Camera2D.new()
