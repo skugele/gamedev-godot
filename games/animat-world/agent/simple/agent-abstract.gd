@@ -33,7 +33,7 @@ onready var active_hairs = [] # 1d int array
 onready var active_antennae = [] # 1d int array
 
 # olfactory
-onready var active_scents = [] # 1d array of scents from both antennae
+onready var active_scents = {} # dictionary of scent emitters ids -> active scent areas
 onready var combined_scent_sig = null
 
 # current state vars
@@ -59,6 +59,8 @@ signal mandible_aperture_change(value)
 # functions #
 #############
 func _ready():
+	id = Globals.generate_unique_id()
+	
 	init_sensors()
 	init_effectors()	
 
@@ -71,12 +73,12 @@ func _process(delta):
 #		emit_signal("smell_activity_change", level)
 				
 func get_combined_scent(active_scents):
-	var combined_scent_sig = $Globals.NULL_SMELL
+	var combined_scent_sig = Globals.NULL_SMELL
 	for scent in active_scents:
 		var distance = distance_from_scent(scent)
-		var scaling_factor = distance / $Globals.SMELL_DETECTABLE_RADIUS
+		var scaling_factor = distance / Globals.SMELL_DETECTABLE_RADIUS
 #		print('scaling_factor: ', scaling_factor)
-		var scaled_scent = $Globals.scale(scent.signature, scaling_factor)
+		var scaled_scent = Globals.scale(scent.signature, scaling_factor)
 #		print('scaled_scent: ', scaled_scent)
 		
 		combined_scent_sig += scaled_scent
@@ -131,7 +133,7 @@ func set_mandible_aperature(degrees):
 	mandibles[1].rotation_degrees = -degrees
 	
 func distance_from_scent(scent):
-	var distance = $Globals.SMELL_DETECTABLE_RADIUS
+	var distance = Globals.SMELL_DETECTABLE_RADIUS
 	
 	for antenna in antennae:
 		var detector_pos = antenna.smell_detector.global_position
@@ -142,20 +144,17 @@ func distance_from_scent(scent):
 	return distance
 
 func add_scent(scent):
-#	var index = active_scents.find(scent)	
-#
-#	if index == -1:
-#		active_scents.append(scent)
-#	else:
-#		active_scents[index] = scent
-	active_scents.append(scent)
+	if active_scents.has(scent.smell_emitter_id):
+		active_scents[scent.smell_emitter_id].push_back(scent)
+	else:
+		active_scents[scent.smell_emitter_id] = [scent]
 	
 func remove_scent(scent):
-	var index = active_scents.find(scent)
-	
-	# found
-	if index != -1:
-		active_scents.remove(index)
+	if len(active_scents[scent.smell_emitter_id]) <= 1:
+		active_scents.erase(scent.smell_emitter_id)
+	else:
+		var removed_scent = active_scents[scent.smell_emitter_id].pop_back()
+		print('removing: ', removed_scent)		
 		
 func _on_hair_active(hair):
 	active_hairs[hair.id] += 1
@@ -168,12 +167,12 @@ func _on_hair_inactive(hair):
 func _on_antenna_detected_smell(antenna, scent):
 	print('adding: ', scent)
 	add_scent(scent)
-	print(active_scents)
+	print(active_scents.values())
 
 func _on_antenna_lost_smell(antenna, scent):
 	print('removing: ', scent)
 	remove_scent(scent)
-	print(active_scents)
+	print(active_scents.values())
 	
 func _on_antenna_detected_object(antenna, body):
 	active_antennae[antenna.id] += 1

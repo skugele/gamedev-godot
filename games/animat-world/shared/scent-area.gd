@@ -1,16 +1,17 @@
 extends Node2D
 
+var smell_emitter_id = null
 var signature = null
 var shape = null setget set_shape, get_shape
 
 func init_shape(radius):
-	var shape = CircleShape2D.new()
-	shape.radius = radius
+	var new_shape = CircleShape2D.new()
+	new_shape.radius = radius
 	
-	$CollisionShape2D.set_shape(shape)
+	$CollisionShape2D.set_shape(new_shape)
 		
-func set_shape(shape):
-	$CollisionShape2D.shape = shape
+func set_shape(new_shape):
+	$CollisionShape2D.shape = new_shape
 	
 func get_shape():
 	return $CollisionShape2D.shape

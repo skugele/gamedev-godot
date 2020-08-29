@@ -14,6 +14,29 @@ var NULL_SMELL = zero_vector(SMELL_DIMENSIONS)
 # modifiable global state (USE WITH CAUTION) #
 ##############################################
 
+
+##########################
+# synchronized functions #
+##########################
+
+# thread locks (mutexes)
+var global_id = 1000000000
+var global_id_mutex = Mutex.new()
+
+func generate_unique_id():
+	var id = null
+	
+	print('entering synchronization block: ', self)
+	# synchronized block
+	global_id_mutex.lock()
+	global_id += 1
+	id = global_id
+	global_id_mutex.unlock()
+	print('exiting synchronization block: ', self)
+	print('returning id: ', id)
+	
+	return id
+
 ##################################################################
 # shared functions (THESE FUNCTIONS SHOULD HAVE NO SIDE-EFFECTS) #
 ##################################################################

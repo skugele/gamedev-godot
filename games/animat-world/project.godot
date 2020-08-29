@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="animat-world"
 run/main_scene="res://world.tscn"
 
+[autoload]
+
+Globals="*res://shared/globals.tscn"
+
 [importer_defaults]
 
 texture={
