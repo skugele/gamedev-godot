@@ -1,0 +1,211 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://agent/simple/agent-abstract.tscn" type="PackedScene" id=1]
+
+[node name="NonCorporealAgent" instance=ExtResource( 1 )]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="." index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair0" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair0/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair1" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair1/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair2" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair2/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair3" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair3/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair4" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair4/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair5" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair5/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair6" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair6/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair7" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair7/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair8" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair8/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair9" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair9/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair10" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair10/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair11" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair11/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair12" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair12/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair13" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair13/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Hairs/Hair14" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hairs/Hair14/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Mandibles/Left" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionPolygon2D" parent="Mandibles/Left/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Mandibles/Right" index="1"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionPolygon2D" parent="Mandibles/Right/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Antennae/Left/SmellDetector" index="0"]
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Antennae/Left/SmellDetector/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="CollisionShape2D" parent="Antennae/Left/TouchDetector" index="0"]
+visible = false
+disabled = true
+
+[node name="Area2D" parent="Antennae/Right/SmellDetector" index="0"]
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Antennae/Right/SmellDetector/Area2D" index="0"]
+visible = false
+disabled = true
+
+[node name="CollisionShape2D" parent="Antennae/Right/TouchDetector" index="0"]
+visible = false
+disabled = true
+
+[editable path="Hairs/Hair0"]
+
+[editable path="Hairs/Hair1"]
+
+[editable path="Hairs/Hair2"]
+
+[editable path="Hairs/Hair3"]
+
+[editable path="Hairs/Hair4"]
+
+[editable path="Hairs/Hair5"]
+
+[editable path="Hairs/Hair6"]
+
+[editable path="Hairs/Hair7"]
+
+[editable path="Hairs/Hair8"]
+
+[editable path="Hairs/Hair9"]
+
+[editable path="Hairs/Hair10"]
+
+[editable path="Hairs/Hair11"]
+
+[editable path="Hairs/Hair12"]
+
+[editable path="Hairs/Hair13"]
+
+[editable path="Hairs/Hair14"]
+
+[editable path="Mandibles/Left"]
+
+[editable path="Mandibles/Right"]
+
+[editable path="Antennae/Left"]
+
+[editable path="Antennae/Left/SmellDetector"]
+
+[editable path="Antennae/Right"]
+
+[editable path="Antennae/Right/SmellDetector"]

@@ -1,32 +1,31 @@
 extends Node2D
 
-var DEFAULT_RADIUS = 500
-var DEFAULT_SMELL = get_default_smell()
-
-const SMELL_DIMENSIONS = 25
-
-export(float) var radius setget set_radius, get_radius
-export(Array, float) var signature setget set_signature, get_signature
-
-onready var scent = $Scent
-onready var area = $Scent/CollisionShape2D
+onready var signature = null setget set_signature
+onready var scent_areas = $ScentAreas
 
 func _ready():
-	radius = DEFAULT_RADIUS
+	pass
+		
+func add_scent_area(radius):
+	var scent_area = load("res://shared/scent-area.tscn").instance()
 	
-func get_default_smell():
-	var value = []	
-	for d in SMELL_DIMENSIONS:
-		value.append(0)
-	
-func set_radius(value):
-	area.shape.radius = value
+#	var collision_shape = scent_area.get_node("CollisionShape2D")
+#	var shape = CircleShape2D.new()
+#	shape.radius = radius
+#
+#	collision_shape.set_shape(shape)
 
-func get_radius():
-	return area.shape.radius
+	scent_area.init_shape(radius)
+#
+	scent_areas.add_child(scent_area)
+	
+	return scent_area
 	
 func set_signature(value):
-	scent.signature = value
-
-func get_signature():
-	return scent.signature
+	for area in $ScentAreas.get_children():
+		area.signature = value
+	
+func get_default_smell():
+	var value = []
+	for d in $Globals.SMELL_DIMENSIONS:
+		value.append(0)

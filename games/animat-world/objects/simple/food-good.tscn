@@ -11,15 +11,12 @@ height = 137.058
 [node name="FoodGood" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
-[node name="Sprite" parent="." index="0"]
+[node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 868, 289, 117, 138 )
 
-[node name="Smell" parent="." index="1"]
-modulate = Color( 1, 0, 0, 1 )
-
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="3"]
 visible = false
 position = Vector2( 0, -0.999994 )
 scale = Vector2( 4.04277, 0.855602 )

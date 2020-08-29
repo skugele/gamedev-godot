@@ -9,8 +9,5 @@ func _ready():
 	# TODO: The signature should be calculated based on some random 
 	# perturbations from Gaussian centers. The centers will define 
 	# certain characteristics of the objects ("food", "ripe", "agent", etc.)
-	smell.signature = [0,0,0,0,1,
-					   0,0,0,0,1,
-					   0,0,0,0,1,
-					   0,0,0,0,1,
-					   0,0,0,0,1]
+	signature = [1,0,0,0,0]
+	init_scent_areas([100, 250, 500, 1000])

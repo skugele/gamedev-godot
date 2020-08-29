@@ -1,9 +1,5 @@
 extends "res://objects/simple/food-abstract.gd"
 
-
 func _ready():	
-	smell.signature = [0,0,0,0,1,
-					   0,0,0,0,1,
-					   0,0,0,0,1,
-					   0,0,1,0,0,
-					   0,0,1,0,0]
+	signature = [0,0,0,0,1]
+	init_scent_areas([100, 250, 500, 1000])

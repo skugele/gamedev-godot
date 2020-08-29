@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://agent/simple/antenna.tscn" type="PackedScene" id=1]
 [ext_resource path="res://agent/simple/mandible-left.tscn" type="PackedScene" id=2]
 [ext_resource path="res://agent/simple/mandible-right.tscn" type="PackedScene" id=3]
+[ext_resource path="res://agent/agent-stats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://shared/globals.tscn" type="PackedScene" id=5]
 [ext_resource path="res://agent/simple/hair.tscn" type="PackedScene" id=6]
 [ext_resource path="res://agent/simple/agent-abstract.gd" type="Script" id=7]
 [ext_resource path="res://atlases/simple-agent-parts-inverted.png" type="Texture" id=8]
@@ -26,6 +28,10 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_vertical_guides_": [ 108.07 ]
 }
+
+[node name="Stats" parent="." instance=ExtResource( 4 )]
+
+[node name="Globals" parent="." instance=ExtResource( 5 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 3 )
