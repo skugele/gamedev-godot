@@ -34,6 +34,7 @@ onready var active_antennae = [] # 1d int array
 
 # olfactory
 onready var active_scents = {} # dictionary of scent emitters ids -> active scent areas
+onready var ignored_scents = [] # ignore own smells
 onready var combined_scent_sig = null
 
 # current state vars
@@ -43,7 +44,7 @@ onready var mandible_aperature = 0 # in degrees
 ########
 # vars #
 ########
-
+var signature = null
 
 ###########
 # signals #
@@ -64,14 +65,16 @@ func _ready():
 	init_sensors()
 	init_effectors()	
 
+	signature = Globals.normalize([0,0,1,1,1])
+	init_scent_areas([100, 250, 500, 1000])
+
+	# build list of ignored smells (i.e., ignore agent's own smells)	
+	for area in $Smell/ScentAreas.get_children():
+		ignored_scents.append(area)
+
 func _process(delta):
 	pass
-#	if len(active_scents) > 0:
-#		print(active_scents)
-#		var combined_scent_sig = get_combined_scent(active_scents)
-#		var level = 1 - $Globals.get_magnitude(combined_scent_sig)
 
-				
 func get_combined_scent(active_scents):
 	var combined_scent_sig = Globals.NULL_SMELL
 
@@ -88,7 +91,11 @@ func get_combined_scent(active_scents):
 		combined_scent_sig = Globals.add_vectors(combined_scent_sig, scaled_scent)
 
 	return combined_scent_sig
-	
+
+func init_scent_areas(radii):
+	for r in radii:
+		$Smell.add_scent_area(r, signature)	
+			
 func get_activity_level():
 	
 	var combined_scent = get_combined_scent(active_scents)
@@ -155,8 +162,8 @@ func distance_from_scent(scent):
 		distance = min(distance, detector_pos.distance_to(scent_pos))
 	
 	return distance
-
-func add_scent(scent):
+	
+func add_scent(scent):	
 	if active_scents.has(scent.smell_emitter_id):
 		active_scents[scent.smell_emitter_id].push_back(scent)
 	else:
@@ -178,12 +185,18 @@ func _on_hair_inactive(hair):
 	emit_signal("hair_activity_change", active_hairs)
 
 func _on_antenna_detected_smell(antenna, scent):
+	if ignored_scents.find(scent) != -1:
+		return
+		
 	print('adding: ', scent)
 	add_scent(scent)
 	print(active_scents.values())
 	emit_signal("smell_activity_change", get_activity_level())
 
 func _on_antenna_lost_smell(antenna, scent):
+	if ignored_scents.find(scent) != -1:
+		return
+		
 	print('removing: ', scent)
 	remove_scent(scent)
 	print(active_scents.values())

@@ -4,7 +4,7 @@ extends Node
 # constants #
 #############
 const SMELL_DIMENSIONS = 5
-const SMELL_DETECTABLE_RADIUS = 1500
+const SMELL_DETECTABLE_RADIUS = 1000
 
 const TIME_FORMAT_STRING = '%02dD %02dH %02dM %02dS %03dms'
 
@@ -82,7 +82,10 @@ func get_magnitude(vector):
 		value += pow(element, 2)
 		
 	return sqrt(value)
-
+	
+func normalize(vector):
+	return	scale(vector, 1.0 / get_magnitude(vector))
+	
 # returns a new array that is the union of two arrays. it assumes that
 # each argument is a set (i.e., only contain distinct items)
 func union(set1, set2):

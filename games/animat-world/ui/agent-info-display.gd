@@ -11,7 +11,7 @@ func _ready():
 	
 func _process(delta):
 
-	$Panel/SidePanel/ElapsedTime.text = Globals.TIME_FORMAT_STRING % Globals.get_elapsed_time()
+	$SidePanel/ElapsedTime.text = Globals.TIME_FORMAT_STRING % Globals.get_elapsed_time()
 	
 func init_sensor_alerts():
 	
