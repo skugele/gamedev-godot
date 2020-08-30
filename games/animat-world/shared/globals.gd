@@ -6,6 +6,8 @@ extends Node
 const SMELL_DIMENSIONS = 5
 const SMELL_DETECTABLE_RADIUS = 1500
 
+const TIME_FORMAT_STRING = '%02dD %02dH %02dM %02dS %03dms'
+
 # should be a constant value, but gdscript does not support function calls to 
 # initialize constant values
 var NULL_SMELL = zero_vector(SMELL_DIMENSIONS)
@@ -13,16 +15,14 @@ var NULL_SMELL = zero_vector(SMELL_DIMENSIONS)
 ##############################################
 # modifiable global state (USE WITH CAUTION) #
 ##############################################
+var global_id = 1000000000 # should never be acessed directly (use generate_unique_id)
 
+# thread locks (mutexes)
+var global_id_mutex = Mutex.new() # used in generate_unique_id function
 
 ##########################
 # synchronized functions #
 ##########################
-
-# thread locks (mutexes)
-var global_id = 1000000000
-var global_id_mutex = Mutex.new()
-
 func generate_unique_id():
 	var id = null
 	
@@ -38,6 +38,25 @@ func generate_unique_id():
 # shared functions (THESE FUNCTIONS SHOULD HAVE NO SIDE-EFFECTS) #
 ##################################################################
 
+func get_elapsed_time():
+	var milliseconds = (OS.get_ticks_msec())
+	
+	var remainder = 0
+	
+	var days = milliseconds / 86400000
+	remainder = milliseconds % 86400000
+	
+	var hours = remainder / 3600000
+	remainder = remainder % 3600000
+	
+	var minutes = remainder / 60000
+	remainder = remainder % 60000
+	
+	var seconds = remainder / 1000
+	milliseconds = remainder % 1000	
+	
+	return [days, hours, minutes, seconds, milliseconds]
+	
 # assume vectors have same length
 func add_vectors(v1, v2):
 	var result = v1.duplicate()
@@ -91,6 +110,4 @@ func scale(array, scalar):
 		new_array[pos] *= scalar
 		pos += 1
 		
-	return new_array
-		
-	
+	return new_array	
