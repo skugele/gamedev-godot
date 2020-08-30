@@ -17,7 +17,7 @@ position = Vector2( 17, 6 )
 [node name="Background" type="ColorRect" parent="Panel"]
 modulate = Color( 0.996078, 0.996078, 0.996078, 1 )
 margin_top = 5.0
-margin_right = 423.0
+margin_right = 452.0
 margin_bottom = 250.0
 color = Color( 0, 0, 0, 0.529412 )
 __meta__ = {
@@ -27,7 +27,7 @@ __meta__ = {
 [node name="StatsPanel" type="ColorRect" parent="Panel/Background"]
 margin_left = 7.0
 margin_top = 5.0
-margin_right = 207.0
+margin_right = 211.0
 margin_bottom = 240.0
 color = Color( 0.454902, 0.454902, 0.454902, 0.529412 )
 __meta__ = {
@@ -297,9 +297,9 @@ __meta__ = {
 }
 
 [node name="BodyPanel" type="ColorRect" parent="Panel/Background"]
-margin_left = 208.0
+margin_left = 216.0
 margin_top = 5.0
-margin_right = 419.0
+margin_right = 447.0
 margin_bottom = 240.0
 color = Color( 1, 1, 1, 0.529412 )
 __meta__ = {
@@ -321,7 +321,7 @@ __meta__ = {
 
 [node name="Agent" parent="Panel/Background/BodyPanel" instance=ExtResource( 2 )]
 modulate = Color( 1, 1, 1, 0.686275 )
-position = Vector2( 105.573, 130.083 )
+position = Vector2( 116.573, 124.083 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="StatusOverlay" type="Node2D" parent="Panel/Background/BodyPanel/Agent"]
@@ -430,12 +430,9 @@ region_rect = Rect2( -12.6431, -11.4193, 221.579, 220.072 )
 
 [node name="grid" type="Sprite" parent="Panel/Background/BodyPanel"]
 modulate = Color( 1, 1, 1, 0.137255 )
-position = Vector2( 105.5, 117.5 )
-scale = Vector2( 0.784387, 0.870371 )
+position = Vector2( 115.5, 116.5 )
+scale = Vector2( 0.86, 0.875 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [editable path="Panel/Background/BodyPanel/Agent/StatusOverlay/AntennaeAlerts/Antenna1"]
 
