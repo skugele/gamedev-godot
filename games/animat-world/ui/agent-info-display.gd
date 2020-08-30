@@ -4,19 +4,23 @@ extends CanvasLayer
 onready var hair_alerts = []
 onready var antennae_alerts = []
 
-onready var agent_body = $Panel/Background/BodyPanel/Agent
+onready var agent_body = $Panel/AgentInfoPanel/BodyPanel/Agent
 
 func _ready():
 	init_sensor_alerts()
+	
+func _process(delta):
 
+	$Panel/SidePanel/ElapsedTime.text = Globals.TIME_FORMAT_STRING % Globals.get_elapsed_time()
+	
 func init_sensor_alerts():
 	
-	var container = $Panel/Background/BodyPanel/Agent/StatusOverlay/HairAlerts
+	var container = $Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts
 	for hair in container.get_children():
 		hair.set_inactive()	
 		hair_alerts.append(hair)
 		
-	container = $Panel/Background/BodyPanel/Agent/StatusOverlay/AntennaeAlerts
+	container = $Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/AntennaeAlerts
 	for antenna_alert in container.get_children():
 #		antenna_alert.set_touch_inactive()
 		antenna_alert.set_smell_activity_level(0)		
