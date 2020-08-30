@@ -5,6 +5,7 @@ const TOUCH_COLOR = Color(1,1,0,0.5)
 
 # Smell Effect Colors
 const SMELL_ACTIVITY_COLOR = Color(0,0.2,1,0)
+const ALPHA_MAX = 0.85
 
 onready var smell_effect = $SmellEffect
 onready var touch_effect = $TouchEffect
@@ -25,7 +26,7 @@ func set_touch_inactive():
 	
 func set_smell_activity_level(level):
 	var color = SMELL_ACTIVITY_COLOR
-	color.a = level
+	color.a = min(level / 3.0, ALPHA_MAX)
 		
 #	print(color)
 	smell_effect.modulate = color

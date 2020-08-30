@@ -26,20 +26,29 @@ var global_id_mutex = Mutex.new()
 func generate_unique_id():
 	var id = null
 	
-	print('entering synchronization block: ', self)
 	# synchronized block
 	global_id_mutex.lock()
 	global_id += 1
 	id = global_id
 	global_id_mutex.unlock()
-	print('exiting synchronization block: ', self)
-	print('returning id: ', id)
-	
+
 	return id
 
 ##################################################################
 # shared functions (THESE FUNCTIONS SHOULD HAVE NO SIDE-EFFECTS) #
 ##################################################################
+
+# assume vectors have same length
+func add_vectors(v1, v2):
+	var result = v1.duplicate()
+	
+	var i = 0
+	while i < len(v1):
+		result[i] += v2[i]
+		i += 1
+		
+	return result		
+	
 func zero_vector(dims):
 	var new_vector = []
 	for d in dims:

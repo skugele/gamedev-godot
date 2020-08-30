@@ -70,20 +70,33 @@ func _process(delta):
 #		print(active_scents)
 #		var combined_scent_sig = get_combined_scent(active_scents)
 #		var level = 1 - $Globals.get_magnitude(combined_scent_sig)
-#		emit_signal("smell_activity_change", level)
+
 				
 func get_combined_scent(active_scents):
 	var combined_scent_sig = Globals.NULL_SMELL
-	for scent in active_scents:
+
+	for id in active_scents.keys():
+		var scent = active_scents[id][-1]
 		var distance = distance_from_scent(scent)
-		var scaling_factor = distance / Globals.SMELL_DETECTABLE_RADIUS
-#		print('scaling_factor: ', scaling_factor)
+		print('distance: ', distance)
+		var scaling_factor = 1 - distance / Globals.SMELL_DETECTABLE_RADIUS
+		print('scent signature (unscaled): ', scent.signature)
+		print('scaling_factor: ', scaling_factor)
 		var scaled_scent = Globals.scale(scent.signature, scaling_factor)
-#		print('scaled_scent: ', scaled_scent)
-		
-		combined_scent_sig += scaled_scent
-		
+		print('scent signature (scaled): ', scaled_scent)
+
+		combined_scent_sig = Globals.add_vectors(combined_scent_sig, scaled_scent)
+
 	return combined_scent_sig
+	
+func get_activity_level():
+	
+	var combined_scent = get_combined_scent(active_scents)
+	print('combined signature: ', combined_scent)
+	var level = Globals.get_magnitude(combined_scent)
+	
+	return level
+		
 
 func init_effectors():
 	
@@ -168,11 +181,13 @@ func _on_antenna_detected_smell(antenna, scent):
 	print('adding: ', scent)
 	add_scent(scent)
 	print(active_scents.values())
+	emit_signal("smell_activity_change", get_activity_level())
 
 func _on_antenna_lost_smell(antenna, scent):
 	print('removing: ', scent)
 	remove_scent(scent)
 	print(active_scents.values())
+	emit_signal("smell_activity_change", get_activity_level())
 	
 func _on_antenna_detected_object(antenna, body):
 	active_antennae[antenna.id] += 1

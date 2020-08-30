@@ -216,6 +216,7 @@ margin_left = 24.0
 margin_top = 143.0
 margin_right = 124.0
 margin_bottom = 157.0
+rect_pivot_offset = Vector2( 123.12, 6.12796 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Children (Total):"
@@ -228,6 +229,66 @@ margin_left = 136.0
 margin_top = 143.19
 margin_right = 166.0
 margin_bottom = 157.19
+rect_pivot_offset = Vector2( 11.1203, 5.93796 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "TBD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Global Position" type="Node2D" parent="Panel/Background/StatsPanel"]
+position = Vector2( -0.940536, 26 )
+
+[node name="Label" type="Label" parent="Panel/Background/StatsPanel/Global Position"]
+margin_left = 24.0
+margin_top = 143.0
+margin_right = 124.0
+margin_bottom = 157.0
+rect_pivot_offset = Vector2( 123.12, 6.12796 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Global Position:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="Panel/Background/StatsPanel/Global Position"]
+margin_left = 136.0
+margin_top = 143.19
+margin_right = 166.0
+margin_bottom = 157.19
+rect_pivot_offset = Vector2( 11.1203, 5.93796 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "TBD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Global Position2" type="Node2D" parent="Panel/Background/StatsPanel"]
+position = Vector2( -0.940536, 45 )
+
+[node name="Label" type="Label" parent="Panel/Background/StatsPanel/Global Position2"]
+margin_left = 24.0
+margin_top = 143.0
+margin_right = 125.0
+margin_bottom = 157.0
+rect_pivot_offset = Vector2( 35.066, 2.44699 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Velocity:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="Panel/Background/StatsPanel/Global Position2"]
+margin_left = 136.0
+margin_top = 143.19
+margin_right = 166.0
+margin_bottom = 157.19
+rect_pivot_offset = Vector2( 11.1203, 5.93796 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "TBD"

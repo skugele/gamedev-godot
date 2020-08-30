@@ -11,12 +11,12 @@ height = 27.0439
 [node name="FoodBad" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 
-[node name="Sprite" parent="." index="1"]
+[node name="Sprite" parent="." index="0"]
 z_index = 1
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 875.865, 150.359, 108.041, 137.953 )
 
-[node name="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( -3, 5 )
 shape = SubResource( 1 )
