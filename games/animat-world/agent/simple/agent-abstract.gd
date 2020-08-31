@@ -62,11 +62,7 @@ signal mandible_aperture_change(value)
 # functions #
 #############
 func _ready():
-	id = Globals.generate_unique_id()
-	
-	init_sensors()
-	init_effectors()	
-	init_agent_smell()
+	pass
 
 func _process(delta):
 	pass
@@ -82,13 +78,13 @@ func init_agent_smell():
 	
 func disable_all():
 	# disable collisions	
-	$CollisionShape2D.disabled = true
+	$TorsoCollisionShape.disabled = true
 	
 	for hair in $Hairs.get_children():
 		hair.disable()
 	
-	for mandible in $Mandibles.get_children():
-		mandible.disable()
+#	for mandible in $Mandibles.get_children():
+#		mandible.disable()
 	
 	for antenna in $Antennae.get_children():
 		antenna.disable()

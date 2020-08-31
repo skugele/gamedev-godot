@@ -5,3 +5,11 @@
 
 [node name="AgentDummy" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+
+[editable path="Mandibles/Left"]
+
+[editable path="Mandibles/Right"]
+
+[editable path="Antennae/Left"]
+
+[editable path="Antennae/Right"]

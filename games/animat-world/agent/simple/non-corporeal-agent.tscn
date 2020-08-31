@@ -1,14 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://agent/simple/agent-abstract.tscn" type="PackedScene" id=1]
+[ext_resource path="res://agent/simple/non-corporeal-agent.gd" type="Script" id=2]
 
 [node name="NonCorporealAgent" instance=ExtResource( 1 )]
 collision_layer = 0
 collision_mask = 0
-
-[node name="CollisionShape2D" parent="." index="0"]
-visible = false
-disabled = true
+script = ExtResource( 2 )
 
 [node name="Area2D" parent="Hairs/Hair0" index="1"]
 collision_layer = 0

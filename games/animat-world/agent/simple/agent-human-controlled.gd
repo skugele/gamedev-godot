@@ -1,9 +1,9 @@
 # gdscript: agent-human-controlled.gd
 
-extends "res://agent/simple/agent-abstract.gd"
+extends "res://agent/simple/corporeal-agent.gd"
 
-func _ready():		
-	pass
+#func _ready():		
+#	pass
 
 func _physics_process(delta):
 	var inputs = get_input()

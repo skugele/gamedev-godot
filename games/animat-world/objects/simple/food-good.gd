@@ -12,4 +12,4 @@ func _ready():
 	# perturbations from Gaussian centers. The centers will define 
 	# certain characteristics of the objects ("food", "ripe", "agent", etc.)
 	signature = Globals.RIPE_FOOD_SMELL
-	init_scent_areas([100, 250, 500, 1000])
+	init_scent_areas([25, 100, 250, 500, 1000])
