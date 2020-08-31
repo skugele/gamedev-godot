@@ -1,3 +1,5 @@
+# gdscript: agent-human-controlled.gd
+
 extends "res://agent/simple/agent-abstract.gd"
 
 func _ready():		

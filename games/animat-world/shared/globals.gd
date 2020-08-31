@@ -1,16 +1,24 @@
+# gdscript: globals.gd
+
 extends Node
 
 #############
 # constants #
 #############
-const SMELL_DIMENSIONS = 5
+const SMELL_DIMENSIONS = 15
 const SMELL_DETECTABLE_RADIUS = 1000
 
 const TIME_FORMAT_STRING = '%02dD %02dH %02dM %02dS %03dms'
 
-# should be a constant value, but gdscript does not support function calls to 
-# initialize constant values
+# base smells
 var NULL_SMELL = zero_vector(SMELL_DIMENSIONS)
+var UNPROCESSED_FOOD_SMELL = get_sensory_vector([1,5,7])
+var UNRIPE_FOOD_SMELL = get_sensory_vector([3,4])
+var RIPE_FOOD_SMELL = get_sensory_vector([3,6])
+var ROTTEN_FOOD_SMELL = get_sensory_vector([3,6,8,10])
+var PROCESSED_FOOD_SMELL = get_sensory_vector([2,9,11])
+var AGENT_SMELL = get_sensory_vector([0,12,13,14])
+var CHILD_SMELL = get_sensory_vector([6,12,13,14])
 
 ##############################################
 # modifiable global state (USE WITH CAUTION) #
@@ -37,7 +45,26 @@ func generate_unique_id():
 ##################################################################
 # shared functions (THESE FUNCTIONS SHOULD HAVE NO SIDE-EFFECTS) #
 ##################################################################
-
+func get_sensory_vector(active_elements):
+	var vector = []
+	
+	# check for active and set to 1 else 0
+	var i = 0
+	while i < SMELL_DIMENSIONS:
+		
+		# not active
+		if active_elements.find(i) == -1:
+			vector.append(0)
+			
+		# active
+		else:
+			vector.append(1)
+			
+		i += 1
+				
+	# normalize vector
+	return normalize(vector)
+	
 func get_elapsed_time():
 	var milliseconds = (OS.get_ticks_msec())
 	

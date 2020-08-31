@@ -1,3 +1,5 @@
+# gdscript: scent-area.gd
+
 extends Node2D
 
 var smell_emitter_id = null

@@ -1,3 +1,5 @@
+# gdscript: agent-stats.gd
+
 extends Node2D
 
 export(int) var age = 0

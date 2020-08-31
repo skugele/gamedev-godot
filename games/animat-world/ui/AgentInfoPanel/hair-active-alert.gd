@@ -1,3 +1,5 @@
+# gdscript: hair-active-alert.gd
+
 extends Node2D
 
 onready var sprite = $Sprite

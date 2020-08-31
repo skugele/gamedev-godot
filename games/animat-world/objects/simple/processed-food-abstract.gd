@@ -1,4 +1,6 @@
-extends "res://agent/simple/agent-abstract.gd"
+# gdscript: processed-food-abstract.gd
+
+extends StaticBody2D
 
 
 # Declare member variables here. Examples:

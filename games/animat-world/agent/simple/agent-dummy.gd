@@ -1,3 +1,6 @@
+# gdscript: agent-dummy.gd
+
+
 extends "res://agent/simple/agent-abstract.gd"
 
 

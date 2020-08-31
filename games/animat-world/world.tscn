@@ -37,9 +37,11 @@ position = Vector2( -313.604, -838.339 )
 
 [node name="ProcessedFoodBad" parent="ProcessedFood" instance=ExtResource( 5 )]
 position = Vector2( 1833.44, -465.94 )
+script = null
 
 [node name="ProcessedFoodGood" parent="ProcessedFood" instance=ExtResource( 6 )]
 position = Vector2( 1785.23, -1583.08 )
+script = null
 
 [node name="UnprocessedFood" type="YSort" parent="."]
 

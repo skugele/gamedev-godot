@@ -1,3 +1,5 @@
+# gdscript: abstract-agent.gd
+
 extends KinematicBody2D
 
 #################
@@ -64,16 +66,32 @@ func _ready():
 	
 	init_sensors()
 	init_effectors()	
+	init_agent_smell()
 
-	signature = Globals.normalize([0,0,1,1,1])
+func _process(delta):
+	pass
+	
+func init_agent_smell():
+	signature = Globals.AGENT_SMELL
 	init_scent_areas([100, 250, 500, 1000])
 
 	# build list of ignored smells (i.e., ignore agent's own smells)	
 	for area in $Smell/ScentAreas.get_children():
-		ignored_scents.append(area)
-
-func _process(delta):
-	pass
+		print('agent ignoring scent area: ', area)
+		ignored_scents.append(area)	
+	
+func disable_all():
+	# disable collisions	
+	$CollisionShape2D.disabled = true
+	
+	for hair in $Hairs.get_children():
+		hair.disable()
+	
+	for mandible in $Mandibles.get_children():
+		mandible.disable()
+	
+	for antenna in $Antennae.get_children():
+		antenna.disable()
 
 func get_combined_scent(active_scents):
 	var combined_scent_sig = Globals.NULL_SMELL
@@ -82,7 +100,7 @@ func get_combined_scent(active_scents):
 		var scent = active_scents[id][-1]
 		var distance = distance_from_scent(scent)
 		print('distance: ', distance)
-		var scaling_factor = 1 - distance / Globals.SMELL_DETECTABLE_RADIUS
+		var scaling_factor = 1 - distance / (Globals.SMELL_DETECTABLE_RADIUS + 250.0)
 		print('scent signature (unscaled): ', scent.signature)
 		print('scaling_factor: ', scaling_factor)
 		var scaled_scent = Globals.scale(scent.signature, scaling_factor)

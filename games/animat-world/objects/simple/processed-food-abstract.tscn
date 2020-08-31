@@ -1,15 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 65.8638
-height = 87.6211
+[ext_resource path="res://shared/smell-emitter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/simple/processed-food-abstract.gd" type="Script" id=2]
 
 [node name="ProcessedFoodAbstract" type="StaticBody2D"]
+script = ExtResource( 2 )
 
-[node name="EdibleDistance" type="Area2D" parent="."]
-visible = false
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EdibleDistance"]
-position = Vector2( 0, -3 )
-rotation = 1.5708
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="SmellEmitter" parent="." instance=ExtResource( 1 )]

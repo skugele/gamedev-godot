@@ -1,3 +1,5 @@
+# gdscript: food-abstract.gd
+
 extends StaticBody2D
 
 var signature = null

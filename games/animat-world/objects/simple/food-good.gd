@@ -1,3 +1,5 @@
+# gdscript: food-good.gd
+
 extends "res://objects/simple/food-abstract.gd"
 
 func _ready():	
@@ -9,5 +11,5 @@ func _ready():
 	# TODO: The signature should be calculated based on some random 
 	# perturbations from Gaussian centers. The centers will define 
 	# certain characteristics of the objects ("food", "ripe", "agent", etc.)
-	signature = [1,0,0,0,0]
+	signature = Globals.RIPE_FOOD_SMELL
 	init_scent_areas([100, 250, 500, 1000])

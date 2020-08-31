@@ -1,3 +1,5 @@
+# gdscript: world.gd
+
 extends Node2D
 
 export(float) var MAX_ZOOM_IN = 1

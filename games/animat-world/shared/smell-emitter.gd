@@ -1,3 +1,5 @@
+# gdscript: smell-emitter.gd
+
 extends Node2D
 
 onready var id = null

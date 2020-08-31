@@ -1,3 +1,5 @@
+# gdscript: smell-emitter-particles.gd
+
 extends Particles2D
 
 

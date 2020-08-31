@@ -1,3 +1,5 @@
+# gdscript: antennae-activity-alert.gd
+
 extends Node2D
 
 # Touch Effect Color
