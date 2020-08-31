@@ -88,4 +88,6 @@ func agent_join(id):
 	camera = Camera2D.new()
 	agent_node.add_child(camera)
 	camera.current = true
-	camera.zoom = Vector2(DEFAULT_ZOOM, DEFAULT_ZOOM)		
+	camera.zoom = Vector2(DEFAULT_ZOOM, DEFAULT_ZOOM)
+	camera.smoothing_enabled = true
+	camera.smoothing_speed = 2		

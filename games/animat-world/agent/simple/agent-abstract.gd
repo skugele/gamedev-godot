@@ -73,7 +73,7 @@ func init_agent_smell():
 
 	# build list of ignored smells (i.e., ignore agent's own smells)	
 	for area in $Smell/ScentAreas.get_children():
-		print('agent ignoring scent area: ', area)
+#		print('agent ignoring scent area: ', area)
 		ignored_scents.append(area)	
 	
 func disable_all():
@@ -95,12 +95,12 @@ func get_combined_scent(active_scents):
 	for id in active_scents.keys():
 		var scent = active_scents[id][-1]
 		var distance = distance_from_scent(scent)
-		print('distance: ', distance)
+#		print('distance: ', distance)
 		var scaling_factor = 1 - distance / (Globals.SMELL_DETECTABLE_RADIUS + 250.0)
-		print('scent signature (unscaled): ', scent.signature)
-		print('scaling_factor: ', scaling_factor)
+#		print('scent signature (unscaled): ', scent.signature)
+#		print('scaling_factor: ', scaling_factor)
 		var scaled_scent = Globals.scale(scent.signature, scaling_factor)
-		print('scent signature (scaled): ', scaled_scent)
+#		print('scent signature (scaled): ', scaled_scent)
 
 		combined_scent_sig = Globals.add_vectors(combined_scent_sig, scaled_scent)
 
@@ -113,11 +113,9 @@ func init_scent_areas(radii):
 func get_activity_level():
 	
 	var combined_scent = get_combined_scent(active_scents)
-	print('combined signature: ', combined_scent)
-	var level = Globals.get_magnitude(combined_scent)
-	
+#	print('combined signature: ', combined_scent)
+	var level = Globals.get_magnitude(combined_scent)	
 	return level
-		
 
 func init_effectors():
 	
@@ -178,17 +176,20 @@ func distance_from_scent(scent):
 	return distance
 	
 func add_scent(scent):	
+#	print('adding: ', scent)
+	
 	if active_scents.has(scent.smell_emitter_id):
 		active_scents[scent.smell_emitter_id].push_back(scent)
 	else:
 		active_scents[scent.smell_emitter_id] = [scent]
 	
 func remove_scent(scent):
+#	print('removing: ', scent)
+	
 	if len(active_scents[scent.smell_emitter_id]) <= 1:
 		active_scents.erase(scent.smell_emitter_id)
 	else:
 		var removed_scent = active_scents[scent.smell_emitter_id].pop_back()
-		print('removing: ', removed_scent)		
 		
 func _on_hair_active(hair):
 	active_hairs[hair.id] += 1
@@ -201,19 +202,17 @@ func _on_hair_inactive(hair):
 func _on_antenna_detected_smell(antenna, scent):
 	if ignored_scents.find(scent) != -1:
 		return
-		
-	print('adding: ', scent)
+			
 	add_scent(scent)
-	print(active_scents.values())
+#	print(active_scents.values())
 	emit_signal("smell_activity_change", get_activity_level())
 
 func _on_antenna_lost_smell(antenna, scent):
 	if ignored_scents.find(scent) != -1:
 		return
 		
-	print('removing: ', scent)
 	remove_scent(scent)
-	print(active_scents.values())
+#	print(active_scents.values())
 	emit_signal("smell_activity_change", get_activity_level())
 	
 func _on_antenna_detected_object(antenna, body):
