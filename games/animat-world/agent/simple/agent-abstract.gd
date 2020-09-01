@@ -181,8 +181,6 @@ func distance_from_scent(scent):
 	var distance = Globals.SMELL_DETECTABLE_RADIUS
 	
 	for antenna in antennae:
-		if ! antenna.is_inside_tree():
-			print('wtf! ', antenna)
 		var detector_pos = antenna.smell_detector.global_position
 		var scent_pos = scent.global_position
 		
@@ -207,7 +205,7 @@ func remove_scent(scent):
 		var removed_scent = active_scents[scent.smell_emitter_id].pop_back()
 
 func add_taste(taste):	
-	print('adding: ', taste)
+#	print('adding: ', taste)
 	
 	if active_tastes.has(taste.taste_emitter_id):
 		active_tastes[taste.taste_emitter_id].push_back(taste)
@@ -215,7 +213,7 @@ func add_taste(taste):
 		active_tastes[taste.taste_emitter_id] = [taste]
 	
 func remove_taste(taste):
-	print('removing: ', taste)
+#	print('removing: ', taste)
 	
 	if len(active_tastes[taste.taste_emitter_id]) <= 1:
 		active_tastes.erase(taste.taste_emitter_id)

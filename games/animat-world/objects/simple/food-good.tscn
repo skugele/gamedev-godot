@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://objects/simple/food-abstract.tscn" type="PackedScene" id=1]
 [ext_resource path="res://atlases/simple-world-objects.png" type="Texture" id=2]
@@ -10,8 +10,12 @@ radius = 48.0251
 height = 29.2882
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 11.5256
-height = 137.058
+radius = 48.0
+height = 29.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 48.0
+height = 29.0
 
 [node name="FoodGood" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -28,13 +32,16 @@ position = Vector2( 1, 0 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="3"]
-visible = false
-position = Vector2( 0, -0.999994 )
-scale = Vector2( 4.04277, 0.855602 )
+position = Vector2( 0, 1.587 )
 shape = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="DamageZone" index="0"]
+shape = SubResource( 3 )
 
 [editable path="Smell"]
 
 [editable path="Taste"]
 
 [editable path="Taste/TasteAreas/TasteArea"]
+
+[editable path="DamageZone"]

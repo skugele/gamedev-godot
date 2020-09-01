@@ -6,10 +6,30 @@
 [node name="AgentHumanControlled" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="CollisionShape2D" parent="Mandibles/Left/Area2D" index="0"]
+modulate = Color( 0, 1, 0.25098, 1 )
+position = Vector2( -40.8488, -55.9731 )
+
+[node name="CollisionShape2D" parent="Mandibles/Right/Area2D" index="0"]
+modulate = Color( 0, 1, 0.25098, 1 )
+position = Vector2( 41.492, -54.265 )
+
 [editable path="Mandibles/Left"]
 
 [editable path="Mandibles/Right"]
 
 [editable path="Antennae/Left"]
 
+[editable path="Antennae/Left/TasteDetector"]
+
 [editable path="Antennae/Right"]
+
+[editable path="Antennae/Right/TasteDetector"]
+
+[editable path="Smell"]
+
+[editable path="Taste"]
+
+[editable path="Taste/TasteAreas/TasteArea"]
+
+[editable path="DamageDetector"]

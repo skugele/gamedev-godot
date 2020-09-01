@@ -61,6 +61,8 @@ position = Vector2( -683.998, -1681.54 )
 
 [node name="AgentDummy" parent="Agents" instance=ExtResource( 8 )]
 position = Vector2( 2887.74, 438.453 )
+collision_layer = 4
+collision_mask = 7
 
 [node name="Trees" type="Node2D" parent="."]
 
