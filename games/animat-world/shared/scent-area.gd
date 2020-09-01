@@ -23,3 +23,9 @@ func set_signature(value):
 	
 func get_signature():
 	return signature
+
+func enable():
+	$CollisionShape2D.disabled = false
+
+func disable():
+	$CollisionShape2D.disabled = true

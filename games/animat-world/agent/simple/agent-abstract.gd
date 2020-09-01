@@ -73,15 +73,6 @@ func _ready():
 func _process(delta):
 	pass
 	
-func init_agent_smell():
-	signature = Globals.AGENT_SMELL
-	init_scent_areas([100, 250, 500, 1000])
-
-	# build list of ignored smells (i.e., ignore agent's own smells)	
-	for area in $Smell/ScentAreas.get_children():
-#		print('agent ignoring scent area: ', area)
-		ignored_scents.append(area)	
-	
 func disable_all():
 	# disable collisions	
 	$TorsoCollisionShape.disabled = true
@@ -94,7 +85,7 @@ func disable_all():
 	
 	for antenna in $Antennae.get_children():
 		antenna.disable()
-
+	
 func get_combined_scent(active_scents):
 	var combined_scent_sig = Globals.NULL_SMELL
 
@@ -121,11 +112,7 @@ func get_combined_taste(active_tastes):
 		combined_taste_sig = Globals.add_vectors(combined_taste_sig, taste.signature)
 
 	return combined_taste_sig
-	
-func init_scent_areas(radii):
-	for r in radii:
-		$Smell.add_scent_area(r, signature)	
-			
+				
 func get_activity_level():
 	
 	var combined_scent = get_combined_scent(active_scents)
@@ -194,6 +181,8 @@ func distance_from_scent(scent):
 	var distance = Globals.SMELL_DETECTABLE_RADIUS
 	
 	for antenna in antennae:
+		if ! antenna.is_inside_tree():
+			print('wtf! ', antenna)
 		var detector_pos = antenna.smell_detector.global_position
 		var scent_pos = scent.global_position
 		

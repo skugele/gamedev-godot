@@ -17,3 +17,12 @@ func set_signature(value):
 	
 func get_signature():
 	return signature
+	
+func enable():
+	monitorable = true
+	$CollisionShape2D.disabled = false
+
+func disable():
+	print('disabling taste area')
+	monitorable = false
+	$CollisionShape2D.disabled = true
