@@ -7,7 +7,7 @@ onready var id = null
 func _ready():
 	id = Globals.generate_unique_id()
 
-func add_scent_area(shape, signature):
+func add_taste_area(shape, signature):
 	var taste_area = load("res://shared/taste-area.tscn").instance()
 	
 	taste_area.shape = shape

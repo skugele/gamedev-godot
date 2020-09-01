@@ -14,7 +14,7 @@ const TIME_FORMAT_STRING = '%02dD %02dH %02dM %02dS %03dms'
 const CAMERA_SMOOTHING_ENABLED = true
 const CAMERA_SMOOTHING_SPEED = 2
 
-# base smells
+# base smells and tastes
 var NULL_SMELL = zero_vector(SMELL_DIMENSIONS)
 var UNPROCESSED_FOOD_SMELL = get_sensory_vector([1,5,7])
 var UNRIPE_FOOD_SMELL = get_sensory_vector([3,4])

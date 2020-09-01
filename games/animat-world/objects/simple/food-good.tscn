@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://objects/simple/food-abstract.tscn" type="PackedScene" id=1]
 [ext_resource path="res://atlases/simple-world-objects.png" type="Texture" id=2]
 [ext_resource path="res://objects/simple/food-good.gd" type="Script" id=3]
+[ext_resource path="res://shared/taste-area.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 48.0251
+height = 29.2882
+
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 11.5256
 height = 137.058
 
@@ -16,10 +21,20 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 868, 289, 117, 138 )
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="TasteArea" parent="Taste/TasteAreas" index="0" instance=ExtResource( 4 )]
+
+[node name="CollisionShape2D" parent="Taste/TasteAreas/TasteArea" index="0"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="3"]
 visible = false
 position = Vector2( 0, -0.999994 )
 scale = Vector2( 4.04277, 0.855602 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [editable path="Smell"]
+
+[editable path="Taste"]
+
+[editable path="Taste/TasteAreas/TasteArea"]

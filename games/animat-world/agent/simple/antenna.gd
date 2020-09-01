@@ -4,6 +4,8 @@ extends Node2D
 
 signal antenna_detected_smell(antenna, scent)
 signal antenna_lost_smell(antenna, scent)
+signal antenna_detected_taste(antenna, taste)
+signal antenna_lost_taste(antenna, taste)
 signal antenna_detected_object(antenna, body)
 signal antenna_lost_object(antenna, body)
 
@@ -26,6 +28,12 @@ func _on_smell_detected(scent):
 func _on_smell_lost(scent):
 	emit_signal("antenna_lost_smell", self, scent)
 
+func _on_taste_detected(taste):
+	emit_signal("antenna_detected_taste", self, taste)
+
+func _on_taste_lost(taste):
+	emit_signal("antenna_lost_taste", self, taste)
+	
 func _on_touch_detected(body):
 #	print('antenna ', id, ' detected object')
 	emit_signal("antenna_detected_object", self, body)

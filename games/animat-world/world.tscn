@@ -51,6 +51,9 @@ position = Vector2( 1912.02, -860.999 )
 [node name="FoodGood4" parent="UnprocessedFood" instance=ExtResource( 7 )]
 position = Vector2( 2359.39, -1443.95 )
 
+[node name="FoodGood6" parent="UnprocessedFood" instance=ExtResource( 7 )]
+position = Vector2( -486.003, -210.758 )
+
 [node name="FoodGood5" parent="UnprocessedFood" instance=ExtResource( 7 )]
 position = Vector2( -683.998, -1681.54 )
 

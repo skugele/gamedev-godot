@@ -78,11 +78,18 @@ func agent_join(id):
 		"smell_activity_change", 
 		agent_info_display, 
 		"_on_agent_smell_activity_change")		
-		
+
+	agent_node.connect(
+		"taste_activity_change", 
+		agent_info_display, 
+		"_on_agent_taste_activity_change")		
+				
 	agent_node.connect(
 		"antennae_activity_change", 
 		agent_info_display, 
-		"_on_agent_antennae_activity_change")						
+		"_on_agent_antennae_activity_change")
+		
+					
 			
 	# adds camera to agent
 	camera = Camera2D.new()

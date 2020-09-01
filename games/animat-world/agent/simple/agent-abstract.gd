@@ -39,6 +39,11 @@ onready var active_scents = {} # dictionary of scent emitters ids -> active scen
 onready var ignored_scents = [] # ignore own smells
 onready var combined_scent_sig = null
 
+# taste
+onready var active_tastes = {} # dictionary of taste emitters ids -> active taste areas
+onready var ignored_tastes = [] # ignore own tastes
+onready var combined_taste_sig = null
+
 # current state vars
 onready var velocity = Vector2.ZERO
 onready var mandible_aperature = 0 # in degrees
@@ -54,6 +59,7 @@ var signature = null
 signal hair_activity_change(activity)
 signal antennae_activity_change(activity)
 signal smell_activity_change(activity)
+signal taste_activity_change(activity)
 signal velocity_change(value)
 signal rotation_change(value)
 signal mandible_aperture_change(value)
@@ -106,6 +112,16 @@ func get_combined_scent(active_scents):
 
 	return combined_scent_sig
 
+func get_combined_taste(active_tastes):
+	var combined_taste_sig = Globals.NULL_SMELL
+
+	for id in active_tastes.keys():
+		var taste = active_tastes[id][-1]
+
+		combined_taste_sig = Globals.add_vectors(combined_taste_sig, taste.signature)
+
+	return combined_taste_sig
+	
 func init_scent_areas(radii):
 	for r in radii:
 		$Smell.add_scent_area(r, signature)	
@@ -113,8 +129,15 @@ func init_scent_areas(radii):
 func get_activity_level():
 	
 	var combined_scent = get_combined_scent(active_scents)
-#	print('combined signature: ', combined_scent)
+#	print('combined smell signature: ', combined_scent)
 	var level = Globals.get_magnitude(combined_scent)	
+	return level
+
+
+func get_taste_activity_level():
+	var combined_taste = get_combined_taste(active_tastes)
+#	print('combined taste signature: ', combined_taste)
+	var level = Globals.get_magnitude(combined_taste)	
 	return level
 
 func init_effectors():
@@ -151,7 +174,10 @@ func init_sensors():
 		# configure signals
 		antenna.connect("antenna_detected_smell", self, "_on_antenna_detected_smell")
 		antenna.connect("antenna_lost_smell", self, "_on_antenna_lost_smell")
-		
+
+		antenna.connect("antenna_detected_taste", self, "_on_antenna_detected_taste")
+		antenna.connect("antenna_lost_taste", self, "_on_antenna_lost_taste")
+				
 		antenna.connect("antenna_detected_object", self, "_on_antenna_detected_object")
 		antenna.connect("antenna_lost_object", self, "_on_antenna_lost_object")
 		
@@ -190,6 +216,22 @@ func remove_scent(scent):
 		active_scents.erase(scent.smell_emitter_id)
 	else:
 		var removed_scent = active_scents[scent.smell_emitter_id].pop_back()
+
+func add_taste(taste):	
+	print('adding: ', taste)
+	
+	if active_tastes.has(taste.taste_emitter_id):
+		active_tastes[taste.taste_emitter_id].push_back(taste)
+	else:
+		active_tastes[taste.taste_emitter_id] = [taste]
+	
+func remove_taste(taste):
+	print('removing: ', taste)
+	
+	if len(active_tastes[taste.taste_emitter_id]) <= 1:
+		active_tastes.erase(taste.taste_emitter_id)
+	else:
+		var removed_taste = active_tastes[taste.taste_emitter_id].pop_back()
 		
 func _on_hair_active(hair):
 	active_hairs[hair.id] += 1
@@ -214,6 +256,22 @@ func _on_antenna_lost_smell(antenna, scent):
 	remove_scent(scent)
 #	print(active_scents.values())
 	emit_signal("smell_activity_change", get_activity_level())
+	
+func _on_antenna_detected_taste(antenna, taste):
+	if ignored_tastes.find(taste) != -1:
+		return
+			
+	add_taste(taste)
+	print(active_tastes.values())
+	emit_signal("taste_activity_change", get_taste_activity_level())
+
+func _on_antenna_lost_taste(antenna, taste):
+	if ignored_tastes.find(taste) != -1:
+		return
+		
+	remove_taste(taste)
+	print(active_tastes.values())
+	emit_signal("taste_activity_change", get_taste_activity_level())
 	
 func _on_antenna_detected_object(antenna, body):
 	active_antennae[antenna.id] += 1

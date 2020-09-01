@@ -50,6 +50,10 @@ func _on_agent_smell_activity_change(level):
 #	print('_on_agent_smell_activity_change: ', level)
 	for alert in antennae_alerts:
 		alert.set_smell_activity_level(level)
+		
+func _on_agent_taste_activity_change(level):
+	for alert in antennae_alerts:
+		alert.set_taste_activity_level(level)
 
 func _on_agent_antennae_activity_change(activity):
 #	print('in _on_agent_antennae_activity_change:', activity)
