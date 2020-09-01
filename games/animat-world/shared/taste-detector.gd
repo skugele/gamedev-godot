@@ -15,9 +15,9 @@ func disable():
 	$Area2D/CollisionShape2D.disabled = true
 
 func _on_area_entered(taste):
-	print('entered: ', taste.name)
+#	print('entered: ', taste.name)
 	emit_signal("taste_detected", taste)
 
 func _on_area_exited(taste):
-	print('exited: ', taste.name)
+#	print('exited: ', taste.name)
 	emit_signal("taste_lost", taste)

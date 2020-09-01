@@ -249,7 +249,7 @@ func _on_antenna_detected_taste(antenna, taste):
 		return
 			
 	add_taste(taste)
-	print(active_tastes.values())
+#	print(active_tastes.values())
 	emit_signal("taste_activity_change", get_taste_activity_level())
 
 func _on_antenna_lost_taste(antenna, taste):
@@ -257,7 +257,7 @@ func _on_antenna_lost_taste(antenna, taste):
 		return
 		
 	remove_taste(taste)
-	print(active_tastes.values())
+#	print(active_tastes.values())
 	emit_signal("taste_activity_change", get_taste_activity_level())
 	
 func _on_antenna_detected_object(antenna, body):

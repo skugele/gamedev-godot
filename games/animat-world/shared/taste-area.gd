@@ -23,6 +23,6 @@ func enable():
 	$CollisionShape2D.disabled = false
 
 func disable():
-	print('disabling taste area')
+#	print('disabling taste area')
 	monitorable = false
 	$CollisionShape2D.disabled = true

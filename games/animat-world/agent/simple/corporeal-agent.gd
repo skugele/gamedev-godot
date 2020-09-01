@@ -3,7 +3,6 @@ extends "res://agent/simple/agent-abstract.gd"
 onready var damageables = []
 
 func _ready():
-	print('calling ready in ', self.name)
 	id = Globals.generate_unique_id()
 	
 	init_sensors()

@@ -40,7 +40,7 @@ func set_smell_activity_level(level):
 	smell_effect.modulate = color
 
 func set_taste_activity_level(level):
-	print('setting taste level: ', level)
+#	print('setting taste level: ', level)
 	var color = TASTE_ACTIVITY_COLOR
 	color.a = min(level, ALPHA_MAX)
 		
