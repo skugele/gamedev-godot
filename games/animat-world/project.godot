@@ -22,6 +22,10 @@ run/main_scene="res://world.tscn"
 
 Globals="*res://shared/globals.tscn"
 
+[display]
+
+window/vsync/use_vsync=false
+
 [importer_defaults]
 
 texture={
