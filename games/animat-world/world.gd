@@ -20,8 +20,72 @@ onready var agent_info_display = $AgentInfoDisplay
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var id = 1
+	create_world()		
 	agent_join(id)
 
+func _physics_process(delta):
+	pass
+		
+func create_world():
+#
+#	var n_trees = 500
+#	for i in range(n_trees):
+#		create_objects("res://objects/simple/tree.tscn", 
+#		[Vector2(rand_range(-2000,1000), 
+#				 rand_range(-2000,1000))], 
+#		$Trees)
+#
+#	var locations = [
+#		Vector2(1000,1000),
+#		Vector2(1001,1001)
+#	]
+	
+#	var n_rocks = 500
+#	for i in range(n_rocks):
+#		create_objects("res://objects/simple/rock-obstacle.tscn", 
+#		[Vector2(rand_range(-2000, -1000), 
+#				 rand_range(1000, 2000))], 
+#		$Rocks)
+
+	print_stray_nodes()	
+	
+func create_objects(scene, locations, parent):
+	for loc in locations:
+		var obj = load(scene).instance()
+		obj.position = loc
+		obj.rotation = rand_range(0, 3.1415)
+		
+		# check for collision with existing object
+		if ! has_collision(obj):
+			print('Creating %s @ location %s!' % [obj, loc])
+			parent.add_child(obj)
+		else:
+			obj.free()
+
+			print("Collision detected! Skipping object.")
+
+func has_collision(obj):
+#	return false
+	
+	var space_rid = get_world_2d().space
+	var space_state = Physics2DServer.space_get_direct_state(space_rid)
+	
+	var collider = obj.get_node("CollisionShape2D")
+	var shape = collider.get_shape()
+
+	var query = Physics2DShapeQueryParameters.new()
+	query.set_shape(shape)
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+	query.collision_layer = Globals.FIXED_OBJECTS_LAYER | Globals.MANIPULATABLE_OBJECTS_LAYER | Globals.AGENTS_LAYER
+#	query.margin = 5000.0
+	
+	var results = space_state.collide_shape(query)	
+	for result in results:
+		print(result)
+
+	return len(results) > 0
+		
 func _input(event):	
 	if event.is_action_pressed("ui_zoom_in"):
 		zoom_in()
@@ -49,8 +113,8 @@ func agent_join(id):
 	agent_node.id = id
 	
 	# TODO: Need to add logic to randomly assign a starting location
-	agent_node.global_position.x = 125
-	agent_node.global_position.y = 500
+	agent_node.global_position.x = 1000
+	agent_node.global_position.y = -1500
 	agent_node.rotation = 30
 	
 	# connect signals
@@ -89,8 +153,6 @@ func agent_join(id):
 		agent_info_display, 
 		"_on_agent_antennae_activity_change")
 		
-					
-			
 	# adds camera to agent
 	camera = Camera2D.new()
 	camera.current = true

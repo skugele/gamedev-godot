@@ -14,6 +14,17 @@ const TIME_FORMAT_STRING = '%02dD %02dH %02dM %02dS %03dms'
 const CAMERA_SMOOTHING_ENABLED = true
 const CAMERA_SMOOTHING_SPEED = 2
 
+# layer bitmask values
+const FIXED_OBJECTS_LAYER = 1
+const MANIPULATABLE_OBJECTS_LAYER = 2
+const AGENTS_LAYER = 4
+const SMELL_EMITTER_LAYER = 8
+const SMELL_DETECTOR_LAYER = 16
+const TASTE_EMITTER_LAYER = 32
+const TASTE_DETECTOR_LAYER = 64
+const DAMAGE_ZONE_LAYER = 128
+const DAMAGE_DETECTOR_LAYER = 256
+
 # base smells and tastes
 var NULL_SMELL = zero_vector(SMELL_DIMENSIONS)
 var UNPROCESSED_FOOD_SMELL = get_sensory_vector([1,5,7])
@@ -23,6 +34,12 @@ var ROTTEN_FOOD_SMELL = get_sensory_vector([3,6,8,10])
 var PROCESSED_FOOD_SMELL = get_sensory_vector([2,9,11])
 var AGENT_SMELL = get_sensory_vector([0,12,13,14])
 var CHILD_SMELL = get_sensory_vector([6,12,13,14])
+
+# default health
+var DEFAULT_HEALTH = 1
+var FOOD_HEALTH = 1
+var EGG_HEALTH = 1
+var AGENT_HEALTH = 5
 
 ##############################################
 # modifiable global state (USE WITH CAUTION) #

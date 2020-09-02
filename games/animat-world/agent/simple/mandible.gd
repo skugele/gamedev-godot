@@ -10,3 +10,11 @@ func enable():
 	
 func disable():
 	$Area2D/CollisionPolygon2D.disabled = true
+
+
+func _on_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_area_exited(area):
+	pass # Replace with function body.

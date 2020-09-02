@@ -46,6 +46,9 @@ onready var combined_taste_sig = null
 
 # current state vars
 onready var velocity = Vector2.ZERO
+
+# effector variables
+onready var damageables = []
 onready var mandible_aperature = 0 # in degrees
 
 ########
@@ -100,7 +103,7 @@ func get_combined_scent(active_scents):
 #		print('scent signature (scaled): ', scaled_scent)
 
 		combined_scent_sig = Globals.add_vectors(combined_scent_sig, scaled_scent)
-
+		
 	return combined_scent_sig
 
 func get_combined_taste(active_tastes):
@@ -177,6 +180,11 @@ func set_mandible_aperature(degrees):
 	mandibles[0].rotation_degrees = degrees
 	mandibles[1].rotation_degrees = -degrees
 	
+#	print('degrees: ', degrees)
+	if degrees >= 40.0 and len(damageables) > 0:
+		for damageable in damageables:
+			damageable.register_damage(1)
+		
 func distance_from_scent(scent):
 	var distance = Globals.SMELL_DETECTABLE_RADIUS
 	
@@ -189,7 +197,7 @@ func distance_from_scent(scent):
 	return distance
 	
 func add_scent(scent):	
-#	print('adding: ', scent)
+#	print('adding: ', scent.signature)
 	
 	if active_scents.has(scent.smell_emitter_id):
 		active_scents[scent.smell_emitter_id].push_back(scent)
@@ -219,7 +227,25 @@ func remove_taste(taste):
 		active_tastes.erase(taste.taste_emitter_id)
 	else:
 		var removed_taste = active_tastes[taste.taste_emitter_id].pop_back()
+
+func add_damageable_area(area):
+	var index_to_area = damageables.find(area)
+	
+	# not found
+	if index_to_area == -1:
+		damageables.append(area)
+	
+func remove_damageable_area(area):
+	var index_to_area = damageables.find(area)
+	
+	# found
+	if index_to_area != -1:
+		damageables.remove(index_to_area)
 		
+func is_damageable_area(area):
+	var index_to_area = damageables.find(area)	
+	return false if index_to_area == -1 else true
+
 func _on_hair_active(hair):
 	active_hairs[hair.id] += 1
 	emit_signal("hair_activity_change", active_hairs)
@@ -267,4 +293,14 @@ func _on_antenna_detected_object(antenna, body):
 func _on_antenna_lost_object(antenna, body):
 	active_antennae[antenna.id] -= 1
 	emit_signal("antennae_activity_change", active_antennae)
+	
+func _on_detected_damageable(area):
+#	print("_on_detected_damageable: ", area)
+	add_damageable_area(area)
+	print('damageables: ', damageables)
+
+func _on_lost_damageable(area):
+#	print("_on_lost_damageable: ", area)
+	remove_damageable_area(area)
+	print('damageables: ', damageables)	
 

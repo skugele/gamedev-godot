@@ -14,13 +14,13 @@ radius = 43.0
 height = 27.0
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 43.0
-height = 27.0
+radius = 45.5021
+height = 33.5265
 
 [node name="FoodBad" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 
-[node name="Sprite" parent="." index="0"]
+[node name="Sprite" parent="." index="1"]
 z_index = 1
 texture = ExtResource( 1 )
 region_enabled = true
@@ -33,15 +33,19 @@ position = Vector2( -2, 3 )
 z_index = 1
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" parent="." index="4"]
 position = Vector2( -3, 5 )
 shape = SubResource( 2 )
 
-[node name="CollisionShape2D" parent="DamageZone" index="0"]
+[node name="CollisionShape2D" parent="Damageable/DamageZone" index="0"]
+position = Vector2( -3, 4 )
+z_index = 1
 shape = SubResource( 3 )
 
 [editable path="Taste"]
 
 [editable path="Taste/TasteAreas/TasteArea"]
 
-[editable path="DamageZone"]
+[editable path="Damageable"]
+
+[editable path="Damageable/DamageZone"]
