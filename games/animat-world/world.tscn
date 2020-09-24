@@ -20,10 +20,10 @@ script = ExtResource( 9 )
 [node name="UnprocessedFood" type="YSort" parent="."]
 
 [node name="FoodGood" parent="UnprocessedFood" instance=ExtResource( 3 )]
-position = Vector2( -802.314, -1232.76 )
+position = Vector2( 1411.9, -1229.35 )
 
 [node name="FoodBad" parent="UnprocessedFood" instance=ExtResource( 5 )]
-position = Vector2( 2058.82, -1393.05 )
+position = Vector2( -359.524, -1602.28 )
 
 [node name="Agents" type="Node2D" parent="."]
 

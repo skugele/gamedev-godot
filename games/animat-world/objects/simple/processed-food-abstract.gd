@@ -14,6 +14,10 @@ enum  {
 
 var variety = null
 
+func _ready():
+	connect("edible_exhausted", self, "_on_edible_exhausted")
+	connect("edible_consumed", self, "_on_edible_consumed")
+
 func is_good():
 	return variety == GOOD
 	
@@ -33,3 +37,9 @@ func init_from_unprocessed_food(unprocessed_food_node):
 		$Smell.add_scent_area(scent_area.radius, signature)			
 	
 	$Taste.set_signature(signature)
+
+func _on_edible_consumed():
+	print("edible consumed")
+	
+func _on_edible_exhausted():
+	print("edible exhausted")

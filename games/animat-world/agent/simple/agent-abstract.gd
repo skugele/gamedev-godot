@@ -27,6 +27,7 @@ onready var id = null
 onready var hairs = []
 onready var antennae = []
 onready var mandibles = []
+onready var mouth = $Mouth
 
 # indicators of sensory activity
 
@@ -43,6 +44,9 @@ onready var combined_scent_sig = null
 onready var active_tastes = {} # dictionary of taste emitters ids -> active taste areas
 onready var ignored_tastes = [] # ignore own tastes
 onready var combined_taste_sig = null
+
+# edibles
+onready var available_edibles = []
 
 # current state vars
 onready var velocity = Vector2.ZERO
@@ -123,7 +127,6 @@ func get_activity_level():
 	var level = Globals.get_magnitude(combined_scent)	
 	return level
 
-
 func get_taste_activity_level():
 	var combined_taste = get_combined_taste(active_tastes)
 #	print('combined taste signature: ', combined_taste)
@@ -137,6 +140,10 @@ func init_effectors():
 		mandibles.append(mandible)
 		
 	set_mandible_aperature(mandible_aperature)
+	
+	# mouth
+	mouth.connect("detected_edible", self, "_on_detected_edible")
+	mouth.connect("lost_edible", self, "_on_lost_edible")
 		
 func init_sensors():
 	
@@ -242,6 +249,20 @@ func remove_damageable_area(area):
 	if index_to_area != -1:
 		damageables.remove(index_to_area)
 		
+func add_edible(edible):
+	var index_to_edible = available_edibles.find(edible)
+	
+	# not found
+	if index_to_edible == -1:
+		available_edibles.append(edible)
+	
+func remove_edible(edible):
+	var index_to_edible = available_edibles.find(edible)
+	
+	# found
+	if index_to_edible != -1:
+		available_edibles.remove(index_to_edible)
+		
 func is_damageable_area(area):
 	var index_to_area = damageables.find(area)	
 	return false if index_to_area == -1 else true
@@ -259,7 +280,7 @@ func _on_antenna_detected_smell(antenna, scent):
 		return
 			
 	add_scent(scent)
-	print("Active Smells: ", active_scents.values())
+#	print("Active Smells: ", active_scents.values())
 	emit_signal("smell_activity_change", get_activity_level())
 
 func _on_antenna_lost_smell(antenna, scent):
@@ -267,7 +288,7 @@ func _on_antenna_lost_smell(antenna, scent):
 		return
 		
 	remove_scent(scent)
-	print("Active Smells: ", active_scents.values())
+#	print("Active Smells: ", active_scents.values())
 	emit_signal("smell_activity_change", get_activity_level())
 	
 func _on_antenna_detected_taste(antenna, taste):
@@ -275,7 +296,7 @@ func _on_antenna_detected_taste(antenna, taste):
 		return
 			
 	add_taste(taste)
-	print("Active Tastes: ", active_tastes.values())
+#	print("Active Tastes: ", active_tastes.values())
 	emit_signal("taste_activity_change", get_taste_activity_level())
 
 func _on_antenna_lost_taste(antenna, taste):
@@ -283,7 +304,7 @@ func _on_antenna_lost_taste(antenna, taste):
 		return
 		
 	remove_taste(taste)
-	print("Active Tastes: ", active_tastes.values())
+#	print("Active Tastes: ", active_tastes.values())
 	emit_signal("taste_activity_change", get_taste_activity_level())
 	
 func _on_antenna_detected_object(antenna, body):
@@ -297,10 +318,19 @@ func _on_antenna_lost_object(antenna, body):
 func _on_detected_damageable(area):
 #	print("_on_detected_damageable: ", area)
 	add_damageable_area(area)
-	print('damageables: ', damageables)
+#	print('damageables: ', damageables)
 
 func _on_lost_damageable(area):
 #	print("_on_lost_damageable: ", area)
 	remove_damageable_area(area)
-	print('damageables: ', damageables)	
+#	print('damageables: ', damageables)	
 
+func _on_detected_edible(edible):
+	print("_on_detected_edible: ", edible)
+	add_edible(edible)
+	print('available edibles: ', available_edibles)
+
+func _on_lost_edible(edible):
+	print("_on_lost_edible: ", edible)
+	remove_edible(edible)
+	print('available edibles: ', available_edibles)

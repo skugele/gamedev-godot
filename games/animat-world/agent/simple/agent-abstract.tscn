@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://agent/simple/antenna.tscn" type="PackedScene" id=1]
 [ext_resource path="res://agent/simple/mandible.tscn" type="PackedScene" id=2]
+[ext_resource path="res://shared/edible-consumer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://agent/agent-stats.tscn" type="PackedScene" id=4]
 [ext_resource path="res://agent/simple/hair.tscn" type="PackedScene" id=6]
 [ext_resource path="res://agent/simple/agent-abstract.gd" type="Script" id=7]
@@ -235,6 +236,8 @@ position = Vector2( 5, -226 )
 rotation = -0.0626099
 scale = Vector2( 7, 1.1 )
 shape = SubResource( 7 )
+
+[node name="Mouth" parent="." instance=ExtResource( 3 )]
 
 [editable path="Mandibles/Left"]
 

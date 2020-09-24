@@ -111,6 +111,7 @@ ui_close_mandibles={
 2d_physics/layer_7="Taste Detector"
 2d_physics/layer_8="Damage Zone"
 2d_physics/layer_9="Damage Detector"
+2d_physics/layer_10="Edible"
 
 [rendering]
 

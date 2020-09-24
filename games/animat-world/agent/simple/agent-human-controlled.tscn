@@ -25,3 +25,5 @@ script = ExtResource( 2 )
 [editable path="Taste/TasteAreas/TasteArea"]
 
 [editable path="DamageDetector"]
+
+[editable path="Mouth"]
