@@ -1,20 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://agent/simple/agent-abstract.tscn" type="PackedScene" id=1]
 [ext_resource path="res://agent/simple/corporeal-agent.gd" type="Script" id=2]
 [ext_resource path="res://shared/smell-emitter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://shared/taste-emitter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://shared/taste-area.tscn" type="PackedScene" id=5]
-[ext_resource path="res://shared/damage-detector.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 68.0
 height = 82.0
-
-[sub_resource type="CircleShape2D" id=2]
-
-[sub_resource type="CircleShape2D" id=3]
-radius = 30.0
 
 [node name="CorporealAgent" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -28,18 +22,6 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" parent="Taste/TasteAreas/TasteArea" index="0"]
 position = Vector2( 0, 3 )
 shape = SubResource( 1 )
-
-[node name="DamageDetector" parent="." index="8" instance=ExtResource( 6 )]
-
-[node name="CollisionShape2D" parent="DamageDetector" index="0"]
-position = Vector2( -1, -151 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D" parent="Mouth/Area2D" index="0"]
-position = Vector2( -1, -136 )
-shape = SubResource( 3 )
-[connection signal="detected_damageable" from="DamageDetector" to="." method="_on_detected_damageable"]
-[connection signal="lost_damageable" from="DamageDetector" to="." method="_on_lost_damageable"]
 
 [editable path="Mandibles/Left"]
 
@@ -58,7 +40,3 @@ shape = SubResource( 3 )
 [editable path="Taste"]
 
 [editable path="Taste/TasteAreas/TasteArea"]
-
-[editable path="DamageDetector"]
-
-[editable path="Mouth"]

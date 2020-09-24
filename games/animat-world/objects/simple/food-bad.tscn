@@ -37,6 +37,9 @@ shape = SubResource( 1 )
 position = Vector2( -3, 5 )
 shape = SubResource( 2 )
 
+[node name="Damageable" parent="." index="5"]
+position = Vector2( 0, -4 )
+
 [node name="CollisionShape2D" parent="Damageable/DamageZone" index="0"]
 position = Vector2( -3, 4 )
 z_index = 1

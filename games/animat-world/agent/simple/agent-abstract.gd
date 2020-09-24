@@ -27,7 +27,7 @@ onready var id = null
 onready var hairs = []
 onready var antennae = []
 onready var mandibles = []
-onready var mouth = $Mouth
+#onready var mouth = $Mouth
 
 # indicators of sensory activity
 
@@ -142,8 +142,8 @@ func init_effectors():
 	set_mandible_aperature(mandible_aperature)
 	
 	# mouth
-	mouth.connect("detected_edible", self, "_on_detected_edible")
-	mouth.connect("lost_edible", self, "_on_lost_edible")
+#	mouth.connect("detected_edible", self, "_on_detected_edible")
+#	mouth.connect("lost_edible", self, "_on_lost_edible")
 		
 func init_sensors():
 	

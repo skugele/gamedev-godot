@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://agent/simple/antenna.tscn" type="PackedScene" id=1]
 [ext_resource path="res://agent/simple/mandible.tscn" type="PackedScene" id=2]
-[ext_resource path="res://shared/edible-consumer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://shared/damage-detector.tscn" type="PackedScene" id=3]
 [ext_resource path="res://agent/agent-stats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://shared/mouth.tscn" type="PackedScene" id=5]
 [ext_resource path="res://agent/simple/hair.tscn" type="PackedScene" id=6]
 [ext_resource path="res://agent/simple/agent-abstract.gd" type="Script" id=7]
 [ext_resource path="res://atlases/simple-agent-parts-inverted.png" type="Texture" id=8]
@@ -33,6 +34,12 @@ b = Vector2( 0, 0 )
 [sub_resource type="SegmentShape2D" id=7]
 a = Vector2( 4.46212, -85.0736 )
 b = Vector2( 0, 0 )
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 45.0
 
 [node name="AgentAbstract" type="KinematicBody2D"]
 position = Vector2( 1, 0 )
@@ -237,7 +244,21 @@ rotation = -0.0626099
 scale = Vector2( 7, 1.1 )
 shape = SubResource( 7 )
 
-[node name="Mouth" parent="." instance=ExtResource( 3 )]
+[node name="DamageDetector" parent="." instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" parent="DamageDetector" index="0"]
+position = Vector2( 0, -169 )
+shape = SubResource( 8 )
+
+[node name="Mouth" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, -150 )
+
+[node name="CollisionShape2D" parent="Mouth/Area2D" index="0"]
+shape = SubResource( 9 )
+[connection signal="detected_damageable" from="DamageDetector" to="." method="_on_detected_damageable"]
+[connection signal="lost_damageable" from="DamageDetector" to="." method="_on_lost_damageable"]
+[connection signal="edible_in_range" from="Mouth" to="." method="_on_detected_edible"]
+[connection signal="edible_left_range" from="Mouth" to="." method="_on_lost_edible"]
 
 [editable path="Mandibles/Left"]
 
@@ -250,3 +271,7 @@ shape = SubResource( 7 )
 [editable path="Antennae/Right"]
 
 [editable path="Antennae/Right/TasteDetector"]
+
+[editable path="DamageDetector"]
+
+[editable path="Mouth"]
