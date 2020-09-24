@@ -26,6 +26,10 @@ const DAMAGE_ZONE_LAYER = 128
 const DAMAGE_DETECTOR_LAYER = 256
 
 # base smells and tastes
+# TODO: What rationale can we use for this encoding scheme? We want to support
+# the ability to apply distance metrics to various smells and tastes, so that
+# smells and tastes that resemble one another are closer in some metric
+# space.
 var NULL_SMELL = zero_vector(SMELL_DIMENSIONS)
 var UNPROCESSED_FOOD_SMELL = get_sensory_vector([1,5,7])
 var UNRIPE_FOOD_SMELL = get_sensory_vector([3,4])

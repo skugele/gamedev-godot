@@ -20,7 +20,7 @@ onready var agent_info_display = $AgentInfoDisplay
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var id = 1
-	create_world()		
+	create_world()
 	agent_join(id)
 
 func _physics_process(delta):
@@ -30,7 +30,7 @@ func create_world():
 #
 #	var n_trees = 500
 #	for i in range(n_trees):
-#		create_objects("res://objects/simple/tree.tscn", 
+#		create_object("res://objects/simple/tree.tscn", 
 #		[Vector2(rand_range(-2000,1000), 
 #				 rand_range(-2000,1000))], 
 #		$Trees)
@@ -42,18 +42,24 @@ func create_world():
 	
 #	var n_rocks = 500
 #	for i in range(n_rocks):
-#		create_objects("res://objects/simple/rock-obstacle.tscn", 
+#		create_object("res://objects/simple/rock-obstacle.tscn", 
 #		[Vector2(rand_range(-2000, -1000), 
 #				 rand_range(1000, 2000))], 
 #		$Rocks)
 
+#	var n_food = 100
+#	for i in range(n_food):
+#		create_object("res://objects/simple/food-good.tscn",
+#		[Vector2(rand_range(-1000, 1000), 
+#				 rand_range(-1000, 1000))], 
+#		$UnprocessedFood)
+
 	print_stray_nodes()	
 	
-func create_objects(scene, locations, parent):
+func create_object(scene, locations, parent):
 	for loc in locations:
 		var obj = load(scene).instance()
 		obj.position = loc
-		obj.rotation = rand_range(0, 3.1415)
 		
 		# check for collision with existing object
 		if ! has_collision(obj):
@@ -66,10 +72,10 @@ func create_objects(scene, locations, parent):
 
 func has_collision(obj):
 #	return false
-	
+
 	var space_rid = get_world_2d().space
 	var space_state = Physics2DServer.space_get_direct_state(space_rid)
-	
+
 	var collider = obj.get_node("CollisionShape2D")
 	var shape = collider.get_shape()
 
@@ -79,8 +85,8 @@ func has_collision(obj):
 	query.collide_with_bodies = true
 	query.collision_layer = Globals.FIXED_OBJECTS_LAYER | Globals.MANIPULATABLE_OBJECTS_LAYER | Globals.AGENTS_LAYER
 #	query.margin = 5000.0
-	
-	var results = space_state.collide_shape(query)	
+
+	var results = space_state.intersect_shape(query)	
 	for result in results:
 		print(result)
 
