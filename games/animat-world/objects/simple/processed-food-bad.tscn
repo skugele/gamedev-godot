@@ -1,11 +1,29 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://atlases/simple-world-objects.png" type="Texture" id=1]
 [ext_resource path="res://objects/simple/processed-food-abstract.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/simple/processed-food-bad.gd" type="Script" id=3]
+[ext_resource path="res://shared/taste-area.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 59.3166
+height = 96.7534
 
 [node name="ProcessedFoodBad" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 180.7, 427.433, 222.36, 127.877 )
+
+[node name="TasteArea" parent="Taste/TasteAreas" index="0" instance=ExtResource( 4 )]
+
+[node name="CollisionShape2D" parent="Taste/TasteAreas/TasteArea" index="0"]
+position = Vector2( 0, -3 )
+rotation = -1.57395
+shape = SubResource( 1 )
+
+[editable path="Taste"]
+
+[editable path="Taste/TasteAreas/TasteArea"]

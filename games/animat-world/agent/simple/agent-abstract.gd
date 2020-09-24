@@ -259,7 +259,7 @@ func _on_antenna_detected_smell(antenna, scent):
 		return
 			
 	add_scent(scent)
-#	print(active_scents.values())
+	print("Active Smells: ", active_scents.values())
 	emit_signal("smell_activity_change", get_activity_level())
 
 func _on_antenna_lost_smell(antenna, scent):
@@ -267,7 +267,7 @@ func _on_antenna_lost_smell(antenna, scent):
 		return
 		
 	remove_scent(scent)
-#	print(active_scents.values())
+	print("Active Smells: ", active_scents.values())
 	emit_signal("smell_activity_change", get_activity_level())
 	
 func _on_antenna_detected_taste(antenna, taste):
@@ -275,7 +275,7 @@ func _on_antenna_detected_taste(antenna, taste):
 		return
 			
 	add_taste(taste)
-#	print(active_tastes.values())
+	print("Active Tastes: ", active_tastes.values())
 	emit_signal("taste_activity_change", get_taste_activity_level())
 
 func _on_antenna_lost_taste(antenna, taste):
@@ -283,7 +283,7 @@ func _on_antenna_lost_taste(antenna, taste):
 		return
 		
 	remove_taste(taste)
-#	print(active_tastes.values())
+	print("Active Tastes: ", active_tastes.values())
 	emit_signal("taste_activity_change", get_taste_activity_level())
 	
 func _on_antenna_detected_object(antenna, body):

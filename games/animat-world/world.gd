@@ -135,7 +135,7 @@ func _transform_food(unprocessed_food):
 	var obj = scene.instance()
 	
 	# set its location to the location of the unprocessed food node
-	obj.global_position = unprocessed_food.global_position
+	obj.init_from_unprocessed_food(unprocessed_food)
 		
 	# free unprocessed food node
 	unprocessed_food.queue_free()
