@@ -27,7 +27,10 @@ func _physics_process(delta):
 	pass
 		
 func create_world():
-#
+
+	for food_node in $UnprocessedFood.get_children():
+		add_food(food_node)
+
 #	var n_trees = 500
 #	for i in range(n_trees):
 #		create_object("res://objects/simple/tree.tscn", 
@@ -110,6 +113,35 @@ func zoom_out():
 func update_camera_zoom(direction):
 	zoom += direction * ZOOM_DELTA
 	camera.zoom = Vector2(zoom, zoom)
+
+func add_food(food_node):
+		
+	# connect signals	
+	food_node.connect(
+		"dead_or_destroyed", 
+		self, 
+		"_transform_food")
+			
+func _transform_food(unprocessed_food):
+	print('Transforming food node: ', unprocessed_food)	
+	
+	# create new processed food node
+	var scene = null
+	if unprocessed_food.is_good():
+		scene = load("res://objects/simple/processed-food-good.tscn")
+	elif unprocessed_food.is_bad():
+		scene = load("res://objects/simple/processed-food-bad.tscn")
+		
+	var obj = scene.instance()
+	
+	# set its location to the location of the unprocessed food node
+	obj.global_position = unprocessed_food.global_position
+		
+	# free unprocessed food node
+	unprocessed_food.queue_free()
+	
+	# add new unprocessed node to scene
+	$ProcessedFood.add_child(obj)
 	
 func agent_join(id):
 	var agent = load("res://agent/simple/agent-human-controlled.tscn")

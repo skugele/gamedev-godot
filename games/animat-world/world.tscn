@@ -19,18 +19,18 @@ script = ExtResource( 9 )
 
 [node name="UnprocessedFood" type="YSort" parent="."]
 
+[node name="FoodGood" parent="UnprocessedFood" instance=ExtResource( 3 )]
+position = Vector2( -802.314, -1232.76 )
+
+[node name="FoodBad" parent="UnprocessedFood" instance=ExtResource( 5 )]
+position = Vector2( 2058.82, -1393.05 )
+
 [node name="Agents" type="Node2D" parent="."]
 
 [node name="AgentDummy" parent="Agents" instance=ExtResource( 1 )]
 position = Vector2( 2208.24, 717.114 )
 
 [node name="Trees" type="Node2D" parent="."]
-
-[node name="FoodGood" parent="." instance=ExtResource( 3 )]
-position = Vector2( -802.314, -1232.76 )
-
-[node name="FoodBad" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2058.82, -1393.05 )
 
 [node name="Rock" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1531.58, 134.577 )
