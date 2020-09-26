@@ -6,6 +6,9 @@
 [node name="AgentHumanControlled" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="CollisionShape2D" parent="Mouth/Area2D" index="0"]
+disabled = false
+
 [editable path="Mandibles/Left"]
 
 [editable path="Mandibles/Right"]

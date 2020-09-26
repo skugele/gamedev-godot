@@ -136,12 +136,12 @@ func _transform_food(unprocessed_food):
 	
 	# set its location to the location of the unprocessed food node
 	obj.init_from_unprocessed_food(unprocessed_food)
-		
+			
 	# free unprocessed food node
 	unprocessed_food.queue_free()
 	
 	# add new unprocessed node to scene
-	$ProcessedFood.add_child(obj)
+	$ProcessedFood.add_child(obj)	
 	
 func agent_join(id):
 	var agent = load("res://agent/simple/agent-human-controlled.tscn")
@@ -190,6 +190,11 @@ func agent_join(id):
 		"antennae_activity_change", 
 		agent_info_display, 
 		"_on_agent_antennae_activity_change")
+
+	agent_node.connect(
+		"agent_eating", 
+		self, 
+		"_on_agent_eating_edible")		
 		
 	# adds camera to agent
 	camera = Camera2D.new()
@@ -201,3 +206,16 @@ func agent_join(id):
 		camera.smoothing_speed = Globals.CAMERA_SMOOTHING_SPEED
 
 	agent_node.add_child(camera)
+
+###################
+# Signal Handlers #
+###################
+
+func _on_agent_eating_edible(agent, edible):
+	var amount_consumed = edible.consume()
+	
+	print("Agent %s ate %s portions of %s" % [agent, amount_consumed, edible])
+	
+	# TODO: update agent's stats based on item consumed and amount consumed
+	
+	

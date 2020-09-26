@@ -40,3 +40,7 @@ shape = SubResource( 1 )
 [editable path="Taste"]
 
 [editable path="Taste/TasteAreas/TasteArea"]
+
+[editable path="DamageDetector"]
+
+[editable path="Mouth"]

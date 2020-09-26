@@ -2,6 +2,8 @@
 
 extends StaticBody2D
 
+onready var amount_left setget set_amount_left, get_amount_left
+
 # TODO: I need to refactor the code to have a common base scene between
 # processed and unprocessed foods
 var signature = null
@@ -15,8 +17,7 @@ enum  {
 var variety = null
 
 func _ready():
-	connect("edible_exhausted", self, "_on_edible_exhausted")
-	connect("edible_consumed", self, "_on_edible_consumed")
+	pass
 
 func is_good():
 	return variety == GOOD
@@ -38,8 +39,14 @@ func init_from_unprocessed_food(unprocessed_food_node):
 	
 	$Taste.set_signature(signature)
 
-func _on_edible_consumed():
-	print("edible consumed")
+func set_amount_left(amount):
+	$Edible.amount_left = amount
+	
+func get_amount_left():
+	return $Edible.amount_left
+	
+func consume():
+	return $Edible.consume()
 	
 func _on_edible_exhausted():
-	print("edible exhausted")
+	queue_free()

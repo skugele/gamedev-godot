@@ -255,10 +255,10 @@ position = Vector2( 0, -150 )
 
 [node name="CollisionShape2D" parent="Mouth/Area2D" index="0"]
 shape = SubResource( 9 )
+disabled = true
 [connection signal="detected_damageable" from="DamageDetector" to="." method="_on_detected_damageable"]
 [connection signal="lost_damageable" from="DamageDetector" to="." method="_on_lost_damageable"]
 [connection signal="edible_in_range" from="Mouth" to="." method="_on_detected_edible"]
-[connection signal="edible_left_range" from="Mouth" to="." method="_on_lost_edible"]
 
 [editable path="Mandibles/Left"]
 

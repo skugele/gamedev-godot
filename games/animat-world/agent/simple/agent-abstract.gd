@@ -27,7 +27,7 @@ onready var id = null
 onready var hairs = []
 onready var antennae = []
 onready var mandibles = []
-#onready var mouth = $Mouth
+onready var mouth = $Mouth
 
 # indicators of sensory activity
 
@@ -45,9 +45,6 @@ onready var active_tastes = {} # dictionary of taste emitters ids -> active tast
 onready var ignored_tastes = [] # ignore own tastes
 onready var combined_taste_sig = null
 
-# edibles
-onready var available_edibles = []
-
 # current state vars
 onready var velocity = Vector2.ZERO
 
@@ -63,6 +60,8 @@ var signature = null
 ###########
 # signals #
 ###########
+# TODO: Once we have multiple agents it may be good to always
+# send an agent reference object in these signals
 signal hair_activity_change(activity)
 signal antennae_activity_change(activity)
 signal smell_activity_change(activity)
@@ -70,6 +69,8 @@ signal taste_activity_change(activity)
 signal velocity_change(value)
 signal rotation_change(value)
 signal mandible_aperture_change(value)
+
+signal agent_eating(agent, edible)
 
 #############
 # functions #
@@ -141,10 +142,10 @@ func init_effectors():
 		
 	set_mandible_aperature(mandible_aperature)
 	
-	# mouth
-#	mouth.connect("detected_edible", self, "_on_detected_edible")
-#	mouth.connect("lost_edible", self, "_on_lost_edible")
-		
+	# disables the collision detection between mouth and edibles (this is reactivated
+	# when the agent attempts an eating action)
+	mouth.deactivate()
+			
 func init_sensors():
 	
 	# hairs
@@ -191,6 +192,15 @@ func set_mandible_aperature(degrees):
 	if degrees >= 40.0 and len(damageables) > 0:
 		for damageable in damageables:
 			damageable.register_damage(1)
+			
+func eat(edible):
+	print("Agent %s attempting to eat %s" % [self,edible])
+	if edible == null:
+		return
+
+	# this signal is received by the world scene, which updates both the
+	# agent stats and the edible (e.g., the amount that is consumed)
+	emit_signal("agent_eating", self, edible)
 		
 func distance_from_scent(scent):
 	var distance = Globals.SMELL_DETECTABLE_RADIUS
@@ -248,24 +258,15 @@ func remove_damageable_area(area):
 	# found
 	if index_to_area != -1:
 		damageables.remove(index_to_area)
-		
-func add_edible(edible):
-	var index_to_edible = available_edibles.find(edible)
-	
-	# not found
-	if index_to_edible == -1:
-		available_edibles.append(edible)
-	
-func remove_edible(edible):
-	var index_to_edible = available_edibles.find(edible)
-	
-	# found
-	if index_to_edible != -1:
-		available_edibles.remove(index_to_edible)
-		
+			
 func is_damageable_area(area):
 	var index_to_area = damageables.find(area)	
 	return false if index_to_area == -1 else true
+
+###################
+# Signal Handlers #
+###################
+
 
 func _on_hair_active(hair):
 	active_hairs[hair.id] += 1
@@ -325,12 +326,8 @@ func _on_lost_damageable(area):
 	remove_damageable_area(area)
 #	print('damageables: ', damageables)	
 
-func _on_detected_edible(edible):
-	print("_on_detected_edible: ", edible)
-	add_edible(edible)
-	print('available edibles: ', available_edibles)
-
-func _on_lost_edible(edible):
-	print("_on_lost_edible: ", edible)
-	remove_edible(edible)
-	print('available edibles: ', available_edibles)
+func _on_detected_edible(area):
+	var edible = area.get_owner()
+	print("AgentAbstract._on_detected_edible: ", edible)
+	
+	eat(edible)

@@ -31,7 +31,16 @@ func get_input():
 		mandible_change_dir = 1
 	elif Input.is_action_pressed("ui_close_mandibles"):
 		mandible_change_dir = -1
-		
+
+	# eating 
+	# ---> using is_action_just_pressed so it will only trigger once per press
+	if Input.is_action_just_pressed("ui_eat"):
+		print("Activating Mouth")
+		mouth.activate()
+	elif Input.is_action_just_released("ui_eat"):
+		print("Deactivating Mouth")
+		mouth.deactivate()
+				
 	return [direction, turn, mandible_change_dir]
 	
 func execute_move(inputs, delta):
