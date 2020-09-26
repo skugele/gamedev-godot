@@ -5,11 +5,15 @@ signal edible_exhausted
 # TODO: Move this to an export or other settable variable
 const CONSUMPTION_RATE = 0.25
 
-var amount_left = 1 setget set_amount_left
+onready var amount_start = 1 setget set_amount_start
+onready var amount_left = amount_start setget set_amount_left
 
 func _ready():
 	pass # Replace with function body.
 
+func set_amount_start(amount):
+	amount_start = max(0, amount)
+	
 func set_amount_left(amount):
 	amount_left = max(0, amount)
 

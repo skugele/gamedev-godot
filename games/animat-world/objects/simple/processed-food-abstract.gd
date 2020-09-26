@@ -46,7 +46,12 @@ func get_amount_left():
 	return $Edible.amount_left
 	
 func consume():
-	return $Edible.consume()
+	var amount_consumed = $Edible.consume()
+	var scaling_factor = float($Edible.amount_left) / float($Edible.amount_start)
+
+	self.scale = Vector2(scaling_factor, scaling_factor)
+	
+	return amount_consumed
 	
 func _on_edible_exhausted():
 	queue_free()
