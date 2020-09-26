@@ -38,8 +38,7 @@ b = Vector2( 0, 0 )
 [sub_resource type="CircleShape2D" id=8]
 radius = 25.0
 
-[sub_resource type="CircleShape2D" id=9]
-radius = 45.0
+[sub_resource type="CapsuleShape2D" id=9]
 
 [node name="AgentAbstract" type="KinematicBody2D"]
 position = Vector2( 1, 0 )
@@ -247,13 +246,15 @@ shape = SubResource( 7 )
 [node name="DamageDetector" parent="." instance=ExtResource( 3 )]
 
 [node name="CollisionShape2D" parent="DamageDetector" index="0"]
-position = Vector2( 0, -169 )
+position = Vector2( -1, -155 )
 shape = SubResource( 8 )
 
 [node name="Mouth" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -150 )
 
 [node name="CollisionShape2D" parent="Mouth/Area2D" index="0"]
+position = Vector2( -1, 30 )
+rotation = 1.5691
 shape = SubResource( 9 )
 disabled = true
 [connection signal="detected_damageable" from="DamageDetector" to="." method="_on_detected_damageable"]

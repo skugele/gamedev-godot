@@ -2,8 +2,8 @@ extends Node2D
 
 signal edible_exhausted
 
-# TODO: Move this to an export or other settable variable
-const CONSUMPTION_RATE = 0.25
+const CONSUMPTION_RATE = 0.01
+const MIN_AMOUNT = 0.25
 
 onready var amount_start = 1 setget set_amount_start
 onready var amount_left = amount_start setget set_amount_left
@@ -22,7 +22,7 @@ func consume():
 	
 	amount_left -= amount_consumed
 
-	if amount_left == 0:
+	if amount_left <= MIN_AMOUNT:
 #		print("Edible exhausted!")
 
 		# TODO: Is this needed, or can we just do a queue_free here?
