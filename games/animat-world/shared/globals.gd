@@ -45,6 +45,18 @@ var FOOD_HEALTH = 1
 var EGG_HEALTH = 1
 var AGENT_HEALTH = 5
 
+###################
+# agent constants #
+###################
+const AGENT_MAX_HEALTH = 10
+const AGENT_MAX_ENERGY = 50
+const AGENT_MAX_SATIETY = 100
+
+enum AGENT_SEX {
+	A,
+	B
+}
+
 ##############################################
 # modifiable global state (USE WITH CAUTION) #
 ##############################################

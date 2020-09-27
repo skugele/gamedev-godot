@@ -2,19 +2,59 @@
 
 extends Node2D
 
-export(int) var age = 0
-export(String, "A", "B") var sex
-export(int, 0, 10) var health = 5
-export(int, 0, 100) var energy = 50
+#############
+# constants #
+#############
+const MAX_HEALTH = 10
+const MAX_ENERGY = 50
+const MAX_SATIETY = 100
 
-var children_current = 0
-var children_total = 0
+enum SEX {
+	A,
+	B
+}
+
+################
+# onready vars #
+################
+onready var sex # SEX_A or SEX_B
+onready var health setget set_health
+onready var energy setget set_energy
+onready var satiety setget set_satiety
+
+onready var agent = self.get_owner()
+
+###########
+# signals #
+###########
+signal death(agent)
+
+#############
+# functions #
+#############
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	sex = choose_sex()
+	
+	health = MAX_HEALTH
+	energy = MAX_ENERGY
+	satiety = MAX_SATIETY
+	
+func set_health(value):
+	health = value
+	
+	if health <= 0:
+		# this should be received/handled by the environment, as there
+		# are many things that must occur when an agent dies
+		emit_signal("death", agent)
+	
+func set_energy(value):
+	energy = value
 
+func set_satiety(value):
+	satiety = value
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func choose_sex():
+	return SEX.values()[randi() % 2] 
+	

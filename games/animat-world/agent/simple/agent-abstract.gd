@@ -22,8 +22,10 @@ export(int) var FRICTION = 5000
 # onready vars #
 ################
 onready var id = null
+onready var stats = $Stats
 
 # references to sensors and effectors
+#####################################
 onready var hairs = []
 onready var antennae = []
 onready var mandibles = []
@@ -317,12 +319,12 @@ func _on_antenna_lost_object(antenna, body):
 	emit_signal("antennae_activity_change", active_antennae)
 	
 func _on_detected_damageable(area):
-#	print("_on_detected_damageable: ", area)
+	print("_on_detected_damageable: ", area)
 	add_damageable_area(area)
 #	print('damageables: ', damageables)
 
 func _on_lost_damageable(area):
-#	print("_on_lost_damageable: ", area)
+	print("_on_lost_damageable: ", area)
 	remove_damageable_area(area)
 #	print('damageables: ', damageables)	
 

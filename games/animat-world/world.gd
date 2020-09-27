@@ -123,7 +123,7 @@ func add_food(food_node):
 		"_transform_food")
 			
 func _transform_food(unprocessed_food):
-	print('Transforming food node: ', unprocessed_food)	
+#	print('Transforming food node: ', unprocessed_food)	
 	
 	# create new processed food node
 	var scene = null

@@ -36,7 +36,7 @@ a = Vector2( 4.46212, -85.0736 )
 b = Vector2( 0, 0 )
 
 [sub_resource type="CircleShape2D" id=8]
-radius = 25.0
+radius = 5.0
 
 [sub_resource type="CapsuleShape2D" id=9]
 
@@ -243,10 +243,10 @@ rotation = -0.0626099
 scale = Vector2( 7, 1.1 )
 shape = SubResource( 7 )
 
-[node name="DamageDetector" parent="." instance=ExtResource( 3 )]
+[node name="DamageableDetector" parent="." instance=ExtResource( 3 )]
 
-[node name="CollisionShape2D" parent="DamageDetector" index="0"]
-position = Vector2( -1, -155 )
+[node name="CollisionShape2D" parent="DamageableDetector" index="0"]
+position = Vector2( -1, -151 )
 shape = SubResource( 8 )
 
 [node name="Mouth" parent="." instance=ExtResource( 5 )]
@@ -257,8 +257,8 @@ position = Vector2( -1, 30 )
 rotation = 1.5691
 shape = SubResource( 9 )
 disabled = true
-[connection signal="detected_damageable" from="DamageDetector" to="." method="_on_detected_damageable"]
-[connection signal="lost_damageable" from="DamageDetector" to="." method="_on_lost_damageable"]
+[connection signal="detected_damageable" from="DamageableDetector" to="." method="_on_detected_damageable"]
+[connection signal="lost_damageable" from="DamageableDetector" to="." method="_on_lost_damageable"]
 [connection signal="edible_in_range" from="Mouth" to="." method="_on_detected_edible"]
 
 [editable path="Mandibles/Left"]
@@ -273,6 +273,6 @@ disabled = true
 
 [editable path="Antennae/Right/TasteDetector"]
 
-[editable path="DamageDetector"]
+[editable path="DamageableDetector"]
 
 [editable path="Mouth"]
