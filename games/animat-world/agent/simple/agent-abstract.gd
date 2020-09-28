@@ -101,7 +101,11 @@ func get_combined_scent(active_scents):
 
 	for id in active_scents.keys():
 		var scent = active_scents[id][-1]
+		
 		var distance = distance_from_scent(scent)
+		if distance == null:
+			continue
+			
 #		print('distance: ', distance)
 		var scaling_factor = 1 - distance / (Globals.SMELL_DETECTABLE_RADIUS + 250.0)
 #		print('scent signature (unscaled): ', scent.signature)
@@ -205,6 +209,9 @@ func eat(edible):
 	emit_signal("agent_eating", self, edible)
 		
 func distance_from_scent(scent):
+	if scent == null:
+		return null
+		
 	var distance = Globals.SMELL_DETECTABLE_RADIUS
 	
 	for antenna in antennae:

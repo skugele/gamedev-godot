@@ -13,17 +13,59 @@ script = ExtResource( 9 )
 
 [node name="AgentInfoDisplay" parent="." instance=ExtResource( 10 )]
 
+[node name="BasicInfo" parent="AgentInfoDisplay/Panel/AgentInfoPanel/StatsPanel/TabContainer" index="0"]
+visible = true
+
+[node name="Status" parent="AgentInfoDisplay/Panel/AgentInfoPanel/StatsPanel/TabContainer" index="1"]
+visible = false
+
 [node name="Rocks" type="YSort" parent="."]
+
+[node name="Rock1" parent="Rocks" instance=ExtResource( 2 )]
+position = Vector2( 1455.25, 210.904 )
+
+[node name="Rock2" parent="Rocks" instance=ExtResource( 2 )]
+position = Vector2( 638.102, 623.97 )
+
+[node name="Rock3" parent="Rocks" instance=ExtResource( 2 )]
+position = Vector2( 1307.09, -1154.01 )
+
+[node name="Rock4" parent="Rocks" instance=ExtResource( 2 )]
+position = Vector2( -1184.77, -898.086 )
+
+[node name="Rock5" parent="Rocks" instance=ExtResource( 2 )]
+position = Vector2( -632.524, 412.947 )
+
+[node name="Rock6" parent="Rocks" instance=ExtResource( 2 )]
+position = Vector2( 700.959, -1661.36 )
+
+[node name="Rock7" parent="Rocks" instance=ExtResource( 2 )]
+position = Vector2( 1908.73, -534.409 )
 
 [node name="ProcessedFood" type="Node2D" parent="."]
 
 [node name="UnprocessedFood" type="YSort" parent="."]
 
-[node name="FoodGood" parent="UnprocessedFood" instance=ExtResource( 3 )]
-position = Vector2( 1411.9, -1229.35 )
+[node name="FoodGood1" parent="UnprocessedFood" instance=ExtResource( 3 )]
+position = Vector2( 603.729, -457.097 )
 
-[node name="FoodBad" parent="UnprocessedFood" instance=ExtResource( 5 )]
-position = Vector2( -359.524, -1602.28 )
+[node name="FoodGood2" parent="UnprocessedFood" instance=ExtResource( 3 )]
+position = Vector2( 536.381, -919.551 )
+
+[node name="FoodGood3" parent="UnprocessedFood" instance=ExtResource( 3 )]
+position = Vector2( 226.582, -111.38 )
+
+[node name="FoodGood4" parent="UnprocessedFood" instance=ExtResource( 3 )]
+position = Vector2( 612.708, -704.039 )
+
+[node name="FoodBad1" parent="UnprocessedFood" instance=ExtResource( 5 )]
+position = Vector2( -601.976, -1175.75 )
+
+[node name="FoodBad2" parent="UnprocessedFood" instance=ExtResource( 5 )]
+position = Vector2( -750.14, -331.655 )
+
+[node name="FoodBad3" parent="UnprocessedFood" instance=ExtResource( 5 )]
+position = Vector2( -453.811, -1391.26 )
 
 [node name="Agents" type="Node2D" parent="."]
 
@@ -32,10 +74,27 @@ position = Vector2( 2208.24, 717.114 )
 
 [node name="Trees" type="Node2D" parent="."]
 
-[node name="Rock" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1531.58, 134.577 )
-
-[node name="Tree" parent="." instance=ExtResource( 4 )]
+[node name="Tree1" parent="Trees" instance=ExtResource( 4 )]
 position = Vector2( -46.3011, -706.746 )
+z_index = 2
+
+[node name="Tree2" parent="Trees" instance=ExtResource( 4 )]
+position = Vector2( -11.8519, -350.518 )
+
+[node name="Tree3" parent="Trees" instance=ExtResource( 4 )]
+position = Vector2( -459.367, -738.175 )
+z_index = 2
+
+[node name="Tree4" parent="Trees" instance=ExtResource( 4 )]
+position = Vector2( -348.141, -445.683 )
+
+[node name="Tree5" parent="Trees" instance=ExtResource( 4 )]
+position = Vector2( 143.292, -1015.61 )
+
+[node name="Tree6" parent="Trees" instance=ExtResource( 4 )]
+position = Vector2( -230.915, -1008.22 )
+
+[node name="Tree7" parent="Trees" instance=ExtResource( 4 )]
+position = Vector2( 297.988, -648.378 )
 
 [editable path="AgentInfoDisplay"]
