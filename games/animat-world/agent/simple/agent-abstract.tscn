@@ -56,7 +56,7 @@ position = Vector2( 1, 3 )
 shape = SubResource( 1 )
 
 [node name="Torso" type="Sprite" parent="."]
-modulate = Color( 0.227451, 0.254902, 0.541176, 1 )
+modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0, 2 )
 texture = ExtResource( 8 )
 region_enabled = true

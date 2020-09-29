@@ -19,9 +19,9 @@ onready var agent_info_display = $AgentInfoDisplay
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var id = 1
 	create_world()
-	agent_join(id)
+	var agent = agent_join(Globals.generate_unique_id())
+	agent_info_display.current_agent = agent
 
 func _physics_process(delta):
 	pass
@@ -206,6 +206,8 @@ func agent_join(id):
 		camera.smoothing_speed = Globals.CAMERA_SMOOTHING_SPEED
 
 	agent_node.add_child(camera)
+	
+	return agent_node
 
 ###################
 # Signal Handlers #

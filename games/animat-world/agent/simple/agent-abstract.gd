@@ -23,6 +23,7 @@ export(int) var FRICTION = 5000
 ################
 onready var id = null
 onready var stats = $Stats
+onready var torso = $Torso
 
 # references to sensors and effectors
 #####################################
@@ -78,8 +79,12 @@ signal agent_eating(agent, edible)
 # functions #
 #############
 func _ready():
-	pass
-
+	if stats.sex == Globals.AGENT_SEX.A:	
+		$Torso.modulate = Globals.COLOR_SEX_A
+	elif stats.sex == Globals.AGENT_SEX.B:	
+		print("Agent is sex B")
+		$Torso.modulate = Globals.COLOR_SEX_B
+	
 func _process(delta):
 	pass
 	

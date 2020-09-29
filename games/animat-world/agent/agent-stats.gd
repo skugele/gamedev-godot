@@ -5,9 +5,9 @@ extends Node2D
 #############
 # constants #
 #############
-const MAX_HEALTH = 10
-const MAX_ENERGY = 50
-const MAX_SATIETY = 100
+const MAX_HEALTH = Globals.AGENT_MAX_HEALTH
+const MAX_ENERGY = Globals.AGENT_MAX_ENERGY
+const MAX_SATIETY = Globals.AGENT_MAX_SATIETY
 
 enum SEX {
 	A,

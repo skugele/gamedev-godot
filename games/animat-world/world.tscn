@@ -13,12 +13,6 @@ script = ExtResource( 9 )
 
 [node name="AgentInfoDisplay" parent="." instance=ExtResource( 10 )]
 
-[node name="BasicInfo" parent="AgentInfoDisplay/Panel/AgentInfoPanel/StatsPanel/TabContainer" index="0"]
-visible = true
-
-[node name="Status" parent="AgentInfoDisplay/Panel/AgentInfoPanel/StatsPanel/TabContainer" index="1"]
-visible = false
-
 [node name="Rocks" type="YSort" parent="."]
 
 [node name="Rock1" parent="Rocks" instance=ExtResource( 2 )]

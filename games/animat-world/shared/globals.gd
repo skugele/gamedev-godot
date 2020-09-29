@@ -57,6 +57,9 @@ enum AGENT_SEX {
 	B
 }
 
+const COLOR_SEX_A = Color(0.3, 0.0, 0.8, 1.0)
+const COLOR_SEX_B = Color(0.4, 0.0, 0.6, 1.0)
+
 ##############################################
 # modifiable global state (USE WITH CAUTION) #
 ##############################################
@@ -82,6 +85,9 @@ func generate_unique_id():
 ##################################################################
 # shared functions (THESE FUNCTIONS SHOULD HAVE NO SIDE-EFFECTS) #
 ##################################################################
+func get_sex_as_string(sex):
+	return AGENT_SEX.keys()[sex]
+		
 func get_sensory_vector(active_elements):
 	var vector = []
 	

@@ -8,13 +8,56 @@ onready var antennae_alerts = []
 
 onready var agent_body = $Panel/AgentInfoPanel/BodyPanel/Agent
 
+# agent info
+onready var agent_id = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/ID
+onready var agent_sex = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/Sex
+onready var agent_pos = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/Position
+onready var agent_speed = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/Speed
+
+# agent status
+onready var agent_health = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars/Health/Bar
+onready var agent_energy = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars/Energy/Bar
+onready var agent_satiety = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars/Satiety/Bar
+
+
+var current_agent = null setget set_agent
+
 func _ready():
 	init_sensor_alerts()
+	
+	# initialize ui elements
+	$Panel/AgentInfoPanel/StatsPanel/TabContainer.set_tab_title(0, "Info")
+	$Panel/AgentInfoPanel/StatsPanel/TabContainer.set_tab_title(1, "Status")
+	
+	# init agent status bars
+	agent_health.max_value = Globals.AGENT_MAX_HEALTH
+	agent_energy.max_value = Globals.AGENT_MAX_ENERGY
+	agent_satiety.max_value = Globals.AGENT_MAX_SATIETY
 	
 func _process(delta):
 	# sets the elapsed time string on the display
 	$SidePanel/ElapsedTime.text = Globals.TIME_FORMAT_STRING % Globals.get_elapsed_time()
+
+	if current_agent == null:	
+		$Panel.visible = false		
+	else:
+		$Panel.visible = true
+		
+		# update agent info
+		agent_id.text = str(current_agent.id)
+		agent_sex.text = Globals.get_sex_as_string(current_agent.stats.sex)
+		agent_pos.text = "(%.2f, %.2f)" % [current_agent.global_position.x, current_agent.global_position.y]
+		agent_speed.text = "%.2f" % current_agent.velocity.length()
+			
+		# update agent status
+		agent_health.value = current_agent.stats.health
+		agent_energy.value = current_agent.stats.energy
+		agent_satiety.value = current_agent.stats.satiety
 	
+	
+func set_agent(agent):
+	current_agent = agent
+		
 func init_sensor_alerts():
 	var container = $Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts
 	for hair in container.get_children():
@@ -26,6 +69,8 @@ func init_sensor_alerts():
 		antenna_alert.set_smell_activity_level(0)
 		
 		antennae_alerts.append(antenna_alert)
+		
+	$Panel/AgentInfoPanel/BodyPanel/Agent/Torso.modulate = Color(0,0,0,1.0)
 			
 func _on_agent_hair_activity_change(activity):
 	var id = 0
