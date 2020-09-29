@@ -1,5 +1,7 @@
 extends "res://agent/simple/agent-abstract.gd"
 
+signal agent_selected(agent)
+
 func _ready():
 	id = Globals.generate_unique_id()
 	
@@ -26,3 +28,10 @@ func init_scent_areas(radii):
 		
 func init_taste_areas():
 	$Taste.set_signature(signature)
+	
+func _input_event(viewport, event, shape_idx):
+
+	# This is used to select the agent from the world view
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			emit_signal("agent_selected", self)

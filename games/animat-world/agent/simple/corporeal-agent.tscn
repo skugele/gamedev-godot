@@ -11,6 +11,7 @@ radius = 68.0
 height = 82.0
 
 [node name="CorporealAgent" instance=ExtResource( 1 )]
+input_pickable = true
 script = ExtResource( 2 )
 
 [node name="Smell" parent="." index="6" instance=ExtResource( 3 )]
@@ -40,3 +41,7 @@ shape = SubResource( 1 )
 [editable path="Taste"]
 
 [editable path="Taste/TasteAreas/TasteArea"]
+
+[editable path="DamageableDetector"]
+
+[editable path="Mouth"]

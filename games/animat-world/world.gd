@@ -21,7 +21,6 @@ onready var agent_info_display = $AgentInfoDisplay
 func _ready():
 	create_world()
 	var agent = agent_join(Globals.generate_unique_id())
-	agent_info_display.current_agent = agent
 
 func _physics_process(delta):
 	pass
@@ -196,6 +195,12 @@ func agent_join(id):
 		self, 
 		"_on_agent_eating_edible")		
 		
+	agent_node.connect(
+		"agent_selected",
+		self,
+		"_on_agent_selected"
+	)
+		
 	# adds camera to agent
 	camera = Camera2D.new()
 	camera.current = true
@@ -220,4 +225,8 @@ func _on_agent_eating_edible(agent, edible):
 	
 	# TODO: update agent's stats based on item consumed and amount consumed
 	
-	
+func _on_agent_selected(agent):
+	if agent == agent_info_display.current_agent:
+		agent_info_display.current_agent = null
+	else:
+		agent_info_display.current_agent = agent
