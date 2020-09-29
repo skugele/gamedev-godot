@@ -250,9 +250,9 @@ position = Vector2( -1, -151 )
 shape = SubResource( 8 )
 
 [node name="Mouth" parent="." instance=ExtResource( 5 )]
-position = Vector2( 0, -150 )
+position = Vector2( 0, -147 )
 
-[node name="CollisionShape2D" parent="Mouth/Area2D" index="0"]
+[node name="CollisionShape2D" parent="Mouth/Area2D" index="1"]
 position = Vector2( -1, 30 )
 rotation = 1.5691
 shape = SubResource( 9 )

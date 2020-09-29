@@ -82,7 +82,6 @@ func _ready():
 	if stats.sex == Globals.AGENT_SEX.A:	
 		$Torso.modulate = Globals.COLOR_SEX_A
 	elif stats.sex == Globals.AGENT_SEX.B:	
-		print("Agent is sex B")
 		$Torso.modulate = Globals.COLOR_SEX_B
 	
 func _process(delta):
