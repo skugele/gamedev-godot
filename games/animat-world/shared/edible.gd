@@ -2,7 +2,7 @@ extends Node2D
 
 signal edible_exhausted
 
-const CONSUMPTION_RATE = 0.01
+const CONSUMPTION_RATE = 0.1
 const MIN_AMOUNT = 0.25
 
 onready var amount_start = 1 setget set_amount_start

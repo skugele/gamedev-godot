@@ -219,10 +219,9 @@ func agent_join(id):
 ###################
 
 func _on_agent_eating_edible(agent, edible):
-	var amount_consumed = edible.consume()
+	var amount_consumed = edible.get_owner().consume()
 	
 	print("Agent %s ate %s portions of %s" % [agent, amount_consumed, edible])
-	
 	# TODO: update agent's stats based on item consumed and amount consumed
 	
 func _on_agent_selected(agent):

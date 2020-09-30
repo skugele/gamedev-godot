@@ -279,8 +279,6 @@ func is_damageable_area(area):
 ###################
 # Signal Handlers #
 ###################
-
-
 func _on_hair_active(hair):
 	active_hairs[hair.id] += 1
 	emit_signal("hair_activity_change", active_hairs)
@@ -344,3 +342,6 @@ func _on_detected_edible(area):
 	print("AgentAbstract._on_detected_edible: ", edible)
 	
 	eat(edible)
+
+func _on_mouth_consumed_edible(edible):
+	emit_signal("agent_eating", self, edible)

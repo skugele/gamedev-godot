@@ -259,7 +259,7 @@ shape = SubResource( 9 )
 disabled = true
 [connection signal="detected_damageable" from="DamageableDetector" to="." method="_on_detected_damageable"]
 [connection signal="lost_damageable" from="DamageableDetector" to="." method="_on_lost_damageable"]
-[connection signal="edible_in_range" from="Mouth" to="." method="_on_detected_edible"]
+[connection signal="edible_consumed" from="Mouth" to="." method="_on_mouth_consumed_edible"]
 
 [editable path="Mandibles/Left"]
 
