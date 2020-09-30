@@ -2,18 +2,6 @@
 
 extends Node2D
 
-#############
-# constants #
-#############
-const MAX_HEALTH = Globals.AGENT_MAX_HEALTH
-const MAX_ENERGY = Globals.AGENT_MAX_ENERGY
-const MAX_SATIETY = Globals.AGENT_MAX_SATIETY
-
-enum SEX {
-	A,
-	B
-}
-
 ################
 # onready vars #
 ################
@@ -37,12 +25,14 @@ signal death(agent)
 func _ready():
 	sex = choose_sex()
 	
-	health = MAX_HEALTH
-	energy = MAX_ENERGY
-	satiety = MAX_SATIETY
+	health = Globals.AGENT_INITIAL_HEALTH
+	energy = Globals.AGENT_INITIAL_ENERGY
+	satiety = Globals.AGENT_INITIAL_SATIETY
 	
 func set_health(value):
-	health = value
+	
+	health = min(value, Globals.AGENT_MAX_HEALTH)
+	health = max(0, health)
 	
 	if health <= 0:
 		# this should be received/handled by the environment, as there
@@ -50,11 +40,16 @@ func set_health(value):
 		emit_signal("death", agent)
 	
 func set_energy(value):
-	energy = value
+	energy = min(value, Globals.AGENT_MAX_ENERGY)
+	energy = max(0, energy)
 
 func set_satiety(value):
-	satiety = value
-
+	satiety = min(value, Globals.AGENT_MAX_SATIETY)
+	satiety = max(0, satiety)
+		
+	# TODO: if starving (satiety == 0):start a timer that continues to periodically damage
+	# the agent until satiety > 0 (stop timer)
+	
 func choose_sex():
-	return SEX.values()[randi() % 2] 
+	return Globals.AGENT_SEX.values()[randi() % 2] 
 	

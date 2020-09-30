@@ -82,7 +82,7 @@ func _ready():
 	if stats.sex == Globals.AGENT_SEX.A:	
 		$Torso.modulate = Globals.COLOR_SEX_A
 	elif stats.sex == Globals.AGENT_SEX.B:	
-		$Torso.modulate = Globals.COLOR_SEX_B
+		$Torso.modulate = Globals.COLOR_SEX_B		
 	
 func _process(delta):
 	pass
@@ -344,4 +344,9 @@ func _on_detected_edible(area):
 	eat(edible)
 
 func _on_mouth_consumed_edible(edible):
-	emit_signal("agent_eating", self, edible)
+	if edible == null:
+		return
+
+	# edible corresponds to a child of a food, so we get the owner
+	# to get its parent
+	emit_signal("agent_eating", self, edible.get_owner())

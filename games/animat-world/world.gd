@@ -214,14 +214,24 @@ func agent_join(id):
 	
 	return agent_node
 
+func update_agent_stats_from_eating(agent, edible, amount):
+	if edible == null or amount <= 0:
+		return
+		
+	# satiety is always increased after consuming edibles
+	agent.stats.satiety += amount * Globals.SATIETY_PER_UNIT
+	
 ###################
 # Signal Handlers #
 ###################
 
 func _on_agent_eating_edible(agent, edible):
-	var amount_consumed = edible.get_owner().consume()
+	var amount_consumed = edible.consume()
 	
 	print("Agent %s ate %s portions of %s" % [agent, amount_consumed, edible])
+	
+	update_agent_stats_from_eating(agent, edible, amount_consumed)
+		
 	# TODO: update agent's stats based on item consumed and amount consumed
 	
 func _on_agent_selected(agent):

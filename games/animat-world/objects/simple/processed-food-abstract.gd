@@ -9,7 +9,7 @@ onready var amount_left setget set_amount_left, get_amount_left
 var signature = null
 
 # food varieties
-enum  {
+enum FOOD_TYPES {
 	GOOD,
 	BAD
 }
@@ -20,10 +20,10 @@ func _ready():
 	pass
 
 func is_good():
-	return variety == GOOD
+	return variety == FOOD_TYPES.GOOD
 	
 func is_bad():
-	return variety == BAD
+	return variety == FOOD_TYPES.BAD
 	
 func init_from_unprocessed_food(unprocessed_food_node):
 	global_position = unprocessed_food_node.global_position

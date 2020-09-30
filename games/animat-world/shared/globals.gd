@@ -48,8 +48,12 @@ var AGENT_HEALTH = 5
 ###################
 # agent constants #
 ###################
-const AGENT_MAX_HEALTH = 10
-const AGENT_MAX_ENERGY = 50
+const AGENT_INITIAL_HEALTH = 100
+const AGENT_INITIAL_ENERGY = 50
+const AGENT_INITIAL_SATIETY = 50
+
+const AGENT_MAX_HEALTH = 100
+const AGENT_MAX_ENERGY = 100
 const AGENT_MAX_SATIETY = 100
 
 enum AGENT_SEX {
@@ -59,6 +63,12 @@ enum AGENT_SEX {
 
 const COLOR_SEX_A = Color(0.3, 0.0, 0.8, 1.0)
 const COLOR_SEX_B = Color(0.4, 0.0, 0.6, 1.0)
+
+##########################
+# agent action constants #
+##########################
+const SATIETY_PER_UNIT = 25.0
+
 
 ##############################################
 # modifiable global state (USE WITH CAUTION) #
