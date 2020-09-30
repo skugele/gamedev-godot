@@ -253,7 +253,7 @@ shape = SubResource( 8 )
 position = Vector2( 0, -147 )
 
 [node name="CollisionShape2D" parent="Mouth/Area2D" index="1"]
-position = Vector2( -1, 30 )
+position = Vector2( -1, 7 )
 rotation = 1.5691
 shape = SubResource( 9 )
 disabled = true
