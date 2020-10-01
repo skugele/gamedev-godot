@@ -13,12 +13,12 @@ onready var agent_id = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/G
 onready var agent_sex = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/Sex
 onready var agent_pos = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/Position
 onready var agent_speed = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/Speed
+onready var agent_poison_consumed = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/PoisonConsumed
 
 # agent status
 onready var agent_health = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars/Health/Bar
 onready var agent_energy = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars/Energy/Bar
 onready var agent_satiety = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars/Satiety/Bar
-
 
 var current_agent = null setget set_agent
 
@@ -48,6 +48,8 @@ func _process(delta):
 		agent_sex.text = Globals.get_sex_as_string(current_agent.stats.sex)
 		agent_pos.text = "(%.2f, %.2f)" % [current_agent.global_position.x, current_agent.global_position.y]
 		agent_speed.text = "%.2f" % current_agent.velocity.length()
+		agent_poison_consumed.text = "%.2f" % current_agent.stats.poison_consumed
+		
 			
 		# update agent status
 		agent_health.value = current_agent.stats.health

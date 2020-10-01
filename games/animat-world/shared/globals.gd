@@ -67,7 +67,20 @@ const COLOR_SEX_B = Color(0.4, 0.0, 0.6, 1.0)
 ##########################
 # agent action constants #
 ##########################
-const SATIETY_PER_UNIT = 25.0
+
+# Time-based agent stats changes
+const SATIETY_DECREASE_PER_FRAME = 0.01
+const ENERGY_INCREASE_PER_FRAME = 0.5
+const POISON_DECREASE_PER_FRAME = 0.01
+const HEALTH_INCREASE_PER_FRAME = 0.05
+const ENERGY_DECREASE_WHILE_HEALING_PER_FRAME = 0.25
+
+const POISON_DAMAGE_PER_FRAME = 0.5
+const STARVING_DAMAGE_PER_FRAME = 0.01
+
+# Unit-based agent stats changes
+const SATIETY_PER_UNIT_FOOD = 25.0
+const ENERGY_PER_UNIT_FOOD = 1.0
 
 
 ##############################################

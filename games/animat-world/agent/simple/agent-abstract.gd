@@ -83,10 +83,7 @@ func _ready():
 		$Torso.modulate = Globals.COLOR_SEX_A
 	elif stats.sex == Globals.AGENT_SEX.B:	
 		$Torso.modulate = Globals.COLOR_SEX_B		
-	
-func _process(delta):
-	pass
-	
+		
 func disable_all():
 	# disable collisions	
 	$TorsoCollisionShape.disabled = true

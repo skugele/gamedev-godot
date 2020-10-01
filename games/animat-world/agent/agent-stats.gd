@@ -5,17 +5,14 @@ extends Node2D
 ################
 # onready vars #
 ################
-onready var sex # SEX_A or SEX_B
+onready var agent = self.get_owner()
+onready var sex
+
 onready var health setget set_health
 onready var energy setget set_energy
 onready var satiety setget set_satiety
 
-onready var agent = self.get_owner()
-
-###########
-# signals #
-###########
-signal death(agent)
+onready var poison_consumed
 
 #############
 # functions #
@@ -29,27 +26,72 @@ func _ready():
 	energy = Globals.AGENT_INITIAL_ENERGY
 	satiety = Globals.AGENT_INITIAL_SATIETY
 	
+	poison_consumed = 0
+
+func _process(delta):
+	
+	# satiety decreased
+	satiety -= Globals.SATIETY_DECREASE_PER_FRAME * delta
+	
+	# energy increased
+	energy += Globals.ENERGY_INCREASE_PER_FRAME * delta
+	
+	# if starving
+	if is_starving():
+		health -= Globals.STARVING_DAMAGE_PER_FRAME * delta
+			
+	# if poisoned
+	if is_poisoned():
+		health -= Globals.POISON_DAMAGE_PER_FRAME * delta
+		poison_consumed -= Globals.POISON_DECREASE_PER_FRAME * delta	
+	
+	# if injured
+	if is_injured():
+
+		# there is an energy cost to healing 
+		# (and no healing when exhaused, starving, or poisoned)		
+		if not (is_exhausted() or is_poisoned()):
+			health += Globals.HEALTH_INCREASE_PER_FRAME * delta
+			energy -= Globals.ENERGY_DECREASE_WHILE_HEALING_PER_FRAME * delta
+		
+	
+# TODO: These update functions may need to be synchronized	
 func set_health(value):
-	
-	health = min(value, Globals.AGENT_MAX_HEALTH)
-	health = max(0, health)
-	
-	if health <= 0:
-		# this should be received/handled by the environment, as there
-		# are many things that must occur when an agent dies
-		emit_signal("death", agent)
+	health = apply_threshold(value, Globals.AGENT_MAX_HEALTH)
 	
 func set_energy(value):
-	energy = min(value, Globals.AGENT_MAX_ENERGY)
-	energy = max(0, energy)
+	energy = apply_threshold(value, Globals.AGENT_MAX_ENERGY)
 
 func set_satiety(value):
-	satiety = min(value, Globals.AGENT_MAX_SATIETY)
-	satiety = max(0, satiety)
-		
-	# TODO: if starving (satiety == 0):start a timer that continues to periodically damage
-	# the agent until satiety > 0 (stop timer)
+	satiety = apply_threshold(value, Globals.AGENT_MAX_SATIETY)
+
+func apply_threshold(value, high):
+	return min(max(0, value), high)
 	
+func increase_poison_consumed(amount):
+	poison_consumed += amount
+
+func decrease_poison_consumed(amount):
+	poison_consumed -= amount	
+
+func is_poisoned():
+	return poison_consumed > 0
+
+func is_starving():
+	return satiety <= 0
+	
+func is_full():
+	return satiety == Globals.AGENT_MAX_SATIETY
+
+func is_injured():
+	return health < Globals.AGENT_MAX_HEALTH
+		
+func is_dead():
+	return health <= 0
+	
+func is_exhausted():
+	return energy <= 0
+			
 func choose_sex():
 	return Globals.AGENT_SEX.values()[randi() % 2] 
 	

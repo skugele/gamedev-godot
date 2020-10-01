@@ -219,7 +219,13 @@ func update_agent_stats_from_eating(agent, edible, amount):
 		return
 		
 	# satiety is always increased after consuming edibles
-	agent.stats.satiety += amount * Globals.SATIETY_PER_UNIT
+	agent.stats.satiety += amount * Globals.SATIETY_PER_UNIT_FOOD
+	
+	if not agent.stats.is_full():
+		agent.stats.energy += Globals.ENERGY_PER_UNIT_FOOD
+		
+	if edible.is_bad():
+		agent.stats.poison_consumed += amount
 	
 ###################
 # Signal Handlers #
