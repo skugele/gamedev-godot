@@ -14,6 +14,11 @@ onready var satiety setget set_satiety
 
 onready var poison_consumed
 
+###########
+# signals #
+###########
+signal took_damage(agent, amount)
+
 #############
 # functions #
 #############
@@ -53,8 +58,7 @@ func _process(delta):
 		if not (is_exhausted() or is_poisoned()):
 			health += Globals.HEALTH_INCREASE_PER_FRAME * delta
 			energy -= Globals.ENERGY_DECREASE_WHILE_HEALING_PER_FRAME * delta
-		
-	
+			
 # TODO: These update functions may need to be synchronized	
 func set_health(value):
 	health = apply_threshold(value, Globals.AGENT_MAX_HEALTH)

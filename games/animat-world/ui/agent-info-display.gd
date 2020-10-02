@@ -9,16 +9,21 @@ onready var antennae_alerts = []
 onready var agent_body = $Panel/AgentInfoPanel/BodyPanel/Agent
 
 # agent info
-onready var agent_id = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/ID
-onready var agent_sex = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/Sex
-onready var agent_pos = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/Position
-onready var agent_speed = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/Speed
-onready var agent_poison_consumed = $Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values/PoisonConsumed
+onready var agent_id = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Info/GridContainer/Values/ID
+onready var agent_sex = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Info/GridContainer/Values/Sex
 
-# agent status
-onready var agent_health = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars/Health/Bar
-onready var agent_energy = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars/Energy/Bar
-onready var agent_satiety = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars/Satiety/Bar
+# Group 1 (Resources)
+onready var agent_health = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources/Bars/Health/Bar
+onready var agent_energy = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources/Bars/Energy/Bar
+onready var agent_satiety = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources/Bars/Satiety/Bar
+
+# Group 2 (Location and Speed)
+onready var agent_pos = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General1/Values/Position
+onready var agent_speed = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General1/Values/Speed
+
+# Group 3 (Other)
+onready var agent_poison_consumed = $Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General2/Values/PoisonConsumed
+
 
 var current_agent = null setget set_agent
 
@@ -26,8 +31,8 @@ func _ready():
 	init_sensor_alerts()
 	
 	# initialize ui elements
-	$Panel/AgentInfoPanel/StatsPanel/TabContainer.set_tab_title(0, "Info")
-	$Panel/AgentInfoPanel/StatsPanel/TabContainer.set_tab_title(1, "Status")
+	$Panel/AgentInfoPanel/StatsPanel/TabContainer.set_tab_title(0, "Status")
+	$Panel/AgentInfoPanel/StatsPanel/TabContainer.set_tab_title(1, "Info")
 	
 	# init agent status bars
 	agent_health.max_value = Globals.AGENT_MAX_HEALTH

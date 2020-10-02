@@ -59,6 +59,7 @@ onready var mandible_aperature = 0 # in degrees
 # vars #
 ########
 var signature = null
+var actions = []
 
 ###########
 # signals #
@@ -82,7 +83,33 @@ func _ready():
 	if stats.sex == Globals.AGENT_SEX.A:	
 		$Torso.modulate = Globals.COLOR_SEX_A
 	elif stats.sex == Globals.AGENT_SEX.B:	
-		$Torso.modulate = Globals.COLOR_SEX_B		
+		$Torso.modulate = Globals.COLOR_SEX_B
+		
+func _process(delta):
+	process_metabolic_costs(delta)
+
+# TODO: This needs to be synchronized
+func process_metabolic_costs(delta):
+	
+	while len(actions) > 0:
+		var curr_action = actions.pop_front()
+		
+#		print("Processing %s" % Globals.AGENT_ACTIONS.keys()[curr_action])
+		var energy_cost = 0
+		var health_cost = 0
+		
+		if Globals.ENERGY_COST_PER_FRAME.has(curr_action):
+			energy_cost += Globals.ENERGY_COST_PER_FRAME[curr_action] * delta
+		elif Globals.ENERGY_COST_PER_ACTION.has(curr_action):
+			energy_cost += Globals.ENERGY_COST_PER_ACTION[curr_action]
+		
+		# if not enough energy, subtract the remaining cost from health
+		health_cost = max(0, energy_cost - stats.energy)
+			
+		stats.energy -= energy_cost
+		stats.health -= health_cost
+		
+#		print("Reducing energy by %.2f" % cost)			
 		
 func disable_all():
 	# disable collisions	
@@ -197,14 +224,34 @@ func set_mandible_aperature(degrees):
 	
 #	print('degrees: ', degrees)
 	if degrees >= 40.0 and len(damageables) > 0:
-		for damageable in damageables:
-			damageable.register_damage(1)
-			
+		process_damage(damageables)
+
+func process_damage(damageables):
+	for damageable in damageables:
+		damageable.register_damage(1)
+		
+		# additional energy cost from attacking an object
+		add_action(Globals.AGENT_ACTIONS.ATTACKING)
+
+# TODO: This needs to be synchronized
+func add_action(action):
+	if action != null and not actions.has(action):
+#		print("New Action: %s" % Globals.AGENT_ACTIONS.keys()[action])
+		actions.append(action)		
+
+# TODO: This needs to be synchronized
+func remove_action(action):
+	var index = actions.find(action)
+	if index != -1:
+		actions.remove(index)
+	
 func eat(edible):
 	print("Agent %s attempting to eat %s" % [self,edible])
 	if edible == null:
 		return
 
+	add_action(Globals.AGENT_ACTIONS.EATING)
+	
 	# this signal is received by the world scene, which updates both the
 	# agent stats and the edible (e.g., the amount that is consumed)
 	emit_signal("agent_eating", self, edible)

@@ -68,156 +68,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BasicInfo" type="Tabs" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-custom_colors/font_color_bg = Color( 0, 0, 0, 1 )
-custom_colors/font_color_fg = Color( 0, 0, 0, 1 )
-
-[node name="GridContainer" type="GridContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo"]
-margin_right = 198.0
-margin_bottom = 200.0
-rect_scale = Vector2( 0.833333, 1 )
-columns = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Labels" type="VBoxContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer"]
-margin_right = 119.0
-margin_bottom = 86.0
-
-[node name="ID" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Labels"]
-margin_right = 119.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "ID:"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sex" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Labels"]
-margin_top = 18.0
-margin_right = 119.0
-margin_bottom = 32.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Sex:"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Position" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Labels"]
-margin_top = 36.0
-margin_right = 119.0
-margin_bottom = 50.0
-rect_pivot_offset = Vector2( 123.12, 6.12796 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Global Position:"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Speed" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Labels"]
-margin_top = 54.0
-margin_right = 119.0
-margin_bottom = 68.0
-rect_pivot_offset = Vector2( 35.066, 2.44699 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Velocity:"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PoisonConsumed" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Labels"]
-margin_top = 72.0
-margin_right = 119.0
-margin_bottom = 86.0
-rect_pivot_offset = Vector2( 35.066, 2.44699 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Poison Consumed:"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Values" type="VBoxContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer"]
-margin_left = 123.0
-margin_right = 149.0
-margin_bottom = 86.0
-
-[node name="ID" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values"]
-margin_right = 26.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "TBD"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sex" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values"]
-margin_top = 18.0
-margin_right = 26.0
-margin_bottom = 32.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "TBD"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Position" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values"]
-margin_top = 36.0
-margin_right = 26.0
-margin_bottom = 50.0
-rect_pivot_offset = Vector2( 11.1203, 5.93796 )
-size_flags_horizontal = 0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "TBD"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Speed" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values"]
-margin_top = 54.0
-margin_right = 26.0
-margin_bottom = 68.0
-rect_pivot_offset = Vector2( 11.1203, 5.93796 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "TBD"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PoisonConsumed" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/BasicInfo/GridContainer/Values"]
-margin_top = 72.0
-margin_right = 26.0
-margin_bottom = 86.0
-rect_pivot_offset = Vector2( 11.1203, 5.93796 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "TBD"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Status" type="Tabs" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -228,17 +79,21 @@ margin_bottom = -4.0
 [node name="GridContainer" type="GridContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status"]
 margin_right = 196.0
 margin_bottom = 200.0
-columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Labels" type="VBoxContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer"]
+[node name="Resources" type="GridContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer"]
+margin_right = 196.0
+margin_bottom = 50.0
+columns = 2
+
+[node name="Labels" type="VBoxContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources"]
 margin_right = 47.0
 margin_bottom = 50.0
 alignment = 2
 
-[node name="Health" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Labels"]
+[node name="Health" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources/Labels"]
 margin_right = 47.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -249,7 +104,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Energy" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Labels"]
+[node name="Energy" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources/Labels"]
 margin_top = 18.0
 margin_right = 47.0
 margin_bottom = 32.0
@@ -261,7 +116,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Satiety" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Labels"]
+[node name="Satiety" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources/Labels"]
 margin_top = 36.0
 margin_right = 47.0
 margin_bottom = 50.0
@@ -273,16 +128,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bars" type="VBoxContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer"]
+[node name="Bars" type="VBoxContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources"]
 margin_left = 51.0
 margin_right = 51.0
 margin_bottom = 50.0
 
-[node name="Health" type="Node2D" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars"]
+[node name="Health" type="Node2D" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources/Bars"]
 position = Vector2( 5, 0 )
 scale = Vector2( 0.7, 0.53 )
 
-[node name="Bar" type="TextureProgress" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars/Health"]
+[node name="Bar" type="TextureProgress" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources/Bars/Health"]
 margin_right = 195.0
 margin_bottom = 21.0
 step = 0.01
@@ -294,11 +149,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Energy" type="Node2D" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars"]
+[node name="Energy" type="Node2D" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources/Bars"]
 position = Vector2( 5, 18 )
 scale = Vector2( 0.7, 0.53 )
 
-[node name="Bar" type="TextureProgress" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars/Energy"]
+[node name="Bar" type="TextureProgress" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources/Bars/Energy"]
 margin_right = 1.0
 margin_bottom = 1.0
 step = 0.01
@@ -310,11 +165,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Satiety" type="Node2D" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars"]
+[node name="Satiety" type="Node2D" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources/Bars"]
 position = Vector2( 5, 34 )
 scale = Vector2( 0.7, 0.53 )
 
-[node name="Bar" type="TextureProgress" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Bars/Satiety"]
+[node name="Bar" type="TextureProgress" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/Resources/Bars/Satiety"]
 margin_top = 5.0
 margin_right = 1.0
 margin_bottom = 6.0
@@ -323,6 +178,204 @@ value = 75.0
 texture_under = ExtResource( 9 )
 texture_over = ExtResource( 10 )
 texture_progress = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer"]
+margin_top = 54.0
+margin_right = 196.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="General1" type="GridContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer"]
+margin_top = 62.0
+margin_right = 196.0
+margin_bottom = 94.0
+columns = 2
+
+[node name="Labels" type="VBoxContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General1"]
+margin_right = 60.0
+margin_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 2
+
+[node name="Position" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General1/Labels"]
+margin_right = 60.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 123.12, 6.12796 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = " Position:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Speed" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General1/Labels"]
+margin_top = 18.0
+margin_right = 60.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 123.12, 6.12796 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = " Speed:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Values" type="VBoxContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General1"]
+margin_left = 64.0
+margin_right = 90.0
+margin_bottom = 32.0
+
+[node name="Position" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General1/Values"]
+margin_right = 26.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 11.1203, 5.93796 )
+size_flags_horizontal = 0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "TBD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Speed" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General1/Values"]
+margin_top = 18.0
+margin_right = 26.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 11.1203, 5.93796 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "TBD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer"]
+margin_top = 98.0
+margin_right = 196.0
+margin_bottom = 102.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="General2" type="GridContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer"]
+margin_top = 106.0
+margin_right = 196.0
+margin_bottom = 120.0
+columns = 2
+
+[node name="Labels" type="VBoxContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General2"]
+margin_right = 123.0
+margin_bottom = 14.0
+alignment = 2
+
+[node name="PoisonConsumed" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General2/Labels"]
+margin_right = 123.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 123.12, 6.12796 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = " Poison Consumed:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Values" type="VBoxContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General2"]
+margin_left = 127.0
+margin_right = 153.0
+margin_bottom = 14.0
+
+[node name="PoisonConsumed" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Status/GridContainer/General2/Values"]
+margin_right = 26.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 11.1203, 5.93796 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "TBD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="Tabs" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+custom_colors/font_color_bg = Color( 0, 0, 0, 1 )
+custom_colors/font_color_fg = Color( 0, 0, 0, 1 )
+
+[node name="GridContainer" type="GridContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Info"]
+margin_right = 198.0
+margin_bottom = 200.0
+rect_scale = Vector2( 0.833333, 1 )
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="VBoxContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Info/GridContainer"]
+margin_right = 26.0
+margin_bottom = 32.0
+
+[node name="ID" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Info/GridContainer/Labels"]
+margin_right = 26.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "ID:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sex" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Info/GridContainer/Labels"]
+margin_top = 18.0
+margin_right = 26.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Sex:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Values" type="VBoxContainer" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Info/GridContainer"]
+margin_left = 30.0
+margin_right = 56.0
+margin_bottom = 32.0
+size_flags_horizontal = 0
+
+[node name="ID" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Info/GridContainer/Values"]
+margin_right = 26.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "TBD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sex" type="Label" parent="Panel/AgentInfoPanel/StatsPanel/TabContainer/Info/GridContainer/Values"]
+margin_top = 18.0
+margin_right = 26.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "TBD"
 __meta__ = {
 "_edit_use_anchors_": false
 }

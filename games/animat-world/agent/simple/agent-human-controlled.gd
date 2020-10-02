@@ -16,29 +16,34 @@ func get_input():
 
 	# forward/backward motion
 	if Input.is_action_pressed("ui_forward"):
+		add_action(Globals.AGENT_ACTIONS.WALKING_FORWARD)
 		direction = Vector2(0, -1).rotated(rotation)
 	elif Input.is_action_pressed("ui_backward"):
+		add_action(Globals.AGENT_ACTIONS.WALKING_BACKWARD)
 		direction = Vector2(0, 1).rotated(rotation)
 
 	# body rotation
 	if Input.is_action_pressed("ui_turn_right"):
+		add_action(Globals.AGENT_ACTIONS.TURNING_RIGHT)
 		turn += 1
 	elif Input.is_action_pressed("ui_turn_left"):
+		add_action(Globals.AGENT_ACTIONS.TURNING_LEFT)
 		turn -= 1
 		
 	# mandible aperature
 	if Input.is_action_pressed("ui_open_mandibles"):
-		mandible_change_dir = 1
-	elif Input.is_action_pressed("ui_close_mandibles"):
+		add_action(Globals.AGENT_ACTIONS.OPENING_MANDIBLES)
 		mandible_change_dir = -1
+	elif Input.is_action_pressed("ui_close_mandibles"):
+		add_action(Globals.AGENT_ACTIONS.CLOSING_MANDIBLES)
+		mandible_change_dir = 1
 
 	# eating 
 	# ---> using is_action_just_pressed so it will only trigger once per press
 	if Input.is_action_just_pressed("ui_eat"):
-		print("Activating Mouth")
+		add_action(Globals.AGENT_ACTIONS.EXTENDING_TONGUE)
 		mouth.activate()
 	elif Input.is_action_just_released("ui_eat"):
-		print("Deactivating Mouth")
 		mouth.deactivate()
 				
 	return [direction, turn, mandible_change_dir]
