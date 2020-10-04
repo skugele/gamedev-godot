@@ -5,13 +5,13 @@ extends KinematicBody2D
 #################
 # exported vars #
 #################
-export(float) var MAX_SPEED = 500
-export(float) var MAX_ROTATION = 1.5
-export(float) var MAX_MANDIBLE_APERATURE_IN_DEGREES = 45
+export(float) var MAX_SPEED = max(Globals.AGENT_MAX_SPEED_FORWARD, Globals.AGENT_MAX_SPEED_BACKWARD)
+export(float) var MAX_ROTATION = Globals.AGENT_MAX_ROTATION_RATE
+export(float) var MAX_MANDIBLE_APERATURE_IN_DEGREES = Globals.AGENT_MAX_MANDIBLE_APERATURE_IN_DEGREES
 
-export(float) var APERATURE_ACCELERATION = 400
-export(int) var ACCELERATION = 500
-export(int) var FRICTION = 5000
+export(float) var APERATURE_ACCELERATION = Globals.AGENT_APERATURE_ACCELERATION
+export(int) var ACCELERATION = Globals.AGENT_WALKING_ACCELERATION
+export(int) var FRICTION = Globals.AGENT_WALKING_FRICTION
 
 #############
 # constants #
@@ -99,10 +99,8 @@ func process_metabolic_costs(delta):
 		var health_cost = 0
 		
 		# TODO: Find a more general way of indicating these dependencies
-		if curr_action == Globals.AGENT_ACTIONS.WALKING_FORWARD:
-			print('length: ', velocity.length())
-			energy_cost += Globals.ENERGY_COST_PER_FRAME[curr_action] * delta * (velocity.length() / MAX_SPEED) 
-		
+		if curr_action == Globals.AGENT_ACTIONS.WALKING:
+			energy_cost += Globals.ENERGY_COST_PER_FRAME[curr_action] * delta * (velocity.length() / MAX_SPEED)
 		elif Globals.ENERGY_COST_PER_FRAME.has(curr_action):
 			energy_cost += Globals.ENERGY_COST_PER_FRAME[curr_action] * delta
 		elif Globals.ENERGY_COST_PER_ACTION.has(curr_action):
