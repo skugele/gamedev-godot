@@ -20,7 +20,7 @@ onready var agent_info_display = $AgentInfoDisplay
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	create_world()
-	var agent = agent_join(Globals.generate_unique_id())
+	agent_join(Globals.generate_unique_id())
 
 func _physics_process(delta):
 	pass
@@ -30,24 +30,24 @@ func create_world():
 	for food_node in $UnprocessedFood.get_children():
 		add_food(food_node)
 
-#	var n_trees = 500
-#	for i in range(n_trees):
-#		create_object("res://objects/simple/tree.tscn", 
-#		[Vector2(rand_range(-2000,1000), 
-#				 rand_range(-2000,1000))], 
-#		$Trees)
-#
+	var n_trees = 200
+	for i in range(n_trees):
+		create_object("res://objects/simple/tree.tscn", 
+		[Vector2(rand_range(-50000,50000), 
+				 rand_range(-50000,50000))], 
+		$Trees)
+
 #	var locations = [
 #		Vector2(1000,1000),
 #		Vector2(1001,1001)
 #	]
 	
-#	var n_rocks = 500
-#	for i in range(n_rocks):
-#		create_object("res://objects/simple/rock-obstacle.tscn", 
-#		[Vector2(rand_range(-2000, -1000), 
-#				 rand_range(1000, 2000))], 
-#		$Rocks)
+	var n_rocks = 500
+	for i in range(n_rocks):
+		create_object("res://objects/simple/rock-obstacle.tscn", 
+		[Vector2(rand_range(-50000,50000), 
+				 rand_range(-50000,50000))], 
+		$Rocks)
 
 #	var n_food = 100
 #	for i in range(n_food):
@@ -57,24 +57,25 @@ func create_world():
 #		$UnprocessedFood)
 
 	print_stray_nodes()	
-	
+
+# FIXME: Need to add collision detection
 func create_object(scene, locations, parent):
 	for loc in locations:
 		var obj = load(scene).instance()
 		obj.position = loc
+		parent.add_child(obj)
 		
 		# check for collision with existing object
-		if ! has_collision(obj):
-			print('Creating %s @ location %s!' % [obj, loc])
-			parent.add_child(obj)
-		else:
-			obj.free()
+#		if ! has_collision(obj):
+#			print('Creating %s @ location %s!' % [obj, loc])
+#		parent.add_child(obj)
+#		else:
+#			obj.free()
 
-			print("Collision detected! Skipping object.")
+#			print("Collision detected! Skipping object.")
 
+# FIXME: This is currently broken
 func has_collision(obj):
-#	return false
-
 	var space_rid = get_world_2d().space
 	var space_state = Physics2DServer.space_get_direct_state(space_rid)
 
@@ -86,7 +87,7 @@ func has_collision(obj):
 	query.collide_with_areas = true
 	query.collide_with_bodies = true
 	query.collision_layer = Globals.FIXED_OBJECTS_LAYER | Globals.MANIPULATABLE_OBJECTS_LAYER | Globals.AGENTS_LAYER
-#	query.margin = 5000.0
+	query.margin = 5000.0
 
 	var results = space_state.intersect_shape(query)	
 	for result in results:
@@ -150,8 +151,8 @@ func agent_join(id):
 	agent_node.id = id
 	
 	# TODO: Need to add logic to randomly assign a starting location
-	agent_node.global_position.x = 1000
-	agent_node.global_position.y = -1500
+	agent_node.global_position.x = 815
+	agent_node.global_position.y = -1240
 	agent_node.rotation = 30
 	
 	# connect signals
@@ -234,7 +235,7 @@ func update_agent_stats_from_eating(agent, edible, amount):
 func _on_agent_eating_edible(agent, edible):
 	var amount_consumed = edible.consume()
 	
-	print("Agent %s ate %s portions of %s" % [agent, amount_consumed, edible])
+#	print("Agent %s ate %s portions of %s" % [agent, amount_consumed, edible])
 	
 	update_agent_stats_from_eating(agent, edible, amount_consumed)
 		

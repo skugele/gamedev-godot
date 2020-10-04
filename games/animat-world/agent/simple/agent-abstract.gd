@@ -98,7 +98,12 @@ func process_metabolic_costs(delta):
 		var energy_cost = 0
 		var health_cost = 0
 		
-		if Globals.ENERGY_COST_PER_FRAME.has(curr_action):
+		# TODO: Find a more general way of indicating these dependencies
+		if curr_action == Globals.AGENT_ACTIONS.WALKING_FORWARD:
+			print('length: ', velocity.length())
+			energy_cost += Globals.ENERGY_COST_PER_FRAME[curr_action] * delta * (velocity.length() / MAX_SPEED) 
+		
+		elif Globals.ENERGY_COST_PER_FRAME.has(curr_action):
 			energy_cost += Globals.ENERGY_COST_PER_FRAME[curr_action] * delta
 		elif Globals.ENERGY_COST_PER_ACTION.has(curr_action):
 			energy_cost += Globals.ENERGY_COST_PER_ACTION[curr_action]

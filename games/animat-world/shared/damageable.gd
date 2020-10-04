@@ -11,10 +11,10 @@ func _ready():
 
 func set_health(amount):
 	health = max(0, amount)
-	print('new health: ', health)
+#	print('new health: ', health)
 	if health <= 0:
 		emit_signal("dead_or_destroyed")
 	
 func _on_damage(amount):
-	print('%s took %s damage!' % [self, amount])
+#	print('%s took %s damage!' % [self, amount])
 	set_health(health - amount)

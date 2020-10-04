@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://atlases/simple-world-objects.png" type="Texture" id=1]
+[ext_resource path="res://objects/simple/rock-obstacle.gd" type="Script" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( -225.262, -57.586, -177.33, -139.994, -0.742, -204.743, 97.643, -179.516, 230.504, -61.791, 211.164, 55.935, 144.733, 180.387, 0.742, 208.978, -139.49, 179.547, -210.966, 76.957 )
 
 [node name="Rock" type="StaticBody2D"]
 collision_mask = 7
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

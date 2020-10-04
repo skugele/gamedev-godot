@@ -28,5 +28,5 @@ func init_taste_areas():
 	$Taste.set_signature(signature)
 
 func _on_dead_or_destroyed():
-	print("%s has been destroyed"%[self])
+#	print("%s has been destroyed"%[self])
 	emit_signal("dead_or_destroyed", self)

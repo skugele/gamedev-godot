@@ -1,15 +1,21 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://agent/simple/agent-dummy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/simple/rock-obstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/simple/food-good.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/simple/tree.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/simple/food-bad.tscn" type="PackedScene" id=5]
+[ext_resource path="res://graphics/cracked-ground-texture.png" type="Texture" id=6]
 [ext_resource path="res://world.gd" type="Script" id=9]
 [ext_resource path="res://ui/agent-info-display.tscn" type="PackedScene" id=10]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 9 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -401.875, -25000, 100000, 100000 )
 
 [node name="AgentInfoDisplay" parent="." instance=ExtResource( 10 )]
 
