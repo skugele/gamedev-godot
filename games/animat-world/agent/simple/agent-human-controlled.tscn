@@ -27,3 +27,7 @@ script = ExtResource( 2 )
 [editable path="DamageableDetector"]
 
 [editable path="Mouth"]
+
+[editable path="Damageable"]
+
+[editable path="Damageable/DamageZone"]

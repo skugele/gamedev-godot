@@ -154,10 +154,10 @@ func get_combined_taste(active_tastes):
 
 	for id in active_tastes.keys():
 		var taste = active_tastes[id][-1]
-		var signature = taste.signature
-
-		if signature != null:
-			combined_taste_sig = Globals.add_vectors(combined_taste_sig, signature)
+		if taste != null:
+			var signature = taste.signature
+			if signature != null:
+				combined_taste_sig = Globals.add_vectors(combined_taste_sig, signature)
 
 	return combined_taste_sig
 				
@@ -229,6 +229,9 @@ func set_mandible_aperature(degrees):
 	mandibles[1].rotation_degrees = -degrees
 	
 #	print('degrees: ', degrees)
+
+	# counter-intuitively, degrees == 0 when the mandibles are
+	# completely open
 	if degrees >= 40.0 and len(damageables) > 0:
 		process_damage(damageables)
 

@@ -85,8 +85,15 @@ func update_rotation(turn, delta):
 	emit_signal("rotation_change", rotation)
 
 func update_mandible_aperature(change_dir, delta):
+	var acceleration = 0
+
+	if change_dir == 1:
+		acceleration = Globals.AGENT_MANDIBLE_CLOSING_ACCELERATION
+	elif change_dir == -1:
+		acceleration = Globals.AGENT_MANDIBLE_OPENING_ACCELERATION
+
 	var value = mandibles[0].rotation_degrees \
-			  + change_dir * APERATURE_ACCELERATION * delta
+			  + change_dir * acceleration * delta
 
 	if value >= 0 and value <= MAX_MANDIBLE_APERATURE_IN_DEGREES:
 		set_mandible_aperature(value)
