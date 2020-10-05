@@ -4,21 +4,14 @@ signal dead_or_destroyed(object)
 
 extends StaticBody2D
 
-var signature = null
-
-# food varieties
-enum  {
-	GOOD,
-	BAD
-}
-
-var variety = null
+var signature = null # taste and smell
+var variety = null   # food type
 
 func is_good():
-	return variety == GOOD
+	return variety == Globals.FOOD_TYPES.GOOD
 	
 func is_bad():
-	return variety == BAD
+	return variety == Globals.FOOD_TYPES.BAD
 	
 func init_scent_areas(radii):
 	for r in radii:

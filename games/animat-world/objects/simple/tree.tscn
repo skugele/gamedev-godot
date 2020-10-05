@@ -23,3 +23,6 @@ visible = false
 modulate = Color( 1, 1, 1, 0.596078 )
 position = Vector2( 17.5, 9.5 )
 shape = SubResource( 1 )
+
+[node name="DropTimer" type="Timer" parent="."]
+[connection signal="timeout" from="DropTimer" to="." method="_on_drop_event"]

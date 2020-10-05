@@ -16,4 +16,4 @@ func _ready():
 	init_scent_areas([25, 100, 250, 500, 1000])
 	init_taste_areas()
 
-	variety = GOOD
+	variety = Globals.FOOD_TYPES.GOOD

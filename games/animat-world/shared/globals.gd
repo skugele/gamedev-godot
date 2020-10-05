@@ -5,12 +5,11 @@ extends Node
 #############
 # constants #
 #############
-const SMELL_DIMENSIONS = 15
-const SMELL_DETECTABLE_RADIUS = 1000
+const DEBUG = false
 
+# UI constants
 const TIME_FORMAT_STRING = '%02dD %02dH %02dM %02dS %03dms'
 
-# constants for agent camera
 const CAMERA_SMOOTHING_ENABLED = true
 const CAMERA_SMOOTHING_SPEED = 2
 
@@ -24,6 +23,21 @@ const TASTE_EMITTER_LAYER = 32
 const TASTE_DETECTOR_LAYER = 64
 const DAMAGE_ZONE_LAYER = 128
 const DAMAGE_DETECTOR_LAYER = 256
+
+###############################
+# Environment Characteristics #
+###############################
+const STATIC = false
+const RANDOMIZED = true
+
+const N_RANDOM_TREES = 30
+const N_RANDOM_ROCKS = 400
+
+const WORLD_HORIZ_EXTENT = [-10000, 10000]
+const WORLD_VERT_EXTENT = [-10000, 10000]
+
+const SMELL_DIMENSIONS = 15
+const SMELL_DETECTABLE_RADIUS = 1000
 
 # base smells and tastes
 # TODO: What rationale can we use for this encoding scheme? We want to support
@@ -39,11 +53,17 @@ var PROCESSED_FOOD_SMELL = get_sensory_vector([2,9,11])
 var AGENT_SMELL = get_sensory_vector([0,12,13,14])
 var CHILD_SMELL = get_sensory_vector([6,12,13,14])
 
-# default health
+# TODO: Need to clean this up. Not sure where they are used, but agent
+# related health constants have been moved elsewhere
 var DEFAULT_HEALTH = 1
 var FOOD_HEALTH = 1
 var EGG_HEALTH = 1
 var AGENT_HEALTH = 5
+
+###################
+# timer constants #
+###################
+const FRUIT_DROP_RATE_RANGE = [5, 15]
 
 ###################
 # agent constants #
@@ -103,16 +123,16 @@ const ENERGY_COST_PER_FRAME = {
 }
 
 const ENERGY_COST_PER_ACTION = {
-	AGENT_ACTIONS.CRUSHING_FOOD: 10,
-	AGENT_ACTIONS.ATTACKING: 20,
-	AGENT_ACTIONS.MATING: 50
+	AGENT_ACTIONS.CRUSHING_FOOD: 5,
+	AGENT_ACTIONS.ATTACKING: 10,
+	AGENT_ACTIONS.MATING: 30
 }
 
 # Time-based agent stats changes
-const SATIETY_DECREASE_PER_FRAME = 0.05
-const ENERGY_INCREASE_PER_FRAME = 0.2
+const SATIETY_DECREASE_PER_FRAME = 0.15
+const ENERGY_INCREASE_PER_FRAME = 0.4
 const POISON_DECREASE_PER_FRAME = 0.01
-const HEALTH_INCREASE_PER_FRAME = 0.05
+const HEALTH_INCREASE_PER_FRAME = 0.1
 const ENERGY_DECREASE_WHILE_HEALING_PER_FRAME = 0.25
 
 const POISON_DAMAGE_PER_FRAME = 0.5
@@ -122,6 +142,15 @@ const STARVING_DAMAGE_PER_FRAME = 0.01
 const SATIETY_PER_UNIT_FOOD = 25.0
 const ENERGY_PER_UNIT_FOOD = 2.0
 
+##################
+# Food Constants #
+##################
+enum FOOD_TYPES {
+	GOOD,
+	BAD	
+}
+
+const FRUIT_DROP_DISTANCE_FROM_TREE = 300 # in pixels
 
 ##############################################
 # modifiable global state (USE WITH CAUTION) #
