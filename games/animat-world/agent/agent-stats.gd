@@ -55,7 +55,7 @@ func _process(delta):
 
 		# there is an energy cost to healing 
 		# (and no healing when exhaused, starving, or poisoned)		
-		if not (is_exhausted() or is_poisoned()):
+		if not (is_exhausted() or is_poisoned() or is_starving()):
 			health += Globals.HEALTH_INCREASE_PER_FRAME * delta
 			energy -= Globals.ENERGY_DECREASE_WHILE_HEALING_PER_FRAME * delta
 			

@@ -21,8 +21,6 @@ onready var agent_info_display = $AgentInfoDisplay
 func _ready():
 	create_world()
 	agent_join(Globals.generate_unique_id())
-	
-#	add_fruit(Vector2(120, 0), Globals.FOOD_TYPES.GOOD)
 
 func _physics_process(delta):
 	pass
@@ -71,6 +69,9 @@ func create_objects(scene, locations, parent):
 		obj.position = loc
 		obj.visible = false
 
+		# the node must be added to the scene tree before collision detection or
+		# the following error will occur: 
+		# ---> ERROR: get_global_transform: Condition "!is_inside_tree()" is true. Returned: get_transform()
 		parent.add_child(obj)
 			
 		# check for collision with existing object
@@ -129,6 +130,9 @@ func add_fruit(location, type):
 	node.global_position = location
 	node.visible = false
 	
+	# the node must be added to the scene tree before collision detection or
+	# the following error will occur: 
+	# ---> ERROR: get_global_transform: Condition "!is_inside_tree()" is true. Returned: get_transform()
 	$UnprocessedFood.add_child(node)	
 		
 	if has_collision(node):
