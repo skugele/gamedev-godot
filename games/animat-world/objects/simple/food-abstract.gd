@@ -20,6 +20,5 @@ func init_scent_areas(radii):
 func init_taste_areas():
 	$Taste.set_signature(signature)
 
-func _on_dead_or_destroyed():
-#	print("%s has been destroyed"%[self])
+func _on_register_damage(amount):
 	emit_signal("dead_or_destroyed", self)

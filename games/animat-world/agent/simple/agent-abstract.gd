@@ -75,6 +75,7 @@ signal rotation_change(value)
 signal mandible_aperture_change(value)
 
 signal agent_eating(agent, edible)
+signal agent_dead(agent)
 
 #############
 # functions #
@@ -153,8 +154,10 @@ func get_combined_taste(active_tastes):
 
 	for id in active_tastes.keys():
 		var taste = active_tastes[id][-1]
+		var signature = taste.signature
 
-		combined_taste_sig = Globals.add_vectors(combined_taste_sig, taste.signature)
+		if signature != null:
+			combined_taste_sig = Globals.add_vectors(combined_taste_sig, signature)
 
 	return combined_taste_sig
 				
@@ -231,7 +234,7 @@ func set_mandible_aperature(degrees):
 
 func process_damage(damageables):
 	for damageable in damageables:
-		damageable.register_damage(1)
+		damageable.register_damage(Globals.AGENT_ATTACK_DAMAGE)
 		
 		# additional energy cost from attacking an object
 		add_action(Globals.AGENT_ACTIONS.ATTACKING)
@@ -249,7 +252,7 @@ func remove_action(action):
 		actions.remove(index)
 	
 func eat(edible):
-	print("Agent %s attempting to eat %s" % [self,edible])
+#	print("Agent %s attempting to eat %s" % [self,edible])
 	if edible == null:
 		return
 
@@ -375,18 +378,18 @@ func _on_antenna_lost_object(antenna, body):
 	emit_signal("antennae_activity_change", active_antennae)
 	
 func _on_detected_damageable(area):
-	print("_on_detected_damageable: ", area)
+#	print("_on_detected_damageable: ", area)
 	add_damageable_area(area)
 #	print('damageables: ', damageables)
 
 func _on_lost_damageable(area):
-	print("_on_lost_damageable: ", area)
+#	print("_on_lost_damageable: ", area)
 	remove_damageable_area(area)
 #	print('damageables: ', damageables)	
 
 func _on_detected_edible(area):
 	var edible = area.get_owner()
-	print("AgentAbstract._on_detected_edible: ", edible)
+#	print("AgentAbstract._on_detected_edible: ", edible)
 	
 	eat(edible)
 
@@ -397,3 +400,10 @@ func _on_mouth_consumed_edible(edible):
 	# edible corresponds to a child of a food, so we get the owner
 	# to get its parent
 	emit_signal("agent_eating", self, edible.get_owner())
+
+func _on_received_physical_damage(amount):
+#	print("%s received %f points of physical damage" % [self, amount])
+	stats.health -= amount
+
+func _on_agent_dead():
+	emit_signal("agent_dead", self)

@@ -12,12 +12,12 @@ onready var health setget set_health
 onready var energy setget set_energy
 onready var satiety setget set_satiety
 
-onready var poison_consumed
+onready var poison_consumed setget set_poison_consumed
 
 ###########
 # signals #
 ###########
-signal took_damage(agent, amount)
+signal agent_dead
 
 #############
 # functions #
@@ -31,7 +31,7 @@ func _ready():
 	energy = Globals.AGENT_INITIAL_ENERGY
 	satiety = Globals.AGENT_INITIAL_SATIETY
 	
-	poison_consumed = 0
+	poison_consumed = 0.0
 
 func _process(delta):
 	
@@ -57,11 +57,14 @@ func _process(delta):
 		# (and no healing when exhaused, starving, or poisoned)		
 		if not (is_exhausted() or is_poisoned() or is_starving()):
 			health += Globals.HEALTH_INCREASE_PER_FRAME * delta
-			energy -= Globals.ENERGY_DECREASE_WHILE_HEALING_PER_FRAME * delta
+			energy -= Globals.ENERGY_DECREASE_WHILE_HEALING_PER_FRAME * delta			
 			
 # TODO: These update functions may need to be synchronized	
 func set_health(value):
 	health = apply_threshold(value, Globals.AGENT_MAX_HEALTH)
+	
+	if is_dead():
+		emit_signal("agent_dead")
 	
 func set_energy(value):
 	energy = apply_threshold(value, Globals.AGENT_MAX_ENERGY)
@@ -69,14 +72,17 @@ func set_energy(value):
 func set_satiety(value):
 	satiety = apply_threshold(value, Globals.AGENT_MAX_SATIETY)
 
-func apply_threshold(value, high):
+func set_poison_consumed(value):
+	poison_consumed = apply_threshold(value)
+	
+func apply_threshold(value, high=9999):
 	return min(max(0, value), high)
 	
 func increase_poison_consumed(amount):
-	poison_consumed += amount
+	set_poison_consumed(poison_consumed + amount)
 
 func decrease_poison_consumed(amount):
-	poison_consumed -= amount	
+	set_poison_consumed(poison_consumed - amount)
 
 func is_poisoned():
 	return poison_consumed > 0

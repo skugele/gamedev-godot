@@ -68,4 +68,6 @@ z_index = 2
 position = Vector2( 795.061, 24.0176 )
 z_index = 2
 
+[node name="DeadAgents" type="Node2D" parent="."]
+
 [editable path="AgentInfoDisplay"]

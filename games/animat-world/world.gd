@@ -61,7 +61,10 @@ func create_world():
 		add_fruit_signal_handlers(node)
 
 	for node in $Trees.get_children():
-		add_tree_signal_handlers(node)	
+		add_tree_signal_handlers(node)
+		
+	for node in $Agents.get_children():
+		add_agent_signal_handlers(node)	
 
 func create_objects(scene, locations, parent):
 	for loc in locations:
@@ -189,7 +192,13 @@ func add_agent_signal_handlers(node):
 		self,
 		"_on_agent_selected"
 	)	
-	
+
+	node.connect(
+		"agent_dead",
+		self,
+		"_on_agent_dead"
+	)	
+
 func add_fruit_signal_handlers(node):
 	node.connect(
 		"dead_or_destroyed", 
@@ -292,3 +301,6 @@ func _on_agent_selected(agent):
 		agent_info_display.current_agent = null
 	else:
 		agent_info_display.current_agent = agent
+		
+func _on_agent_dead(agent):
+	print("Agent %s is dead!" % agent.id)

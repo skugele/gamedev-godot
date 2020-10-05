@@ -55,10 +55,9 @@ var CHILD_SMELL = get_sensory_vector([6,12,13,14])
 
 # TODO: Need to clean this up. Not sure where they are used, but agent
 # related health constants have been moved elsewhere
-var DEFAULT_HEALTH = 1
 var FOOD_HEALTH = 1
 var EGG_HEALTH = 1
-var AGENT_HEALTH = 5
+var DEFAULT_HEALTH = 1
 
 ###################
 # timer constants #
@@ -141,6 +140,8 @@ const STARVING_DAMAGE_PER_FRAME = 1.0
 # Unit-based agent stats changes
 const SATIETY_PER_UNIT_FOOD = 25.0
 const ENERGY_PER_UNIT_FOOD = 2.0
+
+const AGENT_ATTACK_DAMAGE = 15.0
 
 ##################
 # Food Constants #
