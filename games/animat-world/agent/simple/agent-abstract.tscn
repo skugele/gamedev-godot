@@ -56,8 +56,189 @@ __meta__ = {
 
 [node name="Stats" parent="." instance=ExtResource( 4 )]
 
-[node name="Torso" type="Sprite" parent="."]
+[node name="Legs" type="Node2D" parent="."]
+
+[node name="LeftFront" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -40.9527, -45.1203 )
+rotation = -1.1712
+scale = Vector2( 1, 1.30943 )
+texture = ExtResource( 10 )
+offset = Vector2( 0.151794, -23.4696 )
+region_enabled = true
+region_rect = Rect2( 234.569, 112.31, 9.19876, 51.6374 )
+
+[node name="Middle" type="Sprite" parent="Legs/LeftFront"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1.51187, -47.143 )
+rotation = 0.200577
+scale = Vector2( 0.986112, 0.781542 )
+texture = ExtResource( 10 )
+offset = Vector2( -0.250397, -21.2703 )
+region_enabled = true
+region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+
+[node name="End" type="Sprite" parent="Legs/LeftFront/Middle"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0.502129, -48.4485 )
+rotation = 0.444403
+scale = Vector2( 0.786035, 0.469998 )
+texture = ExtResource( 10 )
+offset = Vector2( -0.250397, -21.2703 )
+region_enabled = true
+region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+
+[node name="LeftMiddle" type="Sprite" parent="Legs"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -45.94, -1.78634 )
+rotation = -1.78473
+scale = Vector2( 1, 1.30943 )
+texture = ExtResource( 10 )
+offset = Vector2( 0.151794, -23.4696 )
+region_enabled = true
+region_rect = Rect2( 234.569, 112.31, 9.19876, 51.6374 )
+
+[node name="Middle" type="Sprite" parent="Legs/LeftMiddle"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1.51187, -47.143 )
+rotation = -0.321996
+scale = Vector2( 0.986112, 0.781542 )
+texture = ExtResource( 10 )
+offset = Vector2( -0.250397, -21.2703 )
+region_enabled = true
+region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+
+[node name="End" type="Sprite" parent="Legs/LeftMiddle/Middle"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0.502129, -48.4485 )
+rotation = -0.525901
+scale = Vector2( 0.786035, 0.469998 )
+texture = ExtResource( 10 )
+offset = Vector2( -0.250397, -21.2703 )
+region_enabled = true
+region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+
+[node name="LeftBack" type="Sprite" parent="Legs"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -34.8311, 67.4233 )
+rotation = -1.9694
+scale = Vector2( 1, 1.30943 )
+texture = ExtResource( 10 )
+offset = Vector2( 0.151794, -23.4696 )
+region_enabled = true
+region_rect = Rect2( 234.569, 112.31, 9.19876, 51.6374 )
+
+[node name="Middle" type="Sprite" parent="Legs/LeftBack"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1.51187, -47.143 )
+rotation = -0.237931
+scale = Vector2( 0.986112, 0.781542 )
+texture = ExtResource( 10 )
+offset = Vector2( -0.250397, -21.2703 )
+region_enabled = true
+region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+
+[node name="End" type="Sprite" parent="Legs/LeftBack/Middle"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0.502129, -48.4485 )
+rotation = -0.475024
+scale = Vector2( 0.786035, 0.469998 )
+texture = ExtResource( 10 )
+offset = Vector2( -0.250397, -21.2703 )
+region_enabled = true
+region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+
+[node name="RightFront" type="Sprite" parent="Legs"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 49.427, -46.3095 )
+rotation = 1.11586
+scale = Vector2( 1, 1.30943 )
+texture = ExtResource( 10 )
+offset = Vector2( 0.151794, -23.4696 )
+region_enabled = true
+region_rect = Rect2( 234.569, 112.31, 9.19876, 51.6374 )
+
+[node name="Middle" type="Sprite" parent="Legs/RightFront"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -0.697632, -46.4183 )
+rotation = -0.339265
+scale = Vector2( 0.986112, 0.781542 )
+texture = ExtResource( 10 )
+offset = Vector2( -0.250397, -21.2703 )
+region_enabled = true
+region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+
+[node name="End" type="Sprite" parent="Legs/RightFront/Middle"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0.502129, -48.4485 )
+rotation = -0.317581
+scale = Vector2( 0.786035, 0.469998 )
+texture = ExtResource( 10 )
+offset = Vector2( -0.250397, -21.2703 )
+region_enabled = true
+region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+
+[node name="RightMiddle" type="Sprite" parent="Legs"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 49.1965, 4.15969 )
+rotation = -4.55862
+scale = Vector2( 1, 1.30943 )
+texture = ExtResource( 10 )
+offset = Vector2( 0.151794, -23.4696 )
+region_enabled = true
+region_rect = Rect2( 234.569, 112.31, 9.19876, 51.6374 )
+
+[node name="Middle" type="Sprite" parent="Legs/RightMiddle"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1.51187, -47.143 )
+rotation = 0.42679
+scale = Vector2( 0.986112, 0.781542 )
+texture = ExtResource( 10 )
+offset = Vector2( -0.250397, -21.2703 )
+region_enabled = true
+region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+
+[node name="End" type="Sprite" parent="Legs/RightMiddle/Middle"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0.502129, -48.4485 )
+rotation = 0.411166
+scale = Vector2( 0.786035, 0.469998 )
+texture = ExtResource( 10 )
+offset = Vector2( -0.250397, -21.2703 )
+region_enabled = true
+region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+
+[node name="RightBack" type="Sprite" parent="Legs"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 34.1429, 70.9909 )
+rotation = -4.3306
+scale = Vector2( 1, 1.30943 )
+texture = ExtResource( 10 )
+offset = Vector2( 0.151794, -23.4696 )
+region_enabled = true
+region_rect = Rect2( 234.569, 112.31, 9.19876, 51.6374 )
+
+[node name="Middle" type="Sprite" parent="Legs/RightBack"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -0.153278, -47.1271 )
+rotation = 0.404654
+scale = Vector2( 0.986112, 0.781542 )
+texture = ExtResource( 10 )
+offset = Vector2( -0.250397, -21.2703 )
+region_enabled = true
+region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+
+[node name="End" type="Sprite" parent="Legs/RightBack/Middle"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0.502129, -48.4485 )
+rotation = 0.394518
+scale = Vector2( 0.786035, 0.469998 )
+texture = ExtResource( 10 )
+offset = Vector2( -0.250397, -21.2703 )
+region_enabled = true
+region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+
+[node name="Torso" type="Sprite" parent="."]
 position = Vector2( 4, 7 )
 texture = ExtResource( 10 )
 region_enabled = true
