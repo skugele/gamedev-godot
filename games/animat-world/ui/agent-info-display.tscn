@@ -7,7 +7,7 @@
 [ext_resource path="res://ui/AgentInfoPanel/antennae-smell-alerts.png" type="Texture" id=5]
 [ext_resource path="res://ui/AgentInfoPanel/antennae-activity-alert.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/AgentInfoPanel/hair-active-alert.tscn" type="PackedScene" id=7]
-[ext_resource path="res://atlases/simple-agent-parts-inverted.png" type="Texture" id=8]
+[ext_resource path="res://atlases/simple-agent-parts-inverted-new.png" type="Texture" id=8]
 [ext_resource path="res://ui/AgentInfoPanel/ProgressBars/background.png" type="Texture" id=9]
 [ext_resource path="res://ui/AgentInfoPanel/ProgressBars/foreground.png" type="Texture" id=10]
 [ext_resource path="res://ui/AgentInfoPanel/ProgressBars/health_progress.png" type="Texture" id=11]
@@ -419,7 +419,7 @@ __meta__ = {
 }
 
 [node name="Hair1" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts" instance=ExtResource( 7 )]
-position = Vector2( 76.6437, 82.3071 )
+position = Vector2( 77.6437, 82.3071 )
 rotation = -1.0472
 
 [node name="Hair2" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts" instance=ExtResource( 7 )]
@@ -427,19 +427,19 @@ position = Vector2( 67, 99 )
 rotation = -1.22173
 
 [node name="Hair3" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts" instance=ExtResource( 7 )]
-position = Vector2( 62, 117 )
+position = Vector2( 63, 117 )
 rotation = -1.39626
 
 [node name="Hair4" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts" instance=ExtResource( 7 )]
-position = Vector2( 61, 137 )
+position = Vector2( 62.2322, 137.293 )
 rotation = -1.5708
 
 [node name="Hair5" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts" instance=ExtResource( 7 )]
-position = Vector2( 64, 156 )
+position = Vector2( 65, 156 )
 rotation = -1.74533
 
 [node name="Hair6" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts" instance=ExtResource( 7 )]
-position = Vector2( 70, 173 )
+position = Vector2( 72, 172 )
 rotation = -1.91986
 
 [node name="Hair7" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts" instance=ExtResource( 7 )]
@@ -459,11 +459,11 @@ position = Vector2( 145, 97 )
 rotation = 1.22173
 
 [node name="Hair11" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts" instance=ExtResource( 7 )]
-position = Vector2( 150, 117 )
+position = Vector2( 151, 116 )
 rotation = 1.39626
 
 [node name="Hair12" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts" instance=ExtResource( 7 )]
-position = Vector2( 150, 136 )
+position = Vector2( 152, 136 )
 rotation = 1.5708
 
 [node name="Hair13" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts" instance=ExtResource( 7 )]
@@ -475,13 +475,11 @@ position = Vector2( 142, 172 )
 rotation = 1.91986
 
 [node name="Hair15" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts" instance=ExtResource( 7 )]
-position = Vector2( 129.295, 188 )
+position = Vector2( 131.295, 189 )
 rotation = 2.26893
 
 [node name="AntennaeAlerts" type="Node2D" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay"]
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( 0, 2 )
 
 [node name="Antenna1" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/AntennaeAlerts" instance=ExtResource( 6 )]
 position = Vector2( 1, 0 )
@@ -494,11 +492,11 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 60, 112 )
 
 [node name="TasteEffect" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/AntennaeAlerts/Antenna1" index="1"]
-position = Vector2( 93, 51 )
+position = Vector2( 92, 51 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 region_enabled = true
-region_rect = Rect2( 156.971, 0, 40.0407, 101.062 )
+region_rect = Rect2( 151, -6, 42.2228, 104.851 )
 
 [node name="TouchEffect" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/AntennaeAlerts/Antenna1" index="2"]
 modulate = Color( 0, 0.905882, 1, 1 )
@@ -523,7 +521,7 @@ position = Vector2( 117.065, 51.6004 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 region_enabled = true
-region_rect = Rect2( 197.733, 2.67447, 39.6221, 97.7346 )
+region_rect = Rect2( 193.686, -2.14683, 37.9899, 97.7545 )
 
 [node name="TouchEffect" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/AntennaeAlerts/Antenna2" index="2"]
 position = Vector2( 120.816, 32.204 )
@@ -542,6 +540,9 @@ modulate = Color( 1, 1, 1, 0.137255 )
 position = Vector2( 115.5, 116.5 )
 scale = Vector2( 0.86, 0.875 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [editable path="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/AntennaeAlerts/Antenna1"]
 
