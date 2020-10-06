@@ -67,6 +67,9 @@ texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
 region_enabled = true
 region_rect = Rect2( 234.569, 112.31, 9.19876, 51.6374 )
+__meta__ = {
+"_edit_ik_": true
+}
 
 [node name="Middle" type="Sprite" parent="Legs/LeftFront"]
 modulate = Color( 0, 0, 0, 1 )
@@ -109,6 +112,9 @@ texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
 region_enabled = true
 region_rect = Rect2( 234.569, 112.31, 9.19876, 51.6374 )
+__meta__ = {
+"_edit_ik_": true
+}
 
 [node name="Middle" type="Sprite" parent="Legs/LeftMiddle"]
 modulate = Color( 0, 0, 0, 1 )
@@ -151,6 +157,9 @@ texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
 region_enabled = true
 region_rect = Rect2( 234.569, 112.31, 9.19876, 51.6374 )
+__meta__ = {
+"_edit_ik_": true
+}
 
 [node name="Middle" type="Sprite" parent="Legs/LeftBack"]
 modulate = Color( 0, 0, 0, 1 )
@@ -193,6 +202,9 @@ texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
 region_enabled = true
 region_rect = Rect2( 234.569, 112.31, 9.19876, 51.6374 )
+__meta__ = {
+"_edit_ik_": true
+}
 
 [node name="Middle" type="Sprite" parent="Legs/RightFront"]
 modulate = Color( 0, 0, 0, 1 )
@@ -229,17 +241,20 @@ __meta__ = {
 [node name="RightMiddle" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 49.1965, 4.15969 )
-rotation = -4.55862
+rotation = -4.67265
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
 region_enabled = true
 region_rect = Rect2( 234.569, 112.31, 9.19876, 51.6374 )
+__meta__ = {
+"_edit_ik_": true
+}
 
 [node name="Middle" type="Sprite" parent="Legs/RightMiddle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.51187, -47.143 )
-rotation = 0.42679
+rotation = 0.918158
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -252,7 +267,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/RightMiddle/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = 0.411166
+rotation = 0.0932525
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -277,6 +292,9 @@ texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
 region_enabled = true
 region_rect = Rect2( 234.569, 112.31, 9.19876, 51.6374 )
+__meta__ = {
+"_edit_ik_": true
+}
 
 [node name="Middle" type="Sprite" parent="Legs/RightBack"]
 modulate = Color( 0, 0, 0, 1 )
