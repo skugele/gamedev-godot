@@ -8,7 +8,7 @@ const TOUCH_COLOR = Color(1,1,0,0.5)
 # Smell Effect Colors
 const SMELL_ACTIVITY_COLOR = Color(0,0.2,1,0)
 const TASTE_ACTIVITY_COLOR = Color(0,0.9,1,0)
-const ALPHA_MAX = 0.85
+const ALPHA_MAX = 1.0
 
 onready var smell_effect = $SmellEffect
 onready var touch_effect = $TouchEffect

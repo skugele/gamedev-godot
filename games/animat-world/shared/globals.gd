@@ -30,8 +30,8 @@ const DAMAGE_DETECTOR_LAYER = 256
 const STATIC = false
 const RANDOMIZED = true
 
-const N_RANDOM_TREES = 30
-const N_RANDOM_ROCKS = 400
+const N_RANDOM_TREES = 15
+const N_RANDOM_ROCKS = 175
 
 const WORLD_HORIZ_EXTENT = [-10000, 10000]
 const WORLD_VERT_EXTENT = [-10000, 10000]
@@ -62,7 +62,7 @@ var DEFAULT_HEALTH = 1
 ###################
 # timer constants #
 ###################
-const FRUIT_DROP_RATE_RANGE = [5, 15]
+const FRUIT_DROP_RATE_RANGE = [30, 120]
 
 ###################
 # agent constants #
@@ -86,7 +86,7 @@ const COLOR_SEX_B = Color(0.4, 0.0, 0.6, 1.0)
 ############################
 # agent movement constants #
 ############################
-const AGENT_MAX_SPEED_FORWARD = 400
+const AGENT_MAX_SPEED_FORWARD = 300
 const AGENT_MAX_SPEED_BACKWARD = 150
 
 const AGENT_WALKING_ACCELERATION = 500
@@ -97,7 +97,7 @@ const AGENT_MANDIBLE_OPENING_ACCELERATION = 100
 
 const AGENT_WALKING_FRICTION = 5000
 
-const AGENT_MAX_ROTATION_RATE = 1.5
+const AGENT_MAX_ROTATION_RATE = 1.0
 const AGENT_MAX_MANDIBLE_APERATURE_IN_DEGREES = 45
 
 ##########################
@@ -116,7 +116,7 @@ enum AGENT_ACTIONS {
 }
 
 const ENERGY_COST_PER_FRAME = {
-	AGENT_ACTIONS.WALKING: 25,
+	AGENT_ACTIONS.WALKING: 15,
 	AGENT_ACTIONS.TURNING: 5,
 	AGENT_ACTIONS.OPENING_MANDIBLES: 1,
 	AGENT_ACTIONS.CLOSING_MANDIBLES: 1,
@@ -132,7 +132,7 @@ const ENERGY_COST_PER_ACTION = {
 
 # Time-based agent stats changes
 const SATIETY_DECREASE_PER_FRAME = 0.1
-const ENERGY_INCREASE_PER_FRAME = 0.4
+const ENERGY_INCREASE_PER_FRAME = 0.75
 const POISON_DECREASE_PER_FRAME = 0.01
 const HEALTH_INCREASE_PER_FRAME = 0.1
 const ENERGY_DECREASE_WHILE_HEALING_PER_FRAME = 0.25

@@ -482,7 +482,7 @@ rotation = 2.26893
 position = Vector2( 0, 2 )
 
 [node name="Antenna1" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/AntennaeAlerts" instance=ExtResource( 6 )]
-position = Vector2( 1, 0 )
+position = Vector2( 1, 1 )
 
 [node name="SmellEffect" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/AntennaeAlerts/Antenna1" index="0"]
 position = Vector2( 93, 50 )
@@ -492,11 +492,12 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 60, 112 )
 
 [node name="TasteEffect" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/AntennaeAlerts/Antenna1" index="1"]
-position = Vector2( 92, 51 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 91.2, 51 )
+rotation = -0.0245644
+scale = Vector2( 0.51, 0.51 )
 texture = ExtResource( 8 )
 region_enabled = true
-region_rect = Rect2( 151, -6, 42.2228, 104.851 )
+region_rect = Rect2( 153.073, -3.02784, 40.1494, 101.879 )
 
 [node name="TouchEffect" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/AntennaeAlerts/Antenna1" index="2"]
 modulate = Color( 0, 0.905882, 1, 1 )
@@ -504,7 +505,7 @@ position = Vector2( 88.9053, 32.2136 )
 scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( -9.78101, -5.02084, 219.274, 212.348 )
+region_rect = Rect2( 0.611588, -1, 202.388, 208.327 )
 
 [node name="Antenna2" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/AntennaeAlerts" instance=ExtResource( 6 )]
 position = Vector2( -0.0594597, 0 )
@@ -528,7 +529,7 @@ position = Vector2( 120.816, 32.204 )
 scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( -12.6431, -11.4193, 221.579, 220.072 )
+region_rect = Rect2( -0.706024, -3, 205.706, 207 )
 
 [node name="ActiveBody" type="Node2D" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay"]
 __meta__ = {

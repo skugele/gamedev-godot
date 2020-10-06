@@ -22,35 +22,35 @@ region_rect = Rect2( -401.875, -25000, 100000, 100000 )
 [node name="Rocks" type="YSort" parent="."]
 
 [node name="Rock1" parent="Rocks" instance=ExtResource( 2 )]
-position = Vector2( 1455.25, 210.904 )
+position = Vector2( 1740.66, 719.885 )
 
 [node name="Rock2" parent="Rocks" instance=ExtResource( 2 )]
-position = Vector2( 638.102, 623.97 )
+position = Vector2( 2374.34, 124.503 )
 
 [node name="Rock3" parent="Rocks" instance=ExtResource( 2 )]
 position = Vector2( 1307.09, -1154.01 )
 
 [node name="Rock4" parent="Rocks" instance=ExtResource( 2 )]
-position = Vector2( -1184.77, -898.086 )
+position = Vector2( -705.893, -1788.03 )
 
 [node name="Rock5" parent="Rocks" instance=ExtResource( 2 )]
-position = Vector2( -632.524, 412.947 )
+position = Vector2( -420.631, -994.02 )
 
 [node name="Rock6" parent="Rocks" instance=ExtResource( 2 )]
 position = Vector2( 700.959, -1661.36 )
 
 [node name="Rock7" parent="Rocks" instance=ExtResource( 2 )]
-position = Vector2( 1908.73, -534.409 )
+position = Vector2( 2793.5, 664.312 )
 
 [node name="ProcessedFood" type="Node2D" parent="."]
 
 [node name="UnprocessedFood" type="YSort" parent="."]
 
 [node name="FoodGood1" parent="UnprocessedFood" instance=ExtResource( 3 )]
-position = Vector2( 0, 0 )
+position = Vector2( -1212.03, 1428.16 )
 
 [node name="FoodBad1" parent="UnprocessedFood" instance=ExtResource( 5 )]
-position = Vector2( 629.642, -915.926 )
+position = Vector2( -1205.35, 397.808 )
 
 [node name="Agents" type="Node2D" parent="."]
 
@@ -61,11 +61,11 @@ input_pickable = false
 [node name="Trees" type="Node2D" parent="."]
 
 [node name="Tree1" parent="Trees" instance=ExtResource( 4 )]
-position = Vector2( -381.279, -909.871 )
+position = Vector2( 2501.35, 1227.14 )
 z_index = 2
 
 [node name="Tree2" parent="Trees" instance=ExtResource( 4 )]
-position = Vector2( 795.061, 24.0176 )
+position = Vector2( 2354.59, -993.067 )
 z_index = 2
 
 [node name="DeadAgents" type="Node2D" parent="."]
