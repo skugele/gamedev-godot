@@ -77,6 +77,9 @@ texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
 region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="End" type="Sprite" parent="Legs/LeftFront/Middle"]
 modulate = Color( 0, 0, 0, 1 )
@@ -87,6 +90,15 @@ texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
 region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Bone" type="Node2D" parent="Legs/LeftFront/Middle/End"]
+position = Vector2( 0.507935, -44.8262 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="LeftMiddle" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
@@ -107,6 +119,9 @@ texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
 region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="End" type="Sprite" parent="Legs/LeftMiddle/Middle"]
 modulate = Color( 0, 0, 0, 1 )
@@ -117,6 +132,15 @@ texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
 region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Bone" type="Node2D" parent="Legs/LeftMiddle/Middle/End"]
+position = Vector2( 0.361481, -42.7719 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="LeftBack" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
@@ -137,6 +161,9 @@ texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
 region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="End" type="Sprite" parent="Legs/LeftBack/Middle"]
 modulate = Color( 0, 0, 0, 1 )
@@ -147,6 +174,15 @@ texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
 region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Bone" type="Node2D" parent="Legs/LeftBack/Middle/End"]
+position = Vector2( -0.341995, -42.7881 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="RightFront" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
@@ -167,6 +203,9 @@ texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
 region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="End" type="Sprite" parent="Legs/RightFront/Middle"]
 modulate = Color( 0, 0, 0, 1 )
@@ -177,6 +216,15 @@ texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
 region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Bone" type="Node2D" parent="Legs/RightFront/Middle/End"]
+position = Vector2( -0.0817795, -42.8768 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="RightMiddle" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
@@ -197,6 +245,9 @@ texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
 region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="End" type="Sprite" parent="Legs/RightMiddle/Middle"]
 modulate = Color( 0, 0, 0, 1 )
@@ -207,6 +258,15 @@ texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
 region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Bone" type="Node2D" parent="Legs/RightMiddle/Middle/End"]
+position = Vector2( 0.167191, -43.3017 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="RightBack" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
@@ -227,6 +287,9 @@ texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
 region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="End" type="Sprite" parent="Legs/RightBack/Middle"]
 modulate = Color( 0, 0, 0, 1 )
@@ -237,6 +300,15 @@ texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
 region_rect = Rect2( 230.825, 39.3461, 15.9047, 58.1134 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Bone" type="Node2D" parent="Legs/RightBack/Middle/End"]
+position = Vector2( 0.0827408, -43.7868 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="Torso" type="Sprite" parent="."]
 position = Vector2( 4, 7 )
