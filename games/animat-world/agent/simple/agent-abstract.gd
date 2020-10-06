@@ -273,9 +273,13 @@ func distance_from_scent(scent):
 	
 	for antenna in antennae:
 		var detector_pos = antenna.smell_detector.global_position
-		var scent_pos = scent.global_position
 		
-		distance = min(distance, detector_pos.distance_to(scent_pos))
+		# FIXME: this check is a hack to minimize the number of get_global_transform
+		# !is_inside_tree errors that occur after the queue_free that occur when fruit 
+		# is processed
+		if scent.is_inside_tree():
+			var scent_pos = scent.global_position		
+			distance = min(distance, detector_pos.distance_to(scent_pos))
 	
 	return distance
 	

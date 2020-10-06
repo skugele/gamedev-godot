@@ -282,7 +282,12 @@ func _transform_food(unprocessed_food):
 	obj.init_from_unprocessed_food(unprocessed_food)
 			
 	# free unprocessed food node
-	unprocessed_food.queue_free()
+#	unprocessed_food.queue_free()
+
+	# FIXME: this check is a hack to minimize the number of get_global_transform
+	# !is_inside_tree errors that occur after the queue_free that occur when fruit 
+	# is processed
+	unprocessed_food.call_deferred("queue_free")
 	
 	# add new unprocessed node to scene
 	$ProcessedFood.add_child(obj)
