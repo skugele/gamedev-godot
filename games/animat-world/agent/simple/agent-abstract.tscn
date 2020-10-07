@@ -10,7 +10,7 @@
 [ext_resource path="res://shared/damageable.tscn" type="PackedScene" id=9]
 [ext_resource path="res://atlases/simple-agent-parts-inverted-new.png" type="Texture" id=10]
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=1]
 resource_name = "Idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath("RightMiddle/Middle/End/Bone:position")
@@ -877,7 +877,7 @@ tracks/71/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=2]
 resource_name = "WalkForward"
 length = 2.0
 loop = true
@@ -1171,38 +1171,38 @@ tracks/23/keys = {
 "values": [ 0.0, 0.0, 0.0, 0.0 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 69.593
 height = 75.5215
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 11.0
 height = 50.0
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 11.0
 height = 50.0
-
-[sub_resource type="SegmentShape2D" id=4]
-b = Vector2( -1.297, 88.849 )
-
-[sub_resource type="SegmentShape2D" id=5]
-b = Vector2( -1.29653, 88.8495 )
 
 [sub_resource type="SegmentShape2D" id=6]
+b = Vector2( -1.297, 88.849 )
+
+[sub_resource type="SegmentShape2D" id=7]
+b = Vector2( -1.29653, 88.8495 )
+
+[sub_resource type="SegmentShape2D" id=8]
 a = Vector2( 4.462, -85.074 )
 b = Vector2( 0, 0 )
 
-[sub_resource type="SegmentShape2D" id=7]
+[sub_resource type="SegmentShape2D" id=9]
 a = Vector2( 4.46212, -85.0736 )
 b = Vector2( 0, 0 )
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=10]
 radius = 5.0
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=11]
 
-[sub_resource type="CapsuleShape2D" id=10]
+[sub_resource type="CapsuleShape2D" id=12]
 radius = 67.6468
 height = 77.9612
 
@@ -1222,7 +1222,7 @@ __meta__ = {
 [node name="LeftFront" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -40.9527, -45.1203 )
-rotation = -1.66128
+rotation = -1.1712
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1235,7 +1235,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/LeftFront"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.51187, -47.143 )
-rotation = 0.845405
+rotation = 0.200577
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1248,7 +1248,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/LeftFront/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = 0.274382
+rotation = 0.444403
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1267,7 +1267,7 @@ __meta__ = {
 [node name="LeftMiddle" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -45.94, -1.78634 )
-rotation = -1.80306
+rotation = -1.78473
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1280,7 +1280,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/LeftMiddle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.51187, -47.143 )
-rotation = 0.0741693
+rotation = -0.321996
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1292,9 +1292,9 @@ __meta__ = {
 
 [node name="End" type="Sprite" parent="Legs/LeftMiddle/Middle"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 0.633548, -48.222 )
-rotation = -0.479186
-scale = Vector2( 0.786035, 0.436129 )
+position = Vector2( 0.502129, -48.4485 )
+rotation = -0.525901
+scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
 region_enabled = true
@@ -1305,7 +1305,6 @@ __meta__ = {
 
 [node name="Bone" type="Node2D" parent="Legs/LeftMiddle/Middle/End"]
 position = Vector2( 0.361481, -42.7719 )
-rotation = -0.0149519
 __meta__ = {
 "_edit_bone_": true
 }
@@ -1313,7 +1312,7 @@ __meta__ = {
 [node name="LeftBack" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -34.8311, 67.4233 )
-rotation = -2.12274
+rotation = -1.9694
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1326,7 +1325,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/LeftBack"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.51187, -47.143 )
-rotation = -0.621651
+rotation = -0.237931
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1339,7 +1338,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/LeftBack/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = 5.78116
+rotation = -0.475024
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1358,7 +1357,7 @@ __meta__ = {
 [node name="RightFront" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 49.427, -46.3095 )
-rotation = 1.15277
+rotation = 1.11586
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1371,7 +1370,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/RightFront"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -0.697632, -46.4183 )
-rotation = -0.638382
+rotation = -0.339265
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1384,7 +1383,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/RightFront/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = -0.356033
+rotation = -0.317581
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1403,7 +1402,7 @@ __meta__ = {
 [node name="RightMiddle" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 49.1965, 4.15969 )
-rotation = -4.17106
+rotation = -4.67265
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1416,7 +1415,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/RightMiddle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.51187, -47.143 )
-rotation = -0.235093
+rotation = 0.870087
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1429,7 +1428,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/RightMiddle/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = 0.502127
+rotation = 0.0932525
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1441,7 +1440,6 @@ __meta__ = {
 
 [node name="Bone" type="Node2D" parent="Legs/RightMiddle/Middle/End"]
 position = Vector2( 0.167191, -43.3017 )
-rotation = -0.32392
 __meta__ = {
 "_edit_bone_": true
 }
@@ -1449,7 +1447,7 @@ __meta__ = {
 [node name="RightBack" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 34.1429, 70.9909 )
-rotation = -4.50563
+rotation = -4.3306
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1462,7 +1460,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/RightBack"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -0.153278, -47.1271 )
-rotation = 0.895123
+rotation = 0.404654
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1475,7 +1473,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/RightBack/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = 0.245424
+rotation = 0.394518
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1492,9 +1490,9 @@ __meta__ = {
 }
 
 [node name="LegAnimationPlayer" type="AnimationPlayer" parent="Legs"]
-playback_speed = 2.0
-anims/Idle = SubResource( 11 )
-anims/WalkForward = SubResource( 12 )
+playback_speed = 3.0
+anims/Idle = SubResource( 1 )
+anims/WalkForward = SubResource( 2 )
 
 [node name="Torso" type="Sprite" parent="."]
 position = Vector2( 4, 7 )
@@ -1508,7 +1506,7 @@ __meta__ = {
 [node name="TorsoCollisionShape" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 1.74335, 5.48814 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1615,7 +1613,7 @@ region_rect = Rect2( 153.166, 97.9381, 26.8198, 104.31 )
 modulate = Color( 0, 1, 0.25098, 1 )
 position = Vector2( -40.8488, -55.9731 )
 rotation = -0.785398
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="Right" parent="Mandibles" instance=ExtResource( 2 )]
 position = Vector2( 22, -221 )
@@ -1631,7 +1629,7 @@ region_rect = Rect2( 182.186, 97.9381, 24.6471, 104.31 )
 modulate = Color( 0, 1, 0.25098, 1 )
 position = Vector2( 41.492, -54.265 )
 rotation = 0.785398
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="Antennae" type="Node2D" parent="."]
 position = Vector2( 1, 123 )
@@ -1653,7 +1651,7 @@ position = Vector2( -38, -317 )
 position = Vector2( -9, -227 )
 rotation = 2.78729
 scale = Vector2( 7, 1.11 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="TouchDetector" parent="Antennae/Left" index="3"]
 collision_layer = 0
@@ -1664,7 +1662,7 @@ modulate = Color( 0, 0.313726, 1, 1 )
 position = Vector2( -9, -227 )
 rotation = 2.78764
 scale = Vector2( 7, 1.11 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="Right" parent="Antennae" instance=ExtResource( 1 )]
 
@@ -1682,7 +1680,7 @@ position = Vector2( 35, -317 )
 position = Vector2( 5, -226 )
 rotation = -0.0628318
 scale = Vector2( 7, 1.1 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="TouchDetector" parent="Antennae/Right" index="3"]
 collision_layer = 0
@@ -1693,13 +1691,13 @@ modulate = Color( 0, 0.313726, 1, 1 )
 position = Vector2( 5, -226 )
 rotation = -0.0626099
 scale = Vector2( 7, 1.1 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="DamageableDetector" parent="." instance=ExtResource( 3 )]
 
 [node name="CollisionShape2D" parent="DamageableDetector" index="0"]
 position = Vector2( -1, -151 )
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="Mouth" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -146 )
@@ -1707,7 +1705,7 @@ position = Vector2( 0, -146 )
 [node name="CollisionShape2D" parent="Mouth/Area2D" index="1"]
 position = Vector2( -1, 7 )
 rotation = 1.5691
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 disabled = true
 
 [node name="Damageable" parent="." instance=ExtResource( 9 )]
@@ -1715,7 +1713,7 @@ visible = false
 
 [node name="CollisionShape2D" parent="Damageable/DamageZone" index="0"]
 position = Vector2( 0, 4 )
-shape = SubResource( 10 )
+shape = SubResource( 12 )
 [connection signal="agent_dead" from="Stats" to="." method="_on_agent_dead"]
 [connection signal="detected_damageable" from="DamageableDetector" to="." method="_on_detected_damageable"]
 [connection signal="lost_damageable" from="DamageableDetector" to="." method="_on_lost_damageable"]

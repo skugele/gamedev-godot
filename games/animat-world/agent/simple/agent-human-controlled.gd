@@ -16,7 +16,7 @@ func get_input():
 
 	# FIXME: this is a hack to allow a different forward and reverse max speed
 	var max_speed = 0
-
+	
 	# forward/backward motion
 	if Input.is_action_pressed("ui_forward"):
 		add_action(Globals.AGENT_ACTIONS.WALKING)
@@ -26,6 +26,7 @@ func get_input():
 		add_action(Globals.AGENT_ACTIONS.WALKING)
 		direction = Vector2(0, 1).rotated(rotation)
 		max_speed = Globals.AGENT_MAX_SPEED_BACKWARD
+		
 	# body rotation
 	if Input.is_action_pressed("ui_turn_right"):
 		add_action(Globals.AGENT_ACTIONS.TURNING)
@@ -67,21 +68,26 @@ func execute_move(inputs, delta):
 
 	# execute body rotation
 	if turn != 0:
+		is_turning = true
 		update_rotation(turn, delta)
+	else:
+		is_turning = false
 
 	# execute mandible change
 	if mandible_change_dir != 0:
 		update_mandible_aperature(mandible_change_dir, delta)
 
 	velocity = move_and_slide(velocity)
+	set_velocity(velocity)
 
 func update_velocity(direction, delta, max_speed):
 	velocity = velocity.move_toward(direction * max_speed, ACCELERATION * delta)
 
 	emit_signal("velocity_change", velocity)
-
+	
 func update_rotation(turn, delta):
-	rotation += turn * MAX_ROTATION * delta	
+	rotation += turn * MAX_ROTATION * delta
+		
 	emit_signal("rotation_change", rotation)
 
 func update_mandible_aperature(change_dir, delta):

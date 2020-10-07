@@ -55,12 +55,10 @@ func _process(delta):
 		agent_speed.text = "%.2f" % current_agent.velocity.length()
 		agent_poison_consumed.text = "%.2f" % current_agent.stats.poison_consumed
 		
-			
 		# update agent status
 		agent_health.value = current_agent.stats.health
 		agent_energy.value = current_agent.stats.energy
 		agent_satiety.value = current_agent.stats.satiety
-	
 	
 func set_agent(agent):
 	current_agent = agent
@@ -93,10 +91,12 @@ func _on_agent_velocity_change(value):
 	pass
 
 func _on_agent_rotation_change(value):
-	agent_body.set_rotation(value)
+	pass
+#	agent_body.set_rotation(value)
 
 func _on_agent_mandible_aperture_change(value):
-	agent_body.set_mandible_aperature(value)
+	pass
+#	agent_body.set_mandible_aperature(value)
 
 func _on_agent_smell_activity_change(level):
 #	print('_on_agent_smell_activity_change: ', level)

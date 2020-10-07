@@ -17,6 +17,16 @@ export(int) var FRICTION = Globals.AGENT_WALKING_FRICTION
 # constants #
 #############
 
+# animation-related vars
+enum LEG_ANIMATION_STATE {
+	MOVING,
+	IDLE
+}
+
+onready var leg_animation_state = LEG_ANIMATION_STATE.IDLE
+
+onready var is_turning = false
+onready var is_walking = false
 
 ################
 # onready vars #
@@ -51,7 +61,7 @@ onready var ignored_tastes = [] # ignore own tastes
 onready var combined_taste_sig = null
 
 # current state vars
-onready var velocity = Vector2.ZERO
+onready var velocity = Vector2.ZERO setget set_velocity
 
 # effector variables
 onready var damageables = []
@@ -83,15 +93,57 @@ signal agent_dead(agent)
 # functions #
 #############
 func _ready():
-	if stats.sex == Globals.AGENT_SEX.A:	
+	if stats.sex == Globals.AGENT_SEX.A:
 		torso.modulate = Globals.COLOR_SEX_A
-	elif stats.sex == Globals.AGENT_SEX.B:	
+	elif stats.sex == Globals.AGENT_SEX.B:
 		torso.modulate = Globals.COLOR_SEX_B
-		
-	leg_animator.play("WalkForward")
-		
+
+	reset_legs()
+
 func _process(delta):
 	process_metabolic_costs(delta)
+
+	match(leg_animation_state):
+		LEG_ANIMATION_STATE.MOVING:
+			set_legs_moving()
+			
+		LEG_ANIMATION_STATE.IDLE:
+			set_legs_stopped()
+	
+	# update leg animation state
+	if is_walking or is_turning:
+		leg_animation_state = LEG_ANIMATION_STATE.MOVING
+	else:
+		leg_animation_state = LEG_ANIMATION_STATE.IDLE
+
+func set_legs_moving():
+	
+	# adjust playback rate based on action
+	if is_walking:
+		leg_animator.playback_speed = (velocity.length() / Globals.AGENT_MAX_SPEED_FORWARD) * Globals.WALKING_PLAYBACK_MULTIPLIER
+	elif is_turning:
+		leg_animator.playback_speed = Globals.AGENT_MAX_ROTATION_RATE * Globals.TURNING_PLAYBACK_MULTIPLIER
+	else:
+		leg_animator.playback_speed = 1.0
+		
+	leg_animator.play("WalkForward")
+	
+func set_legs_stopped():
+	# it's necessary to stop the current animation rather than play "Idle"
+	# to avoid a jumpy transition in leg position
+	leg_animator.stop()
+
+func reset_legs():
+	# resets leg position to resting state
+	leg_animator.play("Idle")
+	
+func set_velocity(value):
+	velocity = value
+	
+	if velocity.is_equal_approx(Vector2.ZERO):
+		is_walking = false
+	else:
+		is_walking = true
 
 # TODO: This needs to be synchronized
 func process_metabolic_costs(delta):

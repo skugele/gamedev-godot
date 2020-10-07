@@ -8,7 +8,7 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource( 2 )
 
-[node name="TorsoCollisionShape" parent="." index="1"]
+[node name="TorsoCollisionShape" parent="." index="3"]
 disabled = true
 
 [node name="Area2D" parent="Hairs/Hair0" index="1"]
@@ -227,3 +227,11 @@ disabled = true
 [editable path="Antennae/Right/SmellDetector"]
 
 [editable path="Antennae/Right/TasteDetector"]
+
+[editable path="DamageableDetector"]
+
+[editable path="Mouth"]
+
+[editable path="Damageable"]
+
+[editable path="Damageable/DamageZone"]
