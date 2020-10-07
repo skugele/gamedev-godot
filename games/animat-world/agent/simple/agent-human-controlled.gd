@@ -18,15 +18,20 @@ func get_input():
 	var max_speed = 0
 	
 	# forward/backward motion
-	if Input.is_action_pressed("ui_forward"):
+	if Input.is_action_pressed("ui_sprint"):
+		add_action(Globals.AGENT_ACTIONS.SPRINTING)
+		direction = Vector2(0, -1).rotated(rotation)
+		max_speed = Globals.AGENT_MAX_SPEED_FORWARD + Globals.AGENT_SPRINTING_MAX_SPEED_BOOST
+	elif Input.is_action_pressed("ui_forward"):
 		add_action(Globals.AGENT_ACTIONS.WALKING)
 		direction = Vector2(0, -1).rotated(rotation)
 		max_speed = Globals.AGENT_MAX_SPEED_FORWARD
 	elif Input.is_action_pressed("ui_backward"):
 		add_action(Globals.AGENT_ACTIONS.WALKING)
 		direction = Vector2(0, 1).rotated(rotation)
-		max_speed = Globals.AGENT_MAX_SPEED_BACKWARD
-		
+		max_speed = Globals.AGENT_MAX_SPEED_BACKWARD	
+	
+
 	# body rotation
 	if Input.is_action_pressed("ui_turn_right"):
 		add_action(Globals.AGENT_ACTIONS.TURNING)
