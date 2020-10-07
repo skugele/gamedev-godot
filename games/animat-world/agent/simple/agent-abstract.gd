@@ -330,9 +330,9 @@ func distance_from_scent(scent):
 		# FIXME: this check is a hack to minimize the number of get_global_transform
 		# !is_inside_tree errors that occur after the queue_free that occur when fruit 
 		# is processed
-		if scent.is_inside_tree():
-			var scent_pos = scent.global_position		
-			distance = min(distance, detector_pos.distance_to(scent_pos))
+#		if scent.is_inside_tree():
+		var scent_pos = scent.global_position		
+		distance = min(distance, detector_pos.distance_to(scent_pos))
 	
 	return distance
 	

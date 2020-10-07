@@ -78,6 +78,7 @@ func init_sensor_alerts():
 	$Panel/AgentInfoPanel/BodyPanel/Agent/Torso.modulate = Color(0,0,0,1.0)
 			
 func _on_agent_hair_activity_change(activity):
+#	print('_on_agent_hair_activity_change: ', activity)
 	var id = 0
 	for a in activity:
 		if a > 0:

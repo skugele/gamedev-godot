@@ -7,22 +7,40 @@
 [ext_resource path="res://shared/taste-area.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 68.0
-height = 82.0
+radius = 64.0
+height = 80.0
 
 [node name="CorporealAgent" instance=ExtResource( 1 )]
 input_pickable = true
 script = ExtResource( 2 )
 
+[node name="TorsoCollisionShape" parent="." index="3"]
+modulate = Color( 1, 1, 1, 0 )
+
 [node name="Smell" parent="." index="6" instance=ExtResource( 3 )]
+
+[node name="ScentAreas" parent="Smell" index="0"]
+modulate = Color( 0.335938, 0, 1, 0.196078 )
+position = Vector2( 0, -1 )
 
 [node name="Taste" parent="." index="7" instance=ExtResource( 4 )]
 
 [node name="TasteArea" parent="Taste/TasteAreas" index="0" instance=ExtResource( 5 )]
 
 [node name="CollisionShape2D" parent="Taste/TasteAreas/TasteArea" index="0"]
-position = Vector2( 0, 3 )
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 4, 5 )
+scale = Vector2( 1, 1.05 )
 shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="DamageableDetector" index="0"]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="CollisionShape2D" parent="Mouth/Area2D" index="1"]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="DamageZone" parent="Damageable" index="0"]
+modulate = Color( 1, 1, 1, 0 )
 
 [editable path="Mandibles/Left"]
 

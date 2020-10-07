@@ -135,12 +135,14 @@ disabled = true
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="Mandibles/Left/Area2D" index="0"]
+visible = false
 disabled = true
 
 [node name="Area2D" parent="Mandibles/Right" index="1"]
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="Mandibles/Right/Area2D" index="0"]
+visible = false
 disabled = true
 
 [node name="Area2D" parent="Antennae/Left/SmellDetector" index="0"]
@@ -157,6 +159,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" parent="Antennae/Left/TasteDetector/Area2D" index="0"]
+visible = false
 disabled = true
 
 [node name="CollisionShape2D" parent="Antennae/Left/TouchDetector" index="0"]
@@ -169,6 +172,7 @@ monitorable = false
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="Antennae/Right/SmellDetector/Area2D" index="0"]
+visible = false
 disabled = true
 
 [node name="Area2D" parent="Antennae/Right/TasteDetector" index="0"]
@@ -176,9 +180,21 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" parent="Antennae/Right/TasteDetector/Area2D" index="0"]
+visible = false
 disabled = true
 
 [node name="CollisionShape2D" parent="Antennae/Right/TouchDetector" index="0"]
+visible = false
+disabled = true
+
+[node name="CollisionShape2D" parent="DamageableDetector" index="0"]
+visible = false
+disabled = true
+
+[node name="CollisionShape2D" parent="Mouth/Area2D" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="Damageable/DamageZone" index="0"]
 visible = false
 disabled = true
 

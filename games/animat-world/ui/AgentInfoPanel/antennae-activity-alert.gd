@@ -34,7 +34,7 @@ func set_touch_inactive():
 	
 func set_smell_activity_level(level):
 	var color = SMELL_ACTIVITY_COLOR
-	color.a = min(level / 3.0, ALPHA_MAX)
+	color.a = min(level / 1.5, ALPHA_MAX)
 		
 #	print(color)
 	smell_effect.modulate = color

@@ -14,13 +14,19 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 
 [node name="Smell" parent="." instance=ExtResource( 1 )]
+modulate = Color( 1, 0, 0, 0.313726 )
 show_behind_parent = true
 
 [node name="Taste" parent="." instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="Damageable" parent="." instance=ExtResource( 4 )]
+
+[node name="DamageZone" parent="Damageable" index="0"]
+modulate = Color( 1, 1, 1, 0 )
 [connection signal="register_damage" from="Damageable/DamageZone" to="." method="_on_register_damage"]
 
 [editable path="Damageable"]

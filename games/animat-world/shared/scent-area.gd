@@ -13,8 +13,8 @@ func init_shape(radius):
 	
 	$CollisionShape2D.set_shape(new_shape)
 
-func set_radius(radius):
-	$CollisionShape2D.shape.radius = radius
+func set_radius(value):
+	$CollisionShape2D.shape.radius = value
 	
 func get_radius():
 	return $CollisionShape2D.shape.radius	

@@ -20,11 +20,14 @@ height = 33.5265
 [node name="FoodBad" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 
-[node name="Sprite" parent="." index="1"]
+[node name="Sprite" parent="." index="0"]
 z_index = 1
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 875.865, 150.359, 108.041, 137.953 )
+
+[node name="Smell" parent="." index="1"]
+position = Vector2( 0, 45 )
 
 [node name="TasteArea" parent="Taste/TasteAreas" index="0" instance=ExtResource( 4 )]
 
@@ -33,11 +36,11 @@ position = Vector2( -2, 3 )
 z_index = 1
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D" parent="." index="4"]
+[node name="CollisionShape2D" parent="." index="3"]
 position = Vector2( -3, 5 )
 shape = SubResource( 2 )
 
-[node name="Damageable" parent="." index="5"]
+[node name="Damageable" parent="." index="4"]
 position = Vector2( 0, -4 )
 
 [node name="CollisionShape2D" parent="Damageable/DamageZone" index="0"]

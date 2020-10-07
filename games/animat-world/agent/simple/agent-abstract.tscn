@@ -1909,7 +1909,7 @@ offset = Vector2( -3, -100 )
 region_rect = Rect2( 153.166, 97.9381, 26.8198, 104.31 )
 
 [node name="CollisionShape2D" parent="Mandibles/Left/Area2D" index="0"]
-modulate = Color( 0, 1, 0.25098, 1 )
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -40.8488, -55.9731 )
 rotation = -0.785398
 shape = SubResource( 4 )
@@ -1925,7 +1925,7 @@ offset = Vector2( -21, -100 )
 region_rect = Rect2( 182.186, 97.9381, 24.6471, 104.31 )
 
 [node name="CollisionShape2D" parent="Mandibles/Right/Area2D" index="0"]
-modulate = Color( 0, 1, 0.25098, 1 )
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 41.492, -54.265 )
 rotation = 0.785398
 shape = SubResource( 5 )
@@ -1944,9 +1944,11 @@ region_enabled = true
 region_rect = Rect2( 154.95, -3, 38.1859, 99.7892 )
 
 [node name="SmellDetector" parent="Antennae/Left" index="1"]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -38, -317 )
 
 [node name="CollisionShape2D" parent="Antennae/Left/TasteDetector/Area2D" index="0"]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -9, -227 )
 rotation = 2.78729
 scale = Vector2( 7, 1.11 )
@@ -1957,7 +1959,7 @@ collision_layer = 0
 collision_mask = 7
 
 [node name="CollisionShape2D" parent="Antennae/Left/TouchDetector" index="0"]
-modulate = Color( 0, 0.313726, 1, 1 )
+modulate = Color( 0, 0.313726, 1, 0 )
 position = Vector2( -9, -227 )
 rotation = 2.78764
 scale = Vector2( 7, 1.11 )
@@ -1973,9 +1975,11 @@ region_enabled = true
 region_rect = Rect2( 193.702, -2.21139, 37.6202, 99.0006 )
 
 [node name="SmellDetector" parent="Antennae/Right" index="1"]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 35, -317 )
 
 [node name="CollisionShape2D" parent="Antennae/Right/TasteDetector/Area2D" index="0"]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 5, -226 )
 rotation = -0.0628318
 scale = Vector2( 7, 1.1 )
@@ -1986,7 +1990,7 @@ collision_layer = 0
 collision_mask = 7
 
 [node name="CollisionShape2D" parent="Antennae/Right/TouchDetector" index="0"]
-modulate = Color( 0, 0.313726, 1, 1 )
+modulate = Color( 0, 0.313726, 1, 0 )
 position = Vector2( 5, -226 )
 rotation = -0.0626099
 scale = Vector2( 7, 1.1 )
@@ -1999,7 +2003,7 @@ position = Vector2( -1, -151 )
 shape = SubResource( 10 )
 
 [node name="Mouth" parent="." instance=ExtResource( 5 )]
-position = Vector2( 0, -146 )
+position = Vector2( 0, -141 )
 
 [node name="CollisionShape2D" parent="Mouth/Area2D" index="1"]
 position = Vector2( -1, 7 )

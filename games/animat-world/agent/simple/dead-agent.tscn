@@ -109,6 +109,7 @@ visible = false
 
 [node name="CollisionShape2D" parent="Mandibles/Left/Area2D" index="0"]
 visible = false
+modulate = Color( 0, 1, 0.25098, 1 )
 
 [node name="Right" parent="Mandibles" index="1"]
 rotation = 0.599365
@@ -121,6 +122,7 @@ visible = false
 
 [node name="CollisionShape2D" parent="Mandibles/Right/Area2D" index="0"]
 visible = false
+modulate = Color( 0, 1, 0.25098, 1 )
 
 [node name="Smell" parent="." index="7"]
 visible = false
@@ -138,6 +140,7 @@ scale = Vector2( 0.768788, 0.434292 )
 
 [node name="SmellDetector" parent="Antennae/Left" index="1"]
 visible = false
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="TasteDetector" parent="Antennae/Left" index="2"]
 visible = false
@@ -147,12 +150,14 @@ visible = false
 
 [node name="CollisionShape2D" parent="Antennae/Left/TasteDetector/Area2D" index="0"]
 visible = false
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="TouchDetector" parent="Antennae/Left" index="3"]
 visible = false
 
 [node name="CollisionShape2D" parent="Antennae/Left/TouchDetector" index="0"]
 visible = false
+modulate = Color( 0, 0.313726, 1, 1 )
 
 [node name="Right" parent="Antennae" index="1"]
 position = Vector2( -11, -115 )
@@ -164,6 +169,7 @@ rotation = 0.142833
 
 [node name="SmellDetector" parent="Antennae/Right" index="1"]
 visible = false
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="TasteDetector" parent="Antennae/Right" index="2"]
 visible = false
@@ -173,12 +179,14 @@ visible = false
 
 [node name="CollisionShape2D" parent="Antennae/Right/TasteDetector/Area2D" index="0"]
 visible = false
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="TouchDetector" parent="Antennae/Right" index="3"]
 visible = false
 
 [node name="CollisionShape2D" parent="Antennae/Right/TouchDetector" index="0"]
 visible = false
+modulate = Color( 0, 0.313726, 1, 1 )
 
 [node name="DamageableDetector" parent="." index="10"]
 visible = false
