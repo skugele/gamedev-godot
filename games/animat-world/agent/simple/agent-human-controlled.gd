@@ -82,13 +82,9 @@ func execute_move(inputs, delta):
 
 func update_velocity(direction, delta, max_speed):
 	velocity = velocity.move_toward(direction * max_speed, ACCELERATION * delta)
-
-	emit_signal("velocity_change", velocity)
 	
 func update_rotation(turn, delta):
 	rotation += turn * MAX_ROTATION * delta
-		
-	emit_signal("rotation_change", rotation)
 
 func update_mandible_aperature(change_dir, delta):
 	var acceleration = 0
@@ -103,4 +99,3 @@ func update_mandible_aperature(change_dir, delta):
 
 	if value >= 0 and value <= MAX_MANDIBLE_APERATURE_IN_DEGREES:
 		set_mandible_aperature(value)
-		emit_signal("mandible_aperture_change", value)

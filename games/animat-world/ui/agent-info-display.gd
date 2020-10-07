@@ -86,18 +86,6 @@ func _on_agent_hair_activity_change(activity):
 			hair_alerts[id].set_inactive()
 		id += 1
 
-# TODO: This needs to trigger the walking animation later once legs are added
-func _on_agent_velocity_change(value):
-	pass
-
-func _on_agent_rotation_change(value):
-	pass
-#	agent_body.set_rotation(value)
-
-func _on_agent_mandible_aperture_change(value):
-	pass
-#	agent_body.set_mandible_aperature(value)
-
 func _on_agent_smell_activity_change(level):
 #	print('_on_agent_smell_activity_change: ', level)
 	for alert in antennae_alerts:

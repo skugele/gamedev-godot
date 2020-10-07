@@ -151,21 +151,6 @@ func add_agent_signal_handlers(node):
 		"hair_activity_change", 
 		agent_info_display, 
 		"_on_agent_hair_activity_change")
-
-	node.connect(
-		"velocity_change", 
-		agent_info_display, 
-		"_on_agent_velocity_change")
-		
-	node.connect(
-		"rotation_change", 
-		agent_info_display, 
-		"_on_agent_rotation_change")
-		
-	node.connect(
-		"mandible_aperture_change", 
-		agent_info_display, 
-		"_on_agent_mandible_aperture_change")			
 		
 	node.connect(
 		"smell_activity_change", 
@@ -281,9 +266,6 @@ func _transform_food(unprocessed_food):
 	# set its location to the location of the unprocessed food node
 	obj.init_from_unprocessed_food(unprocessed_food)
 			
-	# free unprocessed food node
-#	unprocessed_food.queue_free()
-
 	# FIXME: this check is a hack to minimize the number of get_global_transform
 	# !is_inside_tree errors that occur after the queue_free that occur when fruit 
 	# is processed
