@@ -291,3 +291,20 @@ func _on_agent_selected(agent):
 		
 func _on_agent_dead(agent):
 	print("Agent %s is dead!" % agent.id)
+	
+	# create new dead agent node
+	var scene = load("res://agent/simple/dead-agent.tscn")	
+	var dead_agent = scene.instance()
+	
+	# set its location to the location of the unprocessed food node
+	dead_agent.init_from_agent(agent)
+	
+	# FIXME: attach camera to world?
+					
+	# add new dead agent to scene
+	$DeadAgents.add_child(dead_agent)
+
+	# FIXME: this check is a hack to minimize the number of get_global_transform
+	# !is_inside_tree errors that occur after the queue_free that occur when fruit 
+	# is processed
+	agent.call_deferred("queue_free")

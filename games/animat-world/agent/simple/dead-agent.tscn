@@ -5,19 +5,20 @@
 [ext_resource path="res://atlases/simple-agent-parts-inverted-new.png" type="Texture" id=3]
 
 [node name="DeadAgent" instance=ExtResource( 1 )]
+z_index = 0
 script = ExtResource( 2 )
 
 [node name="Belly" type="Sprite" parent="." index="1"]
-modulate = Color( 1, 1, 1, 0.196078 )
+modulate = Color( 1, 1, 1, 0.235294 )
 position = Vector2( 2, 7 )
 scale = Vector2( 0.9, 0.95 )
-z_index = 98
+z_index = 1
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( -3, 1, 150, 230 )
 
 [node name="Legs" parent="." index="2"]
-z_index = 99
+z_index = 2
 
 [node name="LeftFront" parent="Legs" index="0"]
 rotation = -0.886934
@@ -94,6 +95,9 @@ rotation = 0.0
 [node name="Hairs" parent="." index="5"]
 visible = false
 
+[node name="Mandibles" parent="." index="6"]
+z_index = 0
+
 [node name="Left" parent="Mandibles" index="0"]
 rotation = -0.550124
 
@@ -123,6 +127,9 @@ visible = false
 
 [node name="Taste" parent="." index="8"]
 visible = false
+
+[node name="Antennae" parent="." index="9"]
+z_index = 0
 
 [node name="Left" parent="Antennae" index="0"]
 position = Vector2( -2, -129 )
