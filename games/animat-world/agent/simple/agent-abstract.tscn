@@ -880,6 +880,7 @@ tracks/71/keys = {
 [sub_resource type="Animation" id=12]
 resource_name = "WalkForward"
 length = 2.0
+loop = true
 step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("RightMiddle/Middle/End/Bone:rotation_degrees")
@@ -888,10 +889,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -18.5592, -18.5592, -18.5592, -18.5592, -18.5592 ]
+"values": [ -18.5592, -18.5592, -18.5592, -18.5592 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("RightMiddle/Middle/End:rotation_degrees")
@@ -900,10 +901,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 9.71692, 10.4753, 20.9707, 39.6526, 24.4683 ]
+"values": [ 9.71692, 10.4753, 20.9707, 39.6526 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("RightMiddle/Middle:rotation_degrees")
@@ -912,10 +913,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -5.87543, -40.078, -8.5062, -17.8077, 21.6181 ]
+"values": [ -5.87543, -40.078, -8.5062, -17.8077 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("RightMiddle:rotation_degrees")
@@ -924,10 +925,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -225.858, -244.731, -265.812, -246.482, -230.777 ]
+"values": [ -225.858, -244.731, -265.812, -246.482 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("RightBack/Middle/End/Bone:rotation_degrees")
@@ -936,10 +937,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 0.0, 0.0, 0.0 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("RightBack/Middle/End:rotation_degrees")
@@ -948,10 +949,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 25.1953 ]
+"values": [ 25.1953, 8.05768, -9.79063 ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("RightBack/Middle:rotation_degrees")
@@ -960,10 +961,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 57.2287 ]
+"values": [ 57.2287, 53.0203, 38.5569 ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("RightBack:rotation_degrees")
@@ -972,10 +973,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ -269.965 ]
+"values": [ -269.965, -250.435, -232.848 ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("LeftFront/Middle/End/Bone:rotation_degrees")
@@ -984,10 +985,10 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+"values": [ 0.0, 0.0, 0.0, 0.0 ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("LeftFront/Middle/End:rotation_degrees")
@@ -996,10 +997,10 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 19.78, 12.276, 4.77202, 13.4024, 22.0327 ]
+"values": [ 19.78, 12.276, 4.77202, 13.4024 ]
 }
 tracks/10/type = "value"
 tracks/10/path = NodePath("LeftFront/Middle:rotation_degrees")
@@ -1008,10 +1009,10 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 39.9952, 57.904, 8.37251, 53.2607, 27.9635 ]
+"values": [ 39.9952, 57.904, 8.37251, 53.2607 ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("LeftFront:rotation_degrees")
@@ -1020,10 +1021,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -111.253, -85.0603, -46.894, -86.0057, -101.592 ]
+"values": [ -111.253, -85.0603, -46.894, -86.0057 ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("LeftMiddle:rotation_degrees")
@@ -1032,10 +1033,10 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -91.1226, -108.847, -135.353, -110.268, -84.8163 ]
+"values": [ -91.1226, -108.847, -133.604, -110.268 ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("LeftBack/Middle:rotation_degrees")
@@ -1044,10 +1045,10 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ -26.757 ]
+"values": [ -26.757, -55.1535, -54.6016 ]
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("LeftBack:rotation_degrees")
@@ -1056,10 +1057,10 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ -137.237 ]
+"values": [ -137.237, -107.033, -88.1756 ]
 }
 tracks/15/type = "value"
 tracks/15/path = NodePath("LeftBack/Middle/End:rotation_degrees")
@@ -1068,10 +1069,10 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 325.834 ]
+"values": [ 325.834, 352.653, 342.809 ]
 }
 tracks/16/type = "value"
 tracks/16/path = NodePath("LeftMiddle/Middle/End:rotation_degrees")
@@ -1080,10 +1081,10 @@ tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -30.1319, -9.31172, -25.9265, -25.9265, -37.3069 ]
+"values": [ -30.1319, -9.31172, -25.9265, -25.9265 ]
 }
 tracks/17/type = "value"
 tracks/17/path = NodePath("LeftMiddle/Middle:rotation_degrees")
@@ -1092,10 +1093,10 @@ tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -27.2355, -41.8123, 13.6551, 22.2336, -17.4061 ]
+"values": [ -27.2355, -41.8123, 12.9416, 22.2336 ]
 }
 tracks/18/type = "value"
 tracks/18/path = NodePath("RightFront:rotation_degrees")
@@ -1104,10 +1105,10 @@ tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 40.0032, 85.0872, 118.528, 80.9257, 43.3234 ]
+"values": [ 40.0032, 85.0872, 118.528, 80.9257 ]
 }
 tracks/19/type = "value"
 tracks/19/path = NodePath("RightFront/Middle/End:rotation_degrees")
@@ -1116,10 +1117,10 @@ tracks/19/loop_wrap = true
 tracks/19/imported = false
 tracks/19/enabled = true
 tracks/19/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -17.7034, -23.393, -29.0826, -21.939, -14.7954 ]
+"values": [ -17.7034, -23.393, -29.0826, -21.939 ]
 }
 tracks/20/type = "value"
 tracks/20/path = NodePath("RightFront/Middle:rotation_degrees")
@@ -1128,10 +1129,10 @@ tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -33.9264, -48.7422, -27.9053, -38.0904, -5.76299 ]
+"values": [ -33.9264, -48.7422, -27.9053, -38.0904 ]
 }
 tracks/21/type = "value"
 tracks/21/path = NodePath("LeftMiddle/Middle/End/Bone:rotation_degrees")
@@ -1140,10 +1141,10 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0, -1.34601, -1.34601, -1.34601 ]
+"values": [ 0.0, 0.0, -1.34601, -1.34601 ]
 }
 tracks/22/type = "value"
 tracks/22/path = NodePath("LeftBack/Middle/End/Bone:rotation_degrees")
@@ -1152,10 +1153,10 @@ tracks/22/loop_wrap = true
 tracks/22/imported = false
 tracks/22/enabled = true
 tracks/22/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 0.0, 0.0, 0.0 ]
 }
 tracks/23/type = "value"
 tracks/23/path = NodePath("RightFront/Middle/End/Bone:rotation_degrees")
@@ -1164,10 +1165,10 @@ tracks/23/loop_wrap = true
 tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+"values": [ 0.0, 0.0, 0.0, 0.0 ]
 }
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -1221,7 +1222,7 @@ __meta__ = {
 [node name="LeftFront" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -40.9527, -45.1203 )
-rotation = -1.48458
+rotation = -1.66128
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1234,7 +1235,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/LeftFront"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.51187, -47.143 )
-rotation = 1.01061
+rotation = 0.845405
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1247,7 +1248,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/LeftFront/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = 0.214257
+rotation = 0.274382
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1266,7 +1267,7 @@ __meta__ = {
 [node name="LeftMiddle" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -45.94, -1.78634 )
-rotation = -1.89974
+rotation = -1.80306
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1279,7 +1280,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/LeftMiddle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.51187, -47.143 )
-rotation = -0.729763
+rotation = 0.0741693
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1292,7 +1293,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/LeftMiddle/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.633548, -48.222 )
-rotation = -0.16252
+rotation = -0.479186
 scale = Vector2( 0.786035, 0.436129 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1304,6 +1305,7 @@ __meta__ = {
 
 [node name="Bone" type="Node2D" parent="Legs/LeftMiddle/Middle/End"]
 position = Vector2( 0.361481, -42.7719 )
+rotation = -0.0149519
 __meta__ = {
 "_edit_bone_": true
 }
@@ -1311,7 +1313,7 @@ __meta__ = {
 [node name="LeftBack" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -34.8311, 67.4233 )
-rotation = -1.86808
+rotation = -2.12274
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1324,7 +1326,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/LeftBack"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.51187, -47.143 )
-rotation = -0.962611
+rotation = -0.621651
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1337,7 +1339,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/LeftBack/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = 6.15495
+rotation = 5.78116
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1356,7 +1358,7 @@ __meta__ = {
 [node name="RightFront" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 49.427, -46.3095 )
-rotation = 1.48505
+rotation = 1.15277
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1369,7 +1371,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/RightFront"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -0.697632, -46.4183 )
-rotation = -0.850712
+rotation = -0.638382
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1382,7 +1384,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/RightFront/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = -0.408285
+rotation = -0.356033
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1401,7 +1403,7 @@ __meta__ = {
 [node name="RightMiddle" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 49.1965, 4.15969 )
-rotation = -4.27137
+rotation = -4.17106
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1414,7 +1416,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/RightMiddle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.51187, -47.143 )
-rotation = -0.699493
+rotation = -0.235093
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1427,7 +1429,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/RightMiddle/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = 0.182829
+rotation = 0.502127
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1447,7 +1449,7 @@ __meta__ = {
 [node name="RightBack" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 34.1429, 70.9909 )
-rotation = -4.37092
+rotation = -4.50563
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1460,7 +1462,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/RightBack"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -0.153278, -47.1271 )
-rotation = 0.925378
+rotation = 0.895123
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1473,7 +1475,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/RightBack/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = 0.140633
+rotation = 0.245424
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )

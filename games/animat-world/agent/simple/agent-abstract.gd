@@ -25,6 +25,8 @@ onready var id = null
 onready var stats = $Stats
 onready var torso = $Torso
 
+onready var leg_animator = $Legs/LegAnimationPlayer
+
 # references to sensors and effectors
 #####################################
 onready var hairs = []
@@ -82,9 +84,11 @@ signal agent_dead(agent)
 #############
 func _ready():
 	if stats.sex == Globals.AGENT_SEX.A:	
-		$Torso.modulate = Globals.COLOR_SEX_A
+		torso.modulate = Globals.COLOR_SEX_A
 	elif stats.sex == Globals.AGENT_SEX.B:	
-		$Torso.modulate = Globals.COLOR_SEX_B
+		torso.modulate = Globals.COLOR_SEX_B
+		
+	leg_animator.play("WalkForward")
 		
 func _process(delta):
 	process_metabolic_costs(delta)
