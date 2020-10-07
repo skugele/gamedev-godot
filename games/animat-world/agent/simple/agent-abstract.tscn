@@ -877,8 +877,8 @@ tracks/71/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "WalkForward"
+[sub_resource type="Animation" id=13]
+resource_name = "Moving"
 length = 2.0
 loop = true
 step = 0.5
@@ -1267,7 +1267,7 @@ __meta__ = {
 [node name="LeftMiddle" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -45.94, -1.78634 )
-rotation = -1.78473
+rotation = -1.78472
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1312,7 +1312,7 @@ __meta__ = {
 [node name="LeftBack" type="Sprite" parent="Legs"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -34.8311, 67.4233 )
-rotation = -1.9694
+rotation = -1.96941
 scale = Vector2( 1, 1.30943 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.151794, -23.4696 )
@@ -1325,7 +1325,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/LeftBack"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1.51187, -47.143 )
-rotation = -0.237931
+rotation = -0.237932
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1338,7 +1338,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/LeftBack/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = -0.475024
+rotation = -0.475025
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1370,7 +1370,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/RightFront"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -0.697632, -46.4183 )
-rotation = -0.339265
+rotation = -0.339266
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1383,7 +1383,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/RightFront/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = -0.317581
+rotation = -0.31758
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1428,7 +1428,7 @@ __meta__ = {
 [node name="End" type="Sprite" parent="Legs/RightMiddle/Middle"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0.502129, -48.4485 )
-rotation = 0.0932525
+rotation = 0.0932524
 scale = Vector2( 0.786035, 0.469998 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1460,7 +1460,7 @@ __meta__ = {
 [node name="Middle" type="Sprite" parent="Legs/RightBack"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -0.153278, -47.1271 )
-rotation = 0.404654
+rotation = 0.404655
 scale = Vector2( 0.986112, 0.781542 )
 texture = ExtResource( 10 )
 offset = Vector2( -0.250397, -21.2703 )
@@ -1492,7 +1492,7 @@ __meta__ = {
 [node name="LegAnimationPlayer" type="AnimationPlayer" parent="Legs"]
 playback_speed = 3.0
 anims/Idle = SubResource( 1 )
-anims/WalkForward = SubResource( 2 )
+anims/Moving = SubResource( 13 )
 
 [node name="Torso" type="Sprite" parent="."]
 position = Vector2( 4, 7 )

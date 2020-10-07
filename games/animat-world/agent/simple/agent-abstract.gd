@@ -123,7 +123,7 @@ func set_legs_moving():
 	else:
 		leg_animator.playback_speed = 1.0
 		
-	leg_animator.play("WalkForward")
+	leg_animator.play("Moving")
 	
 func set_legs_stopped():
 	# it's necessary to stop the current animation rather than play "Idle"
