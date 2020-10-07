@@ -28,6 +28,12 @@ shape = SubResource( 1 )
 
 [editable path="Mandibles/Right"]
 
+[editable path="Smell"]
+
+[editable path="Taste"]
+
+[editable path="Taste/TasteAreas/TasteArea"]
+
 [editable path="Antennae/Left"]
 
 [editable path="Antennae/Left/TasteDetector"]
@@ -36,12 +42,10 @@ shape = SubResource( 1 )
 
 [editable path="Antennae/Right/TasteDetector"]
 
-[editable path="Smell"]
-
-[editable path="Taste"]
-
-[editable path="Taste/TasteAreas/TasteArea"]
-
 [editable path="DamageableDetector"]
 
 [editable path="Mouth"]
+
+[editable path="Damageable"]
+
+[editable path="Damageable/DamageZone"]

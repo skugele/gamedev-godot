@@ -1,0 +1,224 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://agent/simple/corporeal-agent.tscn" type="PackedScene" id=1]
+[ext_resource path="res://agent/simple/dead-agent.gd" type="Script" id=2]
+[ext_resource path="res://atlases/simple-agent-parts-inverted-new.png" type="Texture" id=3]
+
+[node name="DeadAgent" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Belly" type="Sprite" parent="." index="1"]
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( 2, 7 )
+scale = Vector2( 0.9, 0.95 )
+z_index = 98
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -3, 1, 150, 230 )
+
+[node name="Legs" parent="." index="2"]
+z_index = 99
+
+[node name="LeftFront" parent="Legs" index="0"]
+rotation = -0.886934
+
+[node name="Middle" parent="Legs/LeftFront" index="0"]
+rotation = 0.234999
+
+[node name="End" parent="Legs/LeftFront/Middle" index="0"]
+rotation = 0.0967514
+
+[node name="Bone" parent="Legs/LeftFront/Middle/End" index="0"]
+rotation = 0.0
+
+[node name="LeftMiddle" parent="Legs" index="1"]
+rotation = -2.28741
+
+[node name="Middle" parent="Legs/LeftMiddle" index="0"]
+rotation = 0.127632
+
+[node name="End" parent="Legs/LeftMiddle/Middle" index="0"]
+rotation = -0.422692
+
+[node name="Bone" parent="Legs/LeftMiddle/Middle/End" index="0"]
+rotation = -0.0210772
+
+[node name="LeftBack" parent="Legs" index="2"]
+rotation = -1.57279
+
+[node name="Middle" parent="Legs/LeftBack" index="0"]
+rotation = -0.953968
+
+[node name="End" parent="Legs/LeftBack/Middle" index="0"]
+rotation = 6.00081
+
+[node name="Bone" parent="Legs/LeftBack/Middle/End" index="0"]
+rotation = 0.0
+
+[node name="RightFront" parent="Legs" index="3"]
+rotation = 2.0087
+
+[node name="Middle" parent="Legs/RightFront" index="0"]
+rotation = -0.524426
+
+[node name="End" parent="Legs/RightFront/Middle" index="0"]
+rotation = -0.497379
+
+[node name="Bone" parent="Legs/RightFront/Middle/End" index="0"]
+rotation = 0.0
+
+[node name="RightMiddle" parent="Legs" index="4"]
+rotation = -4.60147
+
+[node name="Middle" parent="Legs/RightMiddle" index="0"]
+rotation = -0.205108
+
+[node name="End" parent="Legs/RightMiddle/Middle" index="0"]
+rotation = 0.347177
+
+[node name="Bone" parent="Legs/RightMiddle/Middle/End" index="0"]
+rotation = -0.323919
+
+[node name="RightBack" parent="Legs" index="5"]
+rotation = -4.09552
+
+[node name="Middle" parent="Legs/RightBack" index="0"]
+rotation = 0.698896
+
+[node name="End" parent="Legs/RightBack/Middle" index="0"]
+rotation = -0.138855
+
+[node name="Bone" parent="Legs/RightBack/Middle/End" index="0"]
+rotation = 0.0
+
+[node name="Hairs" parent="." index="5"]
+visible = false
+
+[node name="Left" parent="Mandibles" index="0"]
+rotation = -0.550124
+
+[node name="Sprite" parent="Mandibles/Left" index="0"]
+position = Vector2( 4.92163, 5.36447 )
+
+[node name="Area2D" parent="Mandibles/Left" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="Mandibles/Left/Area2D" index="0"]
+visible = false
+
+[node name="Right" parent="Mandibles" index="1"]
+rotation = 0.599365
+
+[node name="Sprite" parent="Mandibles/Right" index="0"]
+position = Vector2( -1.91296, 2.51804 )
+
+[node name="Area2D" parent="Mandibles/Right" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="Mandibles/Right/Area2D" index="0"]
+visible = false
+
+[node name="Smell" parent="." index="7"]
+visible = false
+
+[node name="Taste" parent="." index="8"]
+visible = false
+
+[node name="Left" parent="Antennae" index="0"]
+position = Vector2( -2, -129 )
+rotation = 0.0034011
+scale = Vector2( 0.768788, 0.434292 )
+
+[node name="SmellDetector" parent="Antennae/Left" index="1"]
+visible = false
+
+[node name="TasteDetector" parent="Antennae/Left" index="2"]
+visible = false
+
+[node name="Area2D" parent="Antennae/Left/TasteDetector" index="0"]
+visible = false
+
+[node name="CollisionShape2D" parent="Antennae/Left/TasteDetector/Area2D" index="0"]
+visible = false
+
+[node name="TouchDetector" parent="Antennae/Left" index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="Antennae/Left/TouchDetector" index="0"]
+visible = false
+
+[node name="Right" parent="Antennae" index="1"]
+position = Vector2( -11, -115 )
+rotation = 0.197769
+scale = Vector2( 0.945835, 0.49701 )
+
+[node name="Sprite" parent="Antennae/Right" index="0"]
+rotation = 0.142833
+
+[node name="SmellDetector" parent="Antennae/Right" index="1"]
+visible = false
+
+[node name="TasteDetector" parent="Antennae/Right" index="2"]
+visible = false
+
+[node name="Area2D" parent="Antennae/Right/TasteDetector" index="0"]
+visible = false
+
+[node name="CollisionShape2D" parent="Antennae/Right/TasteDetector/Area2D" index="0"]
+visible = false
+
+[node name="TouchDetector" parent="Antennae/Right" index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="Antennae/Right/TouchDetector" index="0"]
+visible = false
+
+[node name="DamageableDetector" parent="." index="10"]
+visible = false
+
+[node name="Mouth" parent="." index="11"]
+visible = false
+position = Vector2( 2, -140 )
+
+[node name="Area2D" parent="Mouth" index="0"]
+visible = false
+
+[node name="AnimatedSprite" parent="Mouth/Area2D" index="0"]
+visible = false
+z_index = 1
+frame = 7
+
+[node name="CollisionShape2D" parent="Mouth/Area2D" index="1"]
+visible = false
+
+[node name="DamageZone" parent="Damageable" index="0"]
+visible = false
+
+[node name="CollisionShape2D" parent="Damageable/DamageZone" index="0"]
+visible = false
+
+[editable path="Mandibles/Left"]
+
+[editable path="Mandibles/Right"]
+
+[editable path="Smell"]
+
+[editable path="Taste"]
+
+[editable path="Taste/TasteAreas/TasteArea"]
+
+[editable path="Antennae/Left"]
+
+[editable path="Antennae/Left/TasteDetector"]
+
+[editable path="Antennae/Right"]
+
+[editable path="Antennae/Right/TasteDetector"]
+
+[editable path="DamageableDetector"]
+
+[editable path="Mouth"]
+
+[editable path="Damageable"]
+
+[editable path="Damageable/DamageZone"]
