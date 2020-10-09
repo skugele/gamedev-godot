@@ -27,14 +27,14 @@ const DAMAGE_DETECTOR_LAYER = 256
 ###############################
 # Environment Characteristics #
 ###############################
-const STATIC = false
-const RANDOMIZED = true
+const STATIC = true
+const RANDOMIZED = false
 
 const N_RANDOM_TREES = 15
 const N_RANDOM_ROCKS = 175
 
-const WORLD_HORIZ_EXTENT = [-10000, 10000]
-const WORLD_VERT_EXTENT = [-10000, 10000]
+const WORLD_HORIZ_EXTENT = [-20000, 20000]
+const WORLD_VERT_EXTENT = [-20000, 20000]
 
 const SMELL_DIMENSIONS = 15
 const SMELL_DETECTABLE_RADIUS = 1000

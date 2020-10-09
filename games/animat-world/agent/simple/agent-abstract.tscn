@@ -10,7 +10,7 @@
 [ext_resource path="res://shared/damageable.tscn" type="PackedScene" id=9]
 [ext_resource path="res://atlases/simple-agent-parts-inverted-new.png" type="Texture" id=10]
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=1]
 resource_name = "DeathIdle"
 length = 2.0
 tracks/0/type = "value"
@@ -302,8 +302,7 @@ tracks/23/keys = {
 "values": [ 12.5988, 33.9885, 33.9885 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Idle"
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath("RightMiddle/Middle/End/Bone:position")
 tracks/0/interp = 1
@@ -1169,7 +1168,7 @@ tracks/71/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=3]
 resource_name = "Moving"
 length = 2.0
 loop = true
@@ -1463,38 +1462,38 @@ tracks/23/keys = {
 "values": [ 0.0, 0.0, 0.0, 0.0 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 69.593
 height = 75.5215
-
-[sub_resource type="CapsuleShape2D" id=4]
-radius = 11.0
-height = 50.0
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 11.0
 height = 50.0
 
-[sub_resource type="SegmentShape2D" id=6]
-b = Vector2( -1.297, 88.849 )
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 11.0
+height = 50.0
 
 [sub_resource type="SegmentShape2D" id=7]
-b = Vector2( -1.29653, 88.8495 )
+b = Vector2( -1.297, 88.849 )
 
 [sub_resource type="SegmentShape2D" id=8]
+b = Vector2( -1.29653, 88.8495 )
+
+[sub_resource type="SegmentShape2D" id=9]
 a = Vector2( 4.462, -85.074 )
 b = Vector2( 0, 0 )
 
-[sub_resource type="SegmentShape2D" id=9]
+[sub_resource type="SegmentShape2D" id=10]
 a = Vector2( 4.46212, -85.0736 )
 b = Vector2( 0, 0 )
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=11]
 radius = 5.0
 
-[sub_resource type="CapsuleShape2D" id=11]
-
 [sub_resource type="CapsuleShape2D" id=12]
+
+[sub_resource type="CapsuleShape2D" id=13]
 radius = 67.6468
 height = 77.9612
 
@@ -1789,9 +1788,9 @@ __meta__ = {
 }
 
 [node name="LegAnimationPlayer" type="AnimationPlayer" parent="Legs"]
-anims/DeathIdle = SubResource( 14 )
-anims/Idle = SubResource( 1 )
-anims/Moving = SubResource( 13 )
+anims/DeathIdle = SubResource( 1 )
+anims/Idle = SubResource( 2 )
+anims/Moving = SubResource( 3 )
 
 [node name="Torso" type="Sprite" parent="."]
 position = Vector2( 4, 7 )
@@ -1805,7 +1804,7 @@ __meta__ = {
 [node name="TorsoCollisionShape" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 1.74335, 5.48814 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1912,7 +1911,7 @@ region_rect = Rect2( 153.166, 97.9381, 26.8198, 104.31 )
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -40.8488, -55.9731 )
 rotation = -0.785398
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Right" parent="Mandibles" instance=ExtResource( 2 )]
 position = Vector2( 22, -221 )
@@ -1928,7 +1927,7 @@ region_rect = Rect2( 182.186, 97.9381, 24.6471, 104.31 )
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 41.492, -54.265 )
 rotation = 0.785398
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Antennae" type="Node2D" parent="."]
 position = Vector2( 1, 123 )
@@ -1952,7 +1951,7 @@ modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -9, -227 )
 rotation = 2.78729
 scale = Vector2( 7, 1.11 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="TouchDetector" parent="Antennae/Left" index="3"]
 collision_layer = 0
@@ -1963,7 +1962,7 @@ modulate = Color( 0, 0.313726, 1, 0 )
 position = Vector2( -9, -227 )
 rotation = 2.78764
 scale = Vector2( 7, 1.11 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Right" parent="Antennae" instance=ExtResource( 1 )]
 
@@ -1983,7 +1982,7 @@ modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 5, -226 )
 rotation = -0.0628318
 scale = Vector2( 7, 1.1 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="TouchDetector" parent="Antennae/Right" index="3"]
 collision_layer = 0
@@ -1994,13 +1993,13 @@ modulate = Color( 0, 0.313726, 1, 0 )
 position = Vector2( 5, -226 )
 rotation = -0.0626099
 scale = Vector2( 7, 1.1 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="DamageableDetector" parent="." instance=ExtResource( 3 )]
 
 [node name="CollisionShape2D" parent="DamageableDetector" index="0"]
 position = Vector2( -1, -151 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Mouth" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -141 )
@@ -2008,7 +2007,7 @@ position = Vector2( 0, -141 )
 [node name="CollisionShape2D" parent="Mouth/Area2D" index="1"]
 position = Vector2( -1, 7 )
 rotation = 1.5691
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 disabled = true
 
 [node name="Damageable" parent="." instance=ExtResource( 9 )]
@@ -2016,7 +2015,7 @@ visible = false
 
 [node name="CollisionShape2D" parent="Damageable/DamageZone" index="0"]
 position = Vector2( 0, 4 )
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 [connection signal="agent_dead" from="Stats" to="." method="_on_agent_dead"]
 [connection signal="detected_damageable" from="DamageableDetector" to="." method="_on_detected_damageable"]
 [connection signal="lost_damageable" from="DamageableDetector" to="." method="_on_lost_damageable"]

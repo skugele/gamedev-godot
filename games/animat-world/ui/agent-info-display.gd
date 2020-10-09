@@ -50,7 +50,7 @@ func _process(delta):
 		
 		# update agent info
 		agent_id.text = str(current_agent.id)
-		agent_sex.text = Globals.get_sex_as_string(current_agent.stats.sex)
+		agent_sex.text = Globals.get_sex_as_string(current_agent.sex)
 		agent_pos.text = "(%.2f, %.2f)" % [current_agent.global_position.x, current_agent.global_position.y]
 		agent_speed.text = "%.2f" % current_agent.velocity.length()
 		agent_poison_consumed.text = "%.2f" % current_agent.stats.poison_consumed
@@ -88,7 +88,7 @@ func _on_agent_hair_activity_change(activity):
 		id += 1
 
 func _on_agent_smell_activity_change(level):
-#	print('_on_agent_smell_activity_change: ', level)
+	print('_on_agent_smell_activity_change: ', level)
 	for alert in antennae_alerts:
 		alert.set_smell_activity_level(level)
 		

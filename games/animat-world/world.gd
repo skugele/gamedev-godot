@@ -148,26 +148,6 @@ func add_fruit(location, type):
 
 func add_agent_signal_handlers(node):
 	node.connect(
-		"hair_activity_change", 
-		agent_info_display, 
-		"_on_agent_hair_activity_change")
-		
-	node.connect(
-		"smell_activity_change", 
-		agent_info_display, 
-		"_on_agent_smell_activity_change")		
-
-	node.connect(
-		"taste_activity_change", 
-		agent_info_display, 
-		"_on_agent_taste_activity_change")		
-				
-	node.connect(
-		"antennae_activity_change", 
-		agent_info_display, 
-		"_on_agent_antennae_activity_change")
-
-	node.connect(
 		"agent_eating", 
 		self, 
 		"_on_agent_eating_edible")		
@@ -288,6 +268,27 @@ func _on_agent_selected(agent):
 		agent_info_display.current_agent = null
 	else:
 		agent_info_display.current_agent = agent
+		
+	# set of activity signal handlers
+	agent.connect(
+		"hair_activity_change", 
+		agent_info_display, 
+		"_on_agent_hair_activity_change")
+		
+	agent.connect(
+		"smell_activity_change", 
+		agent_info_display, 
+		"_on_agent_smell_activity_change")		
+
+	agent.connect(
+		"taste_activity_change", 
+		agent_info_display, 
+		"_on_agent_taste_activity_change")		
+				
+	agent.connect(
+		"antennae_activity_change", 
+		agent_info_display, 
+		"_on_agent_antennae_activity_change")
 		
 func _on_agent_dead(agent):
 	print("Agent %s is dead!" % agent.id)

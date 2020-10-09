@@ -25,7 +25,7 @@ func _ready():
 
 func init_from_agent(agent):
 	id = agent.id
-	sex = agent.stats.sex
+	sex = agent.sex
 	
 	global_position = agent.global_position
 	rotation = agent.rotation

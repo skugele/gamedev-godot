@@ -10,16 +10,16 @@ load_path = "res://.import/simple-agent-parts-inverted.png-12fc19652e72623ecedaf
 [node name="AgentDummy" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 
-[node name="TorsoCollisionShape" parent="." index="1"]
-visible = true
-position = Vector2( 1, 3 )
-
 [node name="Torso" parent="." index="2"]
 position = Vector2( 0, 2 )
 texture = SubResource( 1 )
 region_rect = Rect2( -0.773041, 1.60973, 156.205, 233.39 )
 
-[node name="Hairs" parent="." index="3"]
+[node name="TorsoCollisionShape" parent="." index="3"]
+visible = true
+position = Vector2( 1, 3 )
+
+[node name="Hairs" parent="." index="4"]
 position = Vector2( -111.246, 106.777 )
 
 [node name="Hair0" parent="Hairs" index="0"]
@@ -52,9 +52,6 @@ position = Vector2( 173.127, -166.122 )
 [node name="Hair10" parent="Hairs" index="10"]
 position = Vector2( 182.127, -131.122 )
 
-[node name="Hair11" parent="Hairs" index="11"]
-position = Vector2( 183.127, -95.122 )
-
 [node name="Hair12" parent="Hairs" index="12"]
 position = Vector2( 179.127, -62.122 )
 
@@ -75,7 +72,7 @@ region_rect = Rect2( 157.347, 103.218, 23.5883, 100.643 )
 texture = SubResource( 1 )
 region_rect = Rect2( 186.367, 103.218, 25.8734, 100.643 )
 
-[node name="Antennae" parent="." index="5"]
+[node name="Antennae" parent="." index="8"]
 position = Vector2( 0, 115 )
 
 [node name="Sprite" parent="Antennae/Left" index="0"]
@@ -86,15 +83,21 @@ region_rect = Rect2( 155.598, -3, 41.714, 104.365 )
 texture = SubResource( 1 )
 region_rect = Rect2( 197.595, -3, 39.9549, 104.365 )
 
-[node name="Mouth" parent="." index="9"]
+[node name="Mouth" parent="." index="10"]
 position = Vector2( 0, -147 )
 
-[node name="Damageable" parent="." index="10"]
+[node name="Damageable" parent="." index="11"]
 visible = true
 
 [editable path="Mandibles/Left"]
 
 [editable path="Mandibles/Right"]
+
+[editable path="Smell"]
+
+[editable path="Taste"]
+
+[editable path="Taste/TasteAreas/TasteArea"]
 
 [editable path="Antennae/Left"]
 
@@ -103,12 +106,6 @@ visible = true
 [editable path="Antennae/Right"]
 
 [editable path="Antennae/Right/TasteDetector"]
-
-[editable path="Smell"]
-
-[editable path="Taste"]
-
-[editable path="Taste/TasteAreas/TasteArea"]
 
 [editable path="DamageableDetector"]
 

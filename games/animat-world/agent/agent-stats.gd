@@ -6,13 +6,12 @@ extends Node2D
 # onready vars #
 ################
 onready var agent = self.get_owner()
-onready var sex
 
-onready var health setget set_health
-onready var energy setget set_energy
-onready var satiety setget set_satiety
+var health setget set_health
+var energy setget set_energy
+var satiety setget set_satiety
 
-onready var poison_consumed setget set_poison_consumed
+var poison_consumed setget set_poison_consumed
 
 ###########
 # signals #
@@ -25,7 +24,6 @@ signal agent_dead
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sex = choose_sex()
 	
 	health = Globals.AGENT_INITIAL_HEALTH
 	energy = Globals.AGENT_INITIAL_ENERGY
@@ -101,7 +99,4 @@ func is_dead():
 	
 func is_exhausted():
 	return energy <= 0
-			
-func choose_sex():
-	return Globals.AGENT_SEX.values()[randi() % 2] 
-	
+

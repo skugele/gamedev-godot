@@ -414,9 +414,7 @@ scale = Vector2( 2, 2 )
 z_index = 1
 
 [node name="HairAlerts" type="Node2D" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay"]
-__meta__ = {
-"_edit_lock_": true
-}
+modulate = Color( 1, 1, 1, 0.729412 )
 
 [node name="Hair1" parent="Panel/AgentInfoPanel/BodyPanel/Agent/StatusOverlay/HairAlerts" instance=ExtResource( 7 )]
 position = Vector2( 77.6437, 82.3071 )

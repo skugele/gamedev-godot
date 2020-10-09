@@ -13,6 +13,8 @@ export(float) var APERATURE_ACCELERATION = Globals.AGENT_APERATURE_ACCELERATION
 export(int) var ACCELERATION = Globals.AGENT_WALKING_ACCELERATION
 export(int) var FRICTION = Globals.AGENT_WALKING_FRICTION
 
+export(Globals.AGENT_SEX) var sex setget set_sex
+
 #############
 # constants #
 #############
@@ -90,11 +92,8 @@ signal agent_dead(agent)
 # functions #
 #############
 func _ready():
-	if stats.sex == Globals.AGENT_SEX.A:
-		torso.modulate = Globals.COLOR_SEX_A
-	elif stats.sex == Globals.AGENT_SEX.B:
-		torso.modulate = Globals.COLOR_SEX_B
-
+	choose_sex()
+		
 	reset_legs()
 
 func _process(delta):
@@ -141,7 +140,22 @@ func set_velocity(value):
 		is_walking = false
 	else:
 		is_walking = true
+	
+func choose_sex():
+	return set_sex(Globals.AGENT_SEX.values()[randi() % 2])
+		
+func set_sex(value):
+	sex = value
+	
+	if is_inside_tree():
+		set_color_by_sex()
 
+func set_color_by_sex():
+	if sex == Globals.AGENT_SEX.A:
+		$Torso.modulate = Globals.COLOR_SEX_A
+	elif sex == Globals.AGENT_SEX.B:
+		$Torso.modulate = Globals.COLOR_SEX_B
+		
 # TODO: This needs to be synchronized
 func process_metabolic_costs(delta):
 	
@@ -337,7 +351,7 @@ func distance_from_scent(scent):
 	return distance
 	
 func add_scent(scent):	
-#	print('adding: ', scent.signature)
+	print('agent %s smells scent %s with signature %s' % [self, scent, scent.signature])
 	
 	if active_scents.has(scent.smell_emitter_id):
 		active_scents[scent.smell_emitter_id].push_back(scent)
@@ -345,7 +359,7 @@ func add_scent(scent):
 		active_scents[scent.smell_emitter_id] = [scent]
 	
 func remove_scent(scent):
-#	print('removing: ', scent)
+	print('agent %s lost scent %s with signature %s' % [self, scent, scent.signature])
 	
 	if len(active_scents[scent.smell_emitter_id]) <= 1:
 		active_scents.erase(scent.smell_emitter_id)
@@ -399,6 +413,7 @@ func _on_hair_inactive(hair):
 
 func _on_antenna_detected_smell(antenna, scent):
 	if ignored_scents.find(scent) != -1:
+#		print('Ignoring scent %s!' % scent )
 		return
 			
 	add_scent(scent)
@@ -407,6 +422,7 @@ func _on_antenna_detected_smell(antenna, scent):
 
 func _on_antenna_lost_smell(antenna, scent):
 	if ignored_scents.find(scent) != -1:
+#		print('Ignoring scent %s!' % scent )
 		return
 		
 	remove_scent(scent)
