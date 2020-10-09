@@ -21,4 +21,5 @@ func init_taste_areas():
 	$Taste.set_signature(signature)
 
 func _on_register_damage(amount):
+	print("_on_register_damage invoked")
 	emit_signal("dead_or_destroyed", self)

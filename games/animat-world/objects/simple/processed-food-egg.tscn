@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://objects/simple/processed-food-egg.png" type="Texture" id=1]
+[ext_resource path="res://objects/simple/processed-food-abstract.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/simple/processed-food-egg.gd" type="Script" id=3]
+[ext_resource path="res://shared/taste-area.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 58.1649
+height = 99.8723
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 61.5424
+height = 146.682
+
+[node name="ProcessedFoodEgg" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )
+region_rect = Rect2( 403.06, 432.32, 219.917, 131.95 )
+
+[node name="TasteArea" parent="Taste/TasteAreas" index="0" instance=ExtResource( 4 )]
+position = Vector2( -1, 0 )
+
+[node name="CollisionShape2D" parent="Taste/TasteAreas/TasteArea" index="0"]
+rotation = 1.59197
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="Edible" index="0"]
+modulate = Color( 0.0392157, 0.796078, 0.192157, 1 )
+position = Vector2( -2, 0 )
+rotation = 1.56836
+scale = Vector2( 0.976648, 0.777318 )
+shape = SubResource( 2 )
+
+[editable path="Taste"]
+
+[editable path="Taste/TasteAreas/TasteArea"]
+
+[editable path="Edible"]

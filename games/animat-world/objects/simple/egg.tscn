@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://objects/simple/food-abstract.tscn" type="PackedScene" id=1]
+[ext_resource path="res://atlases/simple-world-objects.png" type="Texture" id=2]
+[ext_resource path="res://objects/simple/egg.gd" type="Script" id=3]
+[ext_resource path="res://shared/taste-area.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 41.2118
+height = 44.6949
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 28.1931
+height = 20.482
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 48.0252
+height = 27.6998
+
+[node name="Egg" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 954, 424, 55, 86 )
+
+[node name="Smell" parent="." index="1"]
+position = Vector2( 0, 45 )
+
+[node name="Taste" parent="." index="2"]
+modulate = Color( 1, 1, 1, 1 )
+scale = Vector2( 0.599999, 0.617473 )
+
+[node name="TasteArea" parent="Taste/TasteAreas" index="0" instance=ExtResource( 4 )]
+
+[node name="CollisionShape2D" parent="Taste/TasteAreas/TasteArea" index="0"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="3"]
+modulate = Color( 1, 1, 1, 1 )
+position = Vector2( 0, 0.587 )
+scale = Vector2( 0.84, 1 )
+shape = SubResource( 2 )
+
+[node name="DamageZone" parent="Damageable" index="0"]
+modulate = Color( 1, 1, 1, 1 )
+scale = Vector2( 0.520001, 0.6 )
+
+[node name="CollisionShape2D" parent="Damageable/DamageZone" index="0"]
+shape = SubResource( 3 )
+
+[editable path="Smell"]
+
+[editable path="Taste"]
+
+[editable path="Taste/TasteAreas/TasteArea"]
+
+[editable path="Damageable"]
+
+[editable path="Damageable/DamageZone"]

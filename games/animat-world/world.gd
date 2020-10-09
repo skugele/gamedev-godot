@@ -60,6 +60,9 @@ func create_world():
 	for node in $UnprocessedFood.get_children():
 		add_fruit_signal_handlers(node)
 
+	for node in $Eggs.get_children():
+		add_egg_signal_handlers(node)
+		
 	for node in $Trees.get_children():
 		add_tree_signal_handlers(node)
 		
@@ -164,6 +167,12 @@ func add_agent_signal_handlers(node):
 		"_on_agent_dead"
 	)	
 
+func add_egg_signal_handlers(node):
+	node.connect(
+		"dead_or_destroyed", 
+		self, 
+		"_transform_egg_to_food")
+
 func add_fruit_signal_handlers(node):
 	node.connect(
 		"dead_or_destroyed", 
@@ -250,6 +259,26 @@ func _transform_food(unprocessed_food):
 	# !is_inside_tree errors that occur after the queue_free that occur when fruit 
 	# is processed
 	unprocessed_food.call_deferred("queue_free")
+	
+	# add new unprocessed node to scene
+	$ProcessedFood.add_child(obj)
+	
+func _transform_egg_to_food(egg):
+	print('Transforming egg node into food: ', egg)	
+	
+	# create new processed food node
+	var scene = null
+	scene = load("res://objects/simple/processed-food-egg.tscn")
+		
+	var obj = scene.instance()
+	
+	# set its location to the location of the unprocessed food node
+	obj.init_from_egg(egg)
+			
+	# FIXME: this check is a hack to minimize the number of get_global_transform
+	# !is_inside_tree errors that occur after the queue_free that occur when fruit 
+	# is processed
+	egg.call_deferred("queue_free")
 	
 	# add new unprocessed node to scene
 	$ProcessedFood.add_child(obj)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://agent/simple/agent-dummy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/simple/rock-obstacle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/simple/egg.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/simple/tree.tscn" type="PackedScene" id=4]
 [ext_resource path="res://graphics/cracked-ground-texture.png" type="Texture" id=6]
 [ext_resource path="res://agent/simple/dead-agent.tscn" type="PackedScene" id=7]
@@ -103,5 +104,16 @@ z_index = 2
 
 [node name="DeadAgent" parent="DeadAgents" instance=ExtResource( 7 )]
 position = Vector2( -1880.54, -1226.17 )
+
+[node name="Eggs" type="Node2D" parent="."]
+
+[node name="Egg" parent="Eggs" instance=ExtResource( 3 )]
+position = Vector2( 470.741, -569.982 )
+
+[node name="Egg2" parent="Eggs" instance=ExtResource( 3 )]
+position = Vector2( 519.942, -610.391 )
+
+[node name="Egg3" parent="Eggs" instance=ExtResource( 3 )]
+position = Vector2( 446.679, -640.466 )
 
 [editable path="AgentInfoDisplay"]
