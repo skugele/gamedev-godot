@@ -339,19 +339,23 @@ func distance_from_scent(scent):
 	var distance = Globals.SMELL_DETECTABLE_RADIUS
 	
 	for antenna in antennae:
-		var detector_pos = antenna.smell_detector.global_position
-		
 		# FIXME: this check is a hack to minimize the number of get_global_transform
-		# !is_inside_tree errors that occur after the queue_free that occur when fruit 
-		# is processed
-#		if scent.is_inside_tree():
-		var scent_pos = scent.global_position		
-		distance = min(distance, detector_pos.distance_to(scent_pos))
+		# !is_inside_tree errors that occur after the queue_free that occur when an 
+		# agent dies
+		if antenna.is_inside_tree():
+			var detector_pos = antenna.smell_detector.global_position
+		
+			# FIXME: this check is a hack to minimize the number of get_global_transform
+			# !is_inside_tree errors that occur after the queue_free that occur when fruit 
+			# is processed
+			if scent.is_inside_tree():
+				var scent_pos = scent.global_position		
+				distance = min(distance, detector_pos.distance_to(scent_pos))
 	
 	return distance
 	
 func add_scent(scent):	
-	print('agent %s smells scent %s with signature %s' % [self, scent, scent.signature])
+#	print('agent %s smells scent %s with signature %s' % [self, scent, scent.signature])
 	
 	if active_scents.has(scent.smell_emitter_id):
 		active_scents[scent.smell_emitter_id].push_back(scent)
@@ -359,7 +363,7 @@ func add_scent(scent):
 		active_scents[scent.smell_emitter_id] = [scent]
 	
 func remove_scent(scent):
-	print('agent %s lost scent %s with signature %s' % [self, scent, scent.signature])
+#	print('agent %s lost scent %s with signature %s' % [self, scent, scent.signature])
 	
 	if len(active_scents[scent.smell_emitter_id]) <= 1:
 		active_scents.erase(scent.smell_emitter_id)

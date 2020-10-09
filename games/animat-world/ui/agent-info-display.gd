@@ -88,7 +88,7 @@ func _on_agent_hair_activity_change(activity):
 		id += 1
 
 func _on_agent_smell_activity_change(level):
-	print('_on_agent_smell_activity_change: ', level)
+#	print('_on_agent_smell_activity_change: ', level)
 	for alert in antennae_alerts:
 		alert.set_smell_activity_level(level)
 		

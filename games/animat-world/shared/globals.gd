@@ -27,8 +27,8 @@ const DAMAGE_DETECTOR_LAYER = 256
 ###############################
 # Environment Characteristics #
 ###############################
-const STATIC = true
-const RANDOMIZED = false
+const STATIC = false
+const RANDOMIZED = true
 
 const N_RANDOM_TREES = 15
 const N_RANDOM_ROCKS = 175
