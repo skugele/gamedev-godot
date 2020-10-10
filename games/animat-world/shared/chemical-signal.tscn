@@ -20,12 +20,17 @@ region_rect = Rect2( 1.45079, 0.735775, 200.752, 200.949 )
 
 [node name="Smell" parent="." instance=ExtResource( 2 )]
 
+[node name="ScentAreas" parent="Smell" index="0"]
+position = Vector2( 0, 1 )
+
 [node name="Taste" parent="." instance=ExtResource( 3 )]
 
 [node name="TasteArea" parent="Taste/TasteAreas" index="0" instance=ExtResource( 5 )]
 
 [node name="CollisionShape2D" parent="Taste/TasteAreas/TasteArea" index="0"]
 shape = SubResource( 1 )
+
+[editable path="Smell"]
 
 [editable path="Taste"]
 

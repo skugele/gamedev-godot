@@ -6,6 +6,8 @@ extends CanvasLayer
 onready var hair_alerts = []
 onready var antennae_alerts = []
 
+# the mask is used to black out all visuals (used for demonstration purposes)
+onready var mask = $Mask
 onready var agent_body = $Panel/AgentInfoPanel/BodyPanel/Agent
 
 # agent info
@@ -28,6 +30,8 @@ onready var agent_poison_consumed = $Panel/AgentInfoPanel/StatsPanel/TabContaine
 var current_agent = null setget set_agent
 
 func _ready():
+	mask.visible = false
+	
 	init_sensor_alerts()
 	
 	# initialize ui elements
@@ -59,6 +63,12 @@ func _process(delta):
 		agent_health.value = current_agent.stats.health
 		agent_energy.value = current_agent.stats.energy
 		agent_satiety.value = current_agent.stats.satiety
+
+func toggle_mask_visibility():
+	if mask.visible:
+		mask.visible = false
+	else:
+		mask.visible = true
 	
 func set_agent(agent):
 	current_agent = agent

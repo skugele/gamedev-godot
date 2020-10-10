@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://agent/simple/antenna.tscn" type="PackedScene" id=1]
 [ext_resource path="res://agent/simple/mandible.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://shared/hit-effect.tscn" type="PackedScene" id=8]
 [ext_resource path="res://shared/damageable.tscn" type="PackedScene" id=9]
 [ext_resource path="res://atlases/simple-agent-parts-inverted-new.png" type="Texture" id=10]
+[ext_resource path="res://shared/pheromone-emitter.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "DeathIdle"
@@ -2020,6 +2021,9 @@ shape = SubResource( 13 )
 [node name="HitEffect" parent="." instance=ExtResource( 8 )]
 scale = Vector2( 5, 5 )
 frame = 1
+
+[node name="PheromoneEmitter" parent="." instance=ExtResource( 11 )]
+position = Vector2( 0, 116 )
 [connection signal="agent_dead" from="Stats" to="." method="_on_agent_dead"]
 [connection signal="detected_damageable" from="DamageableDetector" to="." method="_on_detected_damageable"]
 [connection signal="lost_damageable" from="DamageableDetector" to="." method="_on_lost_damageable"]

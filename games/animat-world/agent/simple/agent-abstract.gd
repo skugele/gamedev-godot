@@ -41,11 +41,11 @@ onready var leg_animator = $Legs/LegAnimationPlayer
 onready var hit_effect = $HitEffect
 
 # references to sensors and effectors
-#####################################
 onready var hairs = []
 onready var antennae = []
 onready var mandibles = []
 onready var mouth = $Mouth
+onready var pheromone_emitter = $PheromoneEmitter
 
 # indicators of sensory activity
 
@@ -87,6 +87,7 @@ signal smell_activity_change(activity)
 signal taste_activity_change(activity)
 
 signal agent_eating(agent, edible)
+signal agent_chemical_signal(agent, chemical_signal)
 signal agent_dead(agent)
 
 #############

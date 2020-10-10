@@ -13,6 +13,7 @@ func get_input():
 	var turn = 0
 	var direction = Vector2.ZERO
 	var mandible_change_dir = 0
+	var chemical_signal = -1
 
 	# FIXME: this is a hack to allow a different forward and reverse max speed
 	var max_speed = 0
@@ -31,7 +32,6 @@ func get_input():
 		direction = Vector2(0, 1).rotated(rotation)
 		max_speed = Globals.AGENT_MAX_SPEED_BACKWARD	
 	
-
 	# body rotation
 	if Input.is_action_pressed("ui_turn_right"):
 		add_action(Globals.AGENT_ACTIONS.TURNING)
@@ -55,14 +55,25 @@ func get_input():
 		mouth.activate()
 	elif Input.is_action_just_released("ui_eat"):
 		mouth.deactivate()
-				
-	return [direction, turn, mandible_change_dir, max_speed]
+		
+	# chemical signals
+	if Input.is_action_just_pressed("chemical_signal_1"):
+		chemical_signal = Globals.CHEMO_SIGNAL_TYPES.AGGREGATION
+	elif Input.is_action_just_pressed("chemical_signal_2"):
+		chemical_signal = Globals.CHEMO_SIGNAL_TYPES.ALARM
+	elif Input.is_action_just_pressed("chemical_signal_3"):
+		chemical_signal = Globals.CHEMO_SIGNAL_TYPES.SEXUAL
+	elif Input.is_action_just_pressed("chemical_signal_4"):
+		chemical_signal = Globals.CHEMO_SIGNAL_TYPES.TRAIL
+	
+	return [direction, turn, mandible_change_dir, max_speed, chemical_signal]
 
 func execute_move(inputs, delta):
 	var direction = inputs[0]
 	var turn = inputs[1]
 	var mandible_change_dir = inputs[2]
 	var max_speed = inputs[3]
+	var chemical_signal = inputs[4]
 
 	# execute forward/backward motion
 	if direction != Vector2.ZERO:
@@ -81,6 +92,9 @@ func execute_move(inputs, delta):
 	# execute mandible change
 	if mandible_change_dir != 0:
 		update_mandible_aperature(mandible_change_dir, delta)
+		
+	if chemical_signal != -1:
+		emit_signal("agent_chemical_signal", self, chemical_signal)
 
 	velocity = move_and_slide(velocity)
 	set_velocity(velocity)

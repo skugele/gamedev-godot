@@ -31,6 +31,9 @@ func _input(event):
 	elif event.is_action_pressed("ui_zoom_out"):
 		zoom_out()
 		
+	if event.is_action_pressed("toggle_mask"):
+		agent_info_display.toggle_mask_visibility()
+		
 func create_random_objects():
 		
 	for i in range(Globals.N_RANDOM_TREES):
@@ -167,6 +170,12 @@ func add_agent_signal_handlers(node):
 		"_on_agent_dead"
 	)	
 
+	node.connect(
+		"agent_chemical_signal",
+		self,
+		"_on_agent_chemical_signal"
+	)	
+	
 func add_egg_signal_handlers(node):
 	node.connect(
 		"destroyed_egg", 
@@ -338,3 +347,13 @@ func _on_agent_dead(agent):
 	# !is_inside_tree errors that occur after the queue_free that occur when fruit 
 	# is processed
 	agent.call_deferred("queue_free")
+	
+func _on_agent_chemical_signal(agent, chemical_signal):
+	var scene = load("res://shared/chemical-signal.tscn")	
+	var obj = scene.instance()
+	obj.signal_type = chemical_signal
+	
+	obj.global_position = agent.pheromone_emitter.global_position
+	
+	$ChemoSignals.add_child(obj)
+	

@@ -77,7 +77,7 @@ var DEFAULT_HEALTH = 1
 ###################
 # timer constants #
 ###################
-const FRUIT_DROP_RATE_RANGE = [30, 120]
+const FRUIT_DROP_RATE_RANGE = [60, 600]
 
 ###################
 # agent constants #

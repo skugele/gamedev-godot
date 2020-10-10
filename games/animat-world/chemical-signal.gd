@@ -5,6 +5,8 @@ export(Globals.CHEMO_SIGNAL_TYPES) var signal_type = null setget set_signal_type
 onready var sprite = $Sprite
 onready var smell = $Smell
 onready var taste = $Taste
+onready var scent_areas = $Smell/ScentAreas
+onready var taste_areas = $Taste/TasteAreas
 
 onready var signature = null
 
@@ -40,6 +42,10 @@ func init_for_type():
 		signature = Globals.add_vector_array([Globals.CHEMICAL_SIGNAL_SMELL, Globals.CHEMO_TRAIL_SMELL])
 	else:
 		printerr("Unrecognized chemo-type %s" % signal_type)
+	
+	# these will only appear in DEBUG mode where collision shapes are visible
+	scent_areas.modulate = sprite.modulate
+	taste_areas.modulate = sprite.modulate
 		
 func init_scent_areas(radii):
 	for r in radii:
