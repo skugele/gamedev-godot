@@ -1,12 +1,32 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://chemical-signal.gd" type="Script" id=1]
 [ext_resource path="res://shared/smell-emitter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://shared/taste-emitter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://atlases/simple-geometric-shapes.png" type="Texture" id=4]
+[ext_resource path="res://shared/taste-area.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 30.0
 
 [node name="ChemicalSignal" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="SmellEmitter" parent="." instance=ExtResource( 2 )]
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 1.45079, 0.735775, 200.752, 200.949 )
 
-[node name="TasteEmitter" parent="." instance=ExtResource( 3 )]
+[node name="Smell" parent="." instance=ExtResource( 2 )]
+
+[node name="Taste" parent="." instance=ExtResource( 3 )]
+
+[node name="TasteArea" parent="Taste/TasteAreas" index="0" instance=ExtResource( 5 )]
+
+[node name="CollisionShape2D" parent="Taste/TasteAreas/TasteArea" index="0"]
+shape = SubResource( 1 )
+
+[editable path="Taste"]
+
+[editable path="Taste/TasteAreas/TasteArea"]

@@ -1495,8 +1495,8 @@ radius = 5.0
 [sub_resource type="CapsuleShape2D" id=12]
 
 [sub_resource type="CapsuleShape2D" id=13]
-radius = 67.6468
-height = 77.9612
+radius = 70.0
+height = 75.0
 
 [node name="AgentAbstract" type="KinematicBody2D"]
 position = Vector2( 1, 0 )
@@ -2012,10 +2012,9 @@ shape = SubResource( 12 )
 disabled = true
 
 [node name="Damageable" parent="." instance=ExtResource( 9 )]
-visible = false
 
 [node name="CollisionShape2D" parent="Damageable/DamageZone" index="0"]
-position = Vector2( 0, 4 )
+position = Vector2( 4, 6 )
 shape = SubResource( 13 )
 
 [node name="HitEffect" parent="." instance=ExtResource( 8 )]

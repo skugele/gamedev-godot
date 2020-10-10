@@ -167,7 +167,7 @@ const STARVING_DAMAGE_PER_FRAME = 1.0
 const SATIETY_PER_UNIT_FOOD = 25.0
 const ENERGY_PER_UNIT_FOOD = 2.0
 
-const AGENT_ATTACK_DAMAGE = 15.0
+const AGENT_ATTACK_DAMAGE = 20.0
 
 ##################
 # Food Constants #
@@ -178,6 +178,21 @@ enum FOOD_TYPES {
 }
 
 const FRUIT_DROP_DISTANCE_FROM_TREE = 300 # in pixels
+
+#############################
+# Chemical Signal Constants #
+#############################
+enum CHEMO_SIGNAL_TYPES {
+	AGGREGATION,
+	ALARM
+	SEXUAL,
+	TRAIL
+}
+
+const CHEMO_SEXUAL_COLOR = Color(0.6,0,0,0.4)
+const CHEMO_ALARM_COLOR = Color(0.7,0,0.7,0.4)
+const CHEMO_TRAIL_COLOR = Color(0,0.7,0,0.4)
+const CHEMO_AGGREGATION_COLOR = Color(0,0,0.8,0.4)
 
 ##############################################
 # modifiable global state (USE WITH CAUTION) #
