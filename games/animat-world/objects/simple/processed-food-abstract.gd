@@ -25,16 +25,16 @@ func is_good():
 func is_bad():
 	return variety == FOOD_TYPES.BAD
 	
-func init_from_unprocessed_food(unprocessed_food_node):
-	global_position = unprocessed_food_node.global_position
+func init_from_unprocessed_food(fruit):
+	global_position = fruit.global_position
 	
-	signature = unprocessed_food_node.signature
-	variety = unprocessed_food_node.variety
+	signature = fruit.signature
+	variety = fruit.variety
 	
 	# TODO: This is ugly. Need to refactor to have the radii as
 	# top-level attributes of a scent area, and the scent areas
 	# be accessible as a collection variable
-	for scent_area in unprocessed_food_node.get_node("Smell/ScentAreas").get_children():
+	for scent_area in fruit.get_node("Smell/ScentAreas").get_children():
 		$Smell.add_scent_area(scent_area.radius, signature)			
 	
 	$Taste.set_signature(signature)

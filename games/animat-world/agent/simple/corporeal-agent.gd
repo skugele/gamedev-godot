@@ -11,7 +11,18 @@ func _ready():
 	init_agent_taste()
 
 func init_agent_smell():
-	signature = Globals.AGENT_SMELL
+	var scent_attributes = [Globals.AGENT_SMELL,
+							Globals.ADULT_AGENT_SMELL]
+
+	if sex == Globals.AGENT_SEX.A or sex == null:
+		scent_attributes.append(Globals.SEX_A_AGENT_SMELL)							
+	elif sex == Globals.AGENT_SEX.B:
+		scent_attributes.append(Globals.SEX_B_AGENT_SMELL)
+	else:
+		printerr("Unknown sex encountered: ", sex)				
+		
+	signature = Globals.add_vector_array(scent_attributes)
+	
 	init_scent_areas([100, 250, 500, 1000])
 
 	# build list of ignored smells (i.e., ignore agent's own smells)	

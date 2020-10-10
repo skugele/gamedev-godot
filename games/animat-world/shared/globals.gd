@@ -36,22 +36,37 @@ const N_RANDOM_ROCKS = 175
 const WORLD_HORIZ_EXTENT = [-20000, 20000]
 const WORLD_VERT_EXTENT = [-20000, 20000]
 
-const SMELL_DIMENSIONS = 15
+const SMELL_DIMENSIONS = 16
 const SMELL_DETECTABLE_RADIUS = 1000
 
 # base smells and tastes
-# TODO: What rationale can we use for this encoding scheme? We want to support
-# the ability to apply distance metrics to various smells and tastes, so that
-# smells and tastes that resemble one another are closer in some metric
-# space.
-var NULL_SMELL = zero_vector(SMELL_DIMENSIONS)
-var UNPROCESSED_FOOD_SMELL = get_sensory_vector([1,5,7])
-var UNRIPE_FOOD_SMELL = get_sensory_vector([3,4])
-var RIPE_FOOD_SMELL = get_sensory_vector([3,6])
-var ROTTEN_FOOD_SMELL = get_sensory_vector([3,6,8,10])
-var PROCESSED_FOOD_SMELL = get_sensory_vector([2,9,11])
-var AGENT_SMELL = get_sensory_vector([0,12,13,14])
-var CHILD_SMELL = get_sensory_vector([6,12,13,14])
+var NULL_SMELL = get_sensory_vector([])
+
+# top-level object smells
+var FRUIT_SMELL = get_sensory_vector([0])
+var EGG_SMELL = get_sensory_vector([1])
+var AGENT_SMELL = get_sensory_vector([2])
+var CHEMICAL_SIGNAL_SMELL = get_sensory_vector([3])
+
+# food characteristics
+var UNPROCESSED_FOOD_SMELL = get_sensory_vector([4])
+var PROCESSED_FOOD_SMELL = get_sensory_vector([5])
+
+# fruit characteristics
+var POISONOUS_FOOD_SMELL = get_sensory_vector([6])
+
+# agent characteristics
+var ADULT_AGENT_SMELL = get_sensory_vector([7])
+var CHILD_AGENT_SMELL = get_sensory_vector([8])
+var SEX_A_AGENT_SMELL = get_sensory_vector([9])
+var SEX_B_AGENT_SMELL = get_sensory_vector([10])
+var DEAD_AGENT_SMELL = get_sensory_vector([11])
+
+# TODO: add chemical signal smells
+var CHEMO_TRAIL_SMELL = get_sensory_vector([12])
+var CHEMO_SEXUAL_SMELL = get_sensory_vector([13])
+var CHEMO_ALARM_SMELL = get_sensory_vector([14])
+var CHEMO_AGGREGATION_SMELL = get_sensory_vector([15])
 
 # TODO: Need to clean this up. Not sure where they are used, but agent
 # related health constants have been moved elsewhere
@@ -191,7 +206,7 @@ func generate_unique_id():
 ##################################################################
 func get_sex_as_string(sex):
 	return AGENT_SEX.keys()[sex]
-		
+			
 func get_sensory_vector(active_elements):
 	var vector = []
 	
@@ -241,6 +256,16 @@ func add_vectors(v1, v2):
 		i += 1
 		
 	return result		
+
+func add_vector_array(array):
+	if array == null or len(array) == 0:
+		return null
+		
+	var result = array.pop_front()
+	for v in array:
+		result = add_vectors(result, v)
+		
+	return result		
 	
 func zero_vector(dims):
 	var new_vector = []
@@ -258,7 +283,11 @@ func get_magnitude(vector):
 	return sqrt(value)
 	
 func normalize(vector):
-	return	scale(vector, 1.0 / get_magnitude(vector))
+	var magnitude = get_magnitude(vector)
+	if magnitude == 0:
+		return vector		
+		
+	return	scale(vector, 1.0 / magnitude)
 	
 # returns a new array that is the union of two arrays. it assumes that
 # each argument is a set (i.e., only contain distinct items)

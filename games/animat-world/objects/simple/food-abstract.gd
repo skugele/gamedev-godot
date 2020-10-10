@@ -1,6 +1,6 @@
 # gdscript: food-abstract.gd
 
-signal dead_or_destroyed(object)
+signal destroyed_fruit(object)
 
 extends StaticBody2D
 
@@ -21,5 +21,4 @@ func init_taste_areas():
 	$Taste.set_signature(signature)
 
 func _on_register_damage(amount):
-	print("_on_register_damage invoked")
-	emit_signal("dead_or_destroyed", self)
+	emit_signal("destroyed_fruit", self)

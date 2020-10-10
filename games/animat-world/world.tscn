@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://agent/simple/agent-dummy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/simple/rock-obstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/simple/egg.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/simple/tree.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/simple/food-bad.tscn" type="PackedScene" id=5]
 [ext_resource path="res://graphics/cracked-ground-texture.png" type="Texture" id=6]
 [ext_resource path="res://agent/simple/dead-agent.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/simple/food-good.tscn" type="PackedScene" id=8]
 [ext_resource path="res://world.gd" type="Script" id=9]
 [ext_resource path="res://ui/agent-info-display.tscn" type="PackedScene" id=10]
 
@@ -23,7 +25,7 @@ region_rect = Rect2( -401.875, -25000, 100000, 100000 )
 [node name="Rocks" type="YSort" parent="."]
 
 [node name="Rock1" parent="Rocks" instance=ExtResource( 2 )]
-position = Vector2( 1740.66, 719.885 )
+position = Vector2( 1892.88, 329.825 )
 
 [node name="Rock2" parent="Rocks" instance=ExtResource( 2 )]
 position = Vector2( 2374.34, 124.503 )
@@ -53,24 +55,33 @@ position = Vector2( 5659.25, -2288.56 )
 position = Vector2( 5913.52, -1271.48 )
 
 [node name="Rock7" parent="Rocks" instance=ExtResource( 2 )]
-position = Vector2( 2793.5, 664.312 )
+position = Vector2( 2803.01, 378.902 )
 
 [node name="ProcessedFood" type="Node2D" parent="."]
 
 [node name="UnprocessedFood" type="YSort" parent="."]
 
+[node name="FoodGood_rm" parent="UnprocessedFood" instance=ExtResource( 8 )]
+position = Vector2( -1600, 0 )
+
+[node name="FoodBad_rm" parent="UnprocessedFood" instance=ExtResource( 5 )]
+position = Vector2( -1600, 400 )
+
 [node name="Agents" type="Node2D" parent="."]
 
 [node name="AgentDummy" parent="Agents" instance=ExtResource( 1 )]
 position = Vector2( 2208.24, 717.114 )
+rotation = -2.8099
 input_pickable = false
 
 [node name="AgentDummy2" parent="Agents" instance=ExtResource( 1 )]
-position = Vector2( -1631.76, 261.114 )
+position = Vector2( -2240.63, -1351.45 )
+rotation = 2.17139
 input_pickable = false
 
 [node name="AgentDummy3" parent="Agents" instance=ExtResource( 1 )]
-position = Vector2( 2440.24, 717.114 )
+position = Vector2( 2473.54, 645.762 )
+rotation = 3.07992
 input_pickable = false
 
 [node name="AgentDummy4" parent="Agents" instance=ExtResource( 1 )]
@@ -108,12 +119,24 @@ position = Vector2( -1880.54, -1226.17 )
 [node name="Eggs" type="Node2D" parent="."]
 
 [node name="Egg" parent="Eggs" instance=ExtResource( 3 )]
-position = Vector2( 470.741, -569.982 )
+position = Vector2( 1845.46, 685.821 )
 
 [node name="Egg2" parent="Eggs" instance=ExtResource( 3 )]
-position = Vector2( 519.942, -610.391 )
+position = Vector2( 2184.83, 412.327 )
 
 [node name="Egg3" parent="Eggs" instance=ExtResource( 3 )]
-position = Vector2( 446.679, -640.466 )
+position = Vector2( 2278.06, 429.82 )
+
+[node name="Egg4" parent="Eggs" instance=ExtResource( 3 )]
+position = Vector2( 2373.19, 420.307 )
+
+[node name="Egg5" parent="Eggs" instance=ExtResource( 3 )]
+position = Vector2( 2206.71, 501.173 )
+
+[node name="Egg6" parent="Eggs" instance=ExtResource( 3 )]
+position = Vector2( 2320.87, 515.443 )
+
+[node name="Egg7" parent="Eggs" instance=ExtResource( 3 )]
+position = Vector2( -1600, -400 )
 
 [editable path="AgentInfoDisplay"]

@@ -169,15 +169,15 @@ func add_agent_signal_handlers(node):
 
 func add_egg_signal_handlers(node):
 	node.connect(
-		"dead_or_destroyed", 
+		"destroyed_egg", 
 		self, 
 		"_transform_egg_to_food")
 
 func add_fruit_signal_handlers(node):
 	node.connect(
-		"dead_or_destroyed", 
+		"destroyed_fruit", 
 		self, 
-		"_transform_food")
+		"_transform_fruit")
 
 func add_tree_signal_handlers(node):
 	node.connect(
@@ -240,31 +240,31 @@ func _handle_dropped_fruit(tree, type):
 	
 	add_fruit(location, type)
 						
-func _transform_food(unprocessed_food):
-#	print('Transforming food node: ', unprocessed_food)	
+func _transform_fruit(fruit):
+#	print('Transforming fruit node: ', fruit)	
 	
 	# create new processed food node
 	var scene = null
-	if unprocessed_food.is_good():
+	if fruit.is_good():
 		scene = load("res://objects/simple/processed-food-good.tscn")
-	elif unprocessed_food.is_bad():
+	elif fruit.is_bad():
 		scene = load("res://objects/simple/processed-food-bad.tscn")
 		
 	var obj = scene.instance()
 	
 	# set its location to the location of the unprocessed food node
-	obj.init_from_unprocessed_food(unprocessed_food)
+	obj.init_from_unprocessed_food(fruit)
 			
 	# FIXME: this check is a hack to minimize the number of get_global_transform
 	# !is_inside_tree errors that occur after the queue_free that occur when fruit 
 	# is processed
-	unprocessed_food.call_deferred("queue_free")
+	fruit.call_deferred("queue_free")
 	
 	# add new unprocessed node to scene
 	$ProcessedFood.add_child(obj)
 	
 func _transform_egg_to_food(egg):
-	print('Transforming egg node into food: ', egg)	
+#	print('Transforming egg node into food: ', egg)	
 	
 	# create new processed food node
 	var scene = null

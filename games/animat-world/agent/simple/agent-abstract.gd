@@ -38,6 +38,7 @@ onready var stats = $Stats
 onready var torso = $Torso
 
 onready var leg_animator = $Legs/LegAnimationPlayer
+onready var hit_effect = $HitEffect
 
 # references to sensors and effectors
 #####################################
@@ -92,9 +93,11 @@ signal agent_dead(agent)
 # functions #
 #############
 func _ready():
-	choose_sex()
-		
+	choose_sex()		
 	reset_legs()
+	
+	# for hit effect animation
+	hit_effect.frame = 0
 
 func _process(delta):
 	process_metabolic_costs(delta)
@@ -482,8 +485,13 @@ func _on_mouth_consumed_edible(edible):
 	emit_signal("agent_eating", self, edible.get_owner())
 
 func _on_received_physical_damage(amount):
+	hit_effect.visible = true
+	hit_effect.play()
 #	print("%s received %f points of physical damage" % [self, amount])
 	stats.health -= amount
 
 func _on_agent_dead():
 	emit_signal("agent_dead", self)
+
+func _on_hit_animation_finished():
+	hit_effect.visible = false
